@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
         passwordController.text = value!;
       },
       textInputAction: TextInputAction.done,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: 'Password',
       ),
     );
@@ -102,95 +102,96 @@ class _LoginScreenState extends State<LoginScreen> {
         painter: OrangeWaveTopPainter(),
         child: Center(
           child: SingleChildScrollView(
-            child: Container(
-              child: Padding(
-                padding: EdgeInsets.all(AppSpacingData.regular().x5),
-                child: Form(
-                    key: _formKey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Text(
-                          'Log in',
-                          style: TextStyle(
-                              color: AppColorsData.regular().greyShades_5,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: "SourceSansPro",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 32.0),
-                        ),
-                        const SizedBox(
-                          height: 24,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'welcome back! ',
-                              style: AppTypographyData.primaryOrange()
-                                  .sourceSansProBodySemibold,
-                            ),
-                            Text(
-                              'tell us your',
-                              style: AppTypographyData.greyShades_4()
-                                  .sourceSansProBodySemibold,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 45,
-                        ),
-                        emailField,
-                        const SizedBox(
-                          height: 40,
-                        ),
-                        passwordField,
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                context.goNamed('signup');
-                                //Navigator.pushNamed(context, '/signup');
-                              },
-                              child: Text('Forget Password?',
-                                  style: AppTypographyData.primaryOrange()
-                                      .quicksandSmallButton),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 80,
-                        ),
-                        loginButton,
-                        const SizedBox(
-                          height: 40,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            const Text("New here? "),
-                            GestureDetector(
-                              onTap: () {
-                                context.goNamed('signup');
-                                //Navigator.pushNamed(context, '/signup');
-                              },
-                              child: Text('SignUp',
-                                  style: AppTypographyData.greyShades_6()
-                                      .quicksandBodySmall),
-                            )
-                          ],
-                        )
-                      ],
-                    )),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 0,
+                horizontal: AppSpacingData.regular().x5,
               ),
+              child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Text(
+                        'Log in',
+                        style: TextStyle(
+                            color: AppColorsData.regular().greyShades_5,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: "SourceSansPro",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 32.0),
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'welcome back! ',
+                            style: AppTypographyData.primaryOrange()
+                                .sourceSansProBodySemibold,
+                          ),
+                          Text(
+                            'tell us your',
+                            style: AppTypographyData.greyShades_4()
+                                .sourceSansProBodySemibold,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 45,
+                      ),
+                      emailField,
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      passwordField,
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              context.goNamed('signup');
+                              //Navigator.pushNamed(context, '/signup');
+                            },
+                            child: Text('Forget Password?',
+                                style: AppTypographyData.primaryOrange()
+                                    .quicksandSmallButton),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 80,
+                      ),
+                      loginButton,
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Text("New here? "),
+                          GestureDetector(
+                            onTap: () {
+                              context.goNamed('signup');
+                              //Navigator.pushNamed(context, '/signup');
+                            },
+                            child: Text('SignUp',
+                                style: AppTypographyData.greyShades_6()
+                                    .quicksandBodySmall),
+                          )
+                        ],
+                      )
+                    ],
+                  )),
             ),
           ),
         ),
