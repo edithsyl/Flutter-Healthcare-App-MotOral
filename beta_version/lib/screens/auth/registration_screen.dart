@@ -3,6 +3,7 @@ import 'package:custom_ui/custom_ui.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../model/user_model.dart';
 
@@ -289,6 +290,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         .set(userModel.toMap());
 
     Fluttertoast.showToast(msg: "account created successfully :)");
-    Navigator.pushNamedAndRemoveUntil((context), '/home', (route) => false);
+    context.goNamed('home');
+    //Navigator.pushNamedAndRemoveUntil((context), '/home', (route) => false);
   }
 }
