@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../model/user_model.dart';
+import '../../models/user_model.dart';
 
 class RegistrationScreen extends StatefulWidget {
   RegistrationScreen({Key? key}) : super(key: key);
