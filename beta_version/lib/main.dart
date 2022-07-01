@@ -1,9 +1,11 @@
 import 'package:beta_version/app_router.dart';
+import 'package:beta_version/blocs/export_blocs.dart';
 
 import 'package:custom_ui/source/theme/data.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,27 +23,37 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final _router = appRouter;
-    return MaterialApp.router(
-        routeInformationProvider: _router.routeInformationProvider,
-        routeInformationParser: _router.routeInformationParser,
-        routerDelegate: _router.routerDelegate,
-        title: 'title',
-        theme: ThemeData(
-          primaryColor: AppColorsData.regular().primaryOrange,
-          backgroundColor: AppColorsData.regular().primaryWhite,
-          inputDecorationTheme: InputDecorationTheme(
-              labelStyle: AppTypographyData.greyShades_3().sourceSansProBody,
-              hintStyle: AppTypographyData.greyShades_3().sourceSansProBody,
-              contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-              border: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppColorsData.regular().greyTints_2,
-                  width: 306.0,
-                  style: BorderStyle.solid,
-                ),
-              )),
-        ));
+    final app_router = appRouter;
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => CategoryBloc(categoryRepository: CategoryRepository()),
+        ),
+        // BlocProvider(
+        //   create: (_) => ExerciseBloc(exerciseRepository: ExerciseRepository()),
+        // ),
+      ],
+      child: MaterialApp.router(
+          routeInformationProvider: app_router.routeInformationProvider,
+          routeInformationParser: app_router.routeInformationParser,
+          routerDelegate: app_router.routerDelegate,
+          title: 'title',
+          theme: ThemeData(
+            primaryColor: AppColorsData.regular().primaryOrange,
+            backgroundColor: AppColorsData.regular().primaryWhite,
+            inputDecorationTheme: InputDecorationTheme(
+                labelStyle: AppTypographyData.greyShades_3().sourceSansProBody,
+                hintStyle: AppTypographyData.greyShades_3().sourceSansProBody,
+                contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColorsData.regular().greyTints_2,
+                    width: 306.0,
+                    style: BorderStyle.solid,
+                  ),
+                )),
+          )),
+    );
   }
 }
 
