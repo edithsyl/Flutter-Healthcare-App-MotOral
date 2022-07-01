@@ -1,11 +1,11 @@
-import 'package:beta_version/blocs/auth/auth_bloc.dart';
-import 'package:beta_version/repositories/auth_repository.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bloc/bloc.dart';
+import 'package:beta_version/screens/auth/_auth_pages.dart';
+import 'package:beta_version/screens/bottomnav/_bottomnav_pages.dart';
+import 'package:beta_version/screens/bottomnav/home_page.dart';
 
+import 'package:custom_ui/source/pages.dart';
 import 'package:custom_ui/source/theme/data.dart';
 import 'package:flutter/material.dart';
-import 'package:beta_version/app_router.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
@@ -22,50 +22,143 @@ class LoginInfo {
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
 
-  final _router = appRouter; // "app_router.dart" for detail
-
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider(
-          create: (_) => AuthRepository(),
+  Widget build(BuildContext context) => MaterialApp.router(
+      routeInformationProvider: _router.routeInformationProvider,
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
+      title: 'title',
+      theme: ThemeData(
+        primaryColor: AppColorsData.regular().primaryOrange,
+        backgroundColor: AppColorsData.regular().primaryWhite,
+        inputDecorationTheme: InputDecorationTheme(
+            labelStyle: AppTypographyData.greyShades_3().sourceSansProBody,
+            hintStyle: AppTypographyData.greyShades_3().sourceSansProBody,
+            contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColorsData.regular().greyTints_2,
+                width: 306.0,
+                style: BorderStyle.solid,
+              ),
+            )),
+      ));
+  final _router = GoRouter(
+      initialLocation: '/home',
+      // redirect: (state) {
+      //   final loggedIn = LoginInfo.isLoggedIn;
+      //   final isLogging = state.location == '/';
+      //   if (!loggedIn && !isLogging) {
+      //     return '/';
+      //   }
+      // },
+      routes: [
+        GoRoute(
+          name: 'login',
+          path: '/',
+          pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+              key: state.pageKey,
+              child: LoginScreen(),
+              time: AppDurationsData.regular().quick),
+        ),
+        GoRoute(
+          name: 'signup',
+          path: '/signup',
+          pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+              key: state.pageKey,
+              child: RegistrationScreen(),
+              time: AppDurationsData.regular().quick),
+        ),
+        GoRoute(
+            name: 'home',
+            path: '/home',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                FadePage(
+                    key: state.pageKey,
+                    child: HomePage(),
+                    time: AppDurationsData.regular().quick),
+            routes: [
+              // GoRoute(
+              //     name: 'b_navPages',
+              //     path: ':b_navId',
+              //     pageBuilder: (BuildContext context, GoRouterState state) {
+              //       final String screen = state.params['screen']!;
+              //       return FadePage(
+              //           key: state.pageKey,
+              //           child: TabScreen(screen: screen),
+              //           time: AppDurationsData.regular().quick);
+              //     })
+            ]),
+        GoRoute(
+          name: 'exercise',
+          path: '/exercise',
+          pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+              key: state.pageKey,
+              child: ExercisePage(),
+              time: AppDurationsData.regular().quick),
+        ),
+        GoRoute(
+          name: 'booking',
+          path: '/booking',
+          pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+              key: state.pageKey,
+              child: BookingPage(),
+              time: AppDurationsData.regular().quick),
+        ),
+        GoRoute(
+          name: 'news',
+          path: '/news',
+          pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+              key: state.pageKey,
+              child: NewsPage(),
+              time: AppDurationsData.regular().quick),
+        ),
+        GoRoute(
+          name: 'profile',
+          path: '/profile',
+          pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+              key: state.pageKey,
+              child: ProfilePage(),
+              time: AppDurationsData.regular().quick),
         ),
       ],
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (_) => AuthBloc(
-              authRepository: context.read<AuthRepository>(),
+      errorPageBuilder: (context, state) => MaterialPage(
+              child: Scaffold(
+            body: Center(
+              child: Text(state.error.toString()),
             ),
-          ),
-        ],
-        child: MaterialApp.router(
-          routeInformationProvider: _router.routeInformationProvider,
-          routeInformationParser: _router.routeInformationParser,
-          routerDelegate: _router.routerDelegate,
-          title: 'title',
-          theme: ThemeData(
-            primaryColor: AppColorsData.regular().primaryOrange,
-            backgroundColor: AppColorsData.regular().primaryWhite,
-            inputDecorationTheme: InputDecorationTheme(
-              labelStyle: AppTypographyData.greyShades_3().sourceSansProBody,
-              hintStyle: AppTypographyData.greyShades_3().sourceSansProBody,
-              contentPadding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
-              border: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppColorsData.regular().greyTints_2,
-                  width: 306.0,
-                  style: BorderStyle.solid,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+          )));
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     title: 'Beta version',
+  //     routes: {
+  //       // When navigating to the "/" route, build the FirstScreen widget.
+  //       '/': (context) => LoginScreen(),
+  //       // When navigating to the "/second" route, build the SecondScreen widget.
+  //       '/signup': (context) => RegistrationScreen(),
+  //       '/home': (context) => HomePage(),
+  //       '/exercise': (context) => ExercisePage(),
+  //       '/profile': (context) => ProfilePage(),
+  //       '/booking': (context) => BookingPage(),
+  //       '/news': (context) => NewsPage(),
+  //     },
+  //     initialRoute: '/',
+  //     theme: ThemeData(
+  //       // This is the theme of your application.
+  //       //
+  //       // Try running your application with "flutter run". You'll see the
+  //       // application has a blue toolbar. Then, without quitting the app, try
+  //       // changing the primarySwatch below to Colors.green and then invoke
+  //       // "hot reload" (press "r" in the console where you ran "flutter run",
+  //       // or simply save your changes to "hot reload" in a Flutter IDE).
+  //       // Notice that the counter didn't reset back to zero; the application
+  //       // is not restarted.
+  //       primarySwatch: Colors.blue,
+  //     ),
+  //     home: const MyHomePage(title: 'Flutter Demo Home Page'),
+  //   );
+  // }
 }
 
 class MyHomePage extends StatefulWidget {
@@ -167,6 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //       children: [
 //         Expanded(child: screen == 'home' ? const HomeScreen() : screen == 'discover' ? const DiscoverScreen() : screen == 'notifications' ? const NotificationsScreen() : ProfileScreen(),
 //         CustomBottomNavigationBar()
+     
 //       ]
 //     );
 //   }

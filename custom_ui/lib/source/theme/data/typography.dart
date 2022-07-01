@@ -1,12 +1,12 @@
-import 'package:custom_ui/source/theme/data/colors.dart';
 import 'package:custom_ui/source/utils/named.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../custom_ui.dart';
 
 class AppTypographyData extends Equatable {
+  static const _packageName = 'custom_ui';
+
   const AppTypographyData({
     required this.quicksandResultScore,
     required this.quicksandTitle,
@@ -25,100 +25,85 @@ class AppTypographyData extends Equatable {
   });
 
   factory AppTypographyData.primaryOrange() => AppTypographyData(
-        quicksandResultScore: TextStyle(
+        quicksandResultScore: GoogleFonts.quicksand(
           fontWeight: FontWeight.w600,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().primaryOrange,
         ),
-        quicksandTitle: TextStyle(
+        quicksandTitle: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().primaryOrange,
         ),
-        quicksandTitle1: TextStyle(
+        quicksandTitle1: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 28,
           color: AppColorsData.regular().primaryOrange,
         ),
-        quicksandTitle2: TextStyle(
+        quicksandTitle2: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 24,
           color: AppColorsData.regular().primaryOrange,
         ),
-        quicksandBody: TextStyle(
+        quicksandBody: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().primaryOrange,
         ),
-        quicksandBodySmall: TextStyle(
+        quicksandBodySmall: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().primaryOrange,
         ),
-        quicksandSmallButton: TextStyle(
+        quicksandSmallButton: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 13,
           color: AppColorsData.regular().primaryOrange,
         ),
-        quicksandBodyTiny: TextStyle(
-          fontFamily: 'Poppins',
-          package: 'asgard_core',
+        quicksandBodyTiny: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
           fontSize: 9,
           color: AppColorsData.regular().primaryOrange,
         ),
-        sourceSansProBodyBold: TextStyle(
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w700,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 20,
           color: AppColorsData.regular().primaryOrange,
         ),
-        sourceSansProBodySemibold: TextStyle(
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w600,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().primaryOrange,
         ),
-        sourceSansProBody: TextStyle(
+        sourceSansProBody: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().primaryOrange,
         ),
-        sourceSansProBodySmall: TextStyle(
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().primaryOrange,
         ),
-        sourceSansProBody1: TextStyle(
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 11,
           color: AppColorsData.regular().primaryOrange,
         ),
-        lavina: TextStyle(
+        lavina: GoogleFonts.yesevaOne(
           fontWeight: FontWeight.w400,
-          fontFamily: "Lancelot",
           fontStyle: FontStyle.normal,
           fontSize: 12,
           color: AppColorsData.regular().primaryOrange,
@@ -126,100 +111,85 @@ class AppTypographyData extends Equatable {
       );
 
   factory AppTypographyData.greyShades_2() => AppTypographyData(
-        quicksandResultScore: TextStyle(
+        quicksandResultScore: GoogleFonts.quicksand(
           fontWeight: FontWeight.w600,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_2,
         ),
-        quicksandTitle: TextStyle(
+        quicksandTitle: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_2,
         ),
-        quicksandTitle1: TextStyle(
+        quicksandTitle1: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 28,
           color: AppColorsData.regular().greyShades_2,
         ),
-        quicksandTitle2: TextStyle(
+        quicksandTitle2: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 24,
           color: AppColorsData.regular().greyShades_2,
         ),
-        quicksandBody: TextStyle(
+        quicksandBody: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_2,
         ),
-        quicksandBodySmall: TextStyle(
+        quicksandBodySmall: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_2,
         ),
-        quicksandSmallButton: TextStyle(
+        quicksandSmallButton: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 13,
           color: AppColorsData.regular().greyShades_2,
         ),
-        quicksandBodyTiny: TextStyle(
-          fontFamily: 'Poppins',
-          package: 'asgard_core',
+        quicksandBodyTiny: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
           fontSize: 9,
           color: AppColorsData.regular().greyShades_2,
         ),
-        sourceSansProBodyBold: TextStyle(
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w700,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 20,
           color: AppColorsData.regular().greyShades_2,
         ),
-        sourceSansProBodySemibold: TextStyle(
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w600,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_2,
         ),
-        sourceSansProBody: TextStyle(
+        sourceSansProBody: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_2,
         ),
-        sourceSansProBodySmall: TextStyle(
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_2,
         ),
-        sourceSansProBody1: TextStyle(
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 11,
           color: AppColorsData.regular().greyShades_2,
         ),
-        lavina: TextStyle(
+        lavina: GoogleFonts.yesevaOne(
           fontWeight: FontWeight.w400,
-          fontFamily: "Lancelot",
           fontStyle: FontStyle.normal,
           fontSize: 12,
           color: AppColorsData.regular().greyShades_2,
@@ -227,100 +197,85 @@ class AppTypographyData extends Equatable {
       );
 
   factory AppTypographyData.greyShades_3() => AppTypographyData(
-        quicksandResultScore: TextStyle(
+        quicksandResultScore: GoogleFonts.quicksand(
           fontWeight: FontWeight.w600,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_3,
         ),
-        quicksandTitle: TextStyle(
+        quicksandTitle: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_3,
         ),
-        quicksandTitle1: TextStyle(
+        quicksandTitle1: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 28,
           color: AppColorsData.regular().greyShades_3,
         ),
-        quicksandTitle2: TextStyle(
+        quicksandTitle2: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 24,
           color: AppColorsData.regular().greyShades_3,
         ),
-        quicksandBody: TextStyle(
+        quicksandBody: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_3,
         ),
-        quicksandBodySmall: TextStyle(
+        quicksandBodySmall: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_3,
         ),
-        quicksandSmallButton: TextStyle(
+        quicksandSmallButton: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 13,
           color: AppColorsData.regular().greyShades_3,
         ),
-        quicksandBodyTiny: TextStyle(
-          fontFamily: 'Poppins',
-          package: 'asgard_core',
+        quicksandBodyTiny: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
           fontSize: 9,
           color: AppColorsData.regular().greyShades_3,
         ),
-        sourceSansProBodyBold: TextStyle(
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w700,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 20,
           color: AppColorsData.regular().greyShades_3,
         ),
-        sourceSansProBodySemibold: TextStyle(
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w600,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_3,
         ),
-        sourceSansProBody: TextStyle(
+        sourceSansProBody: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_3,
         ),
-        sourceSansProBodySmall: TextStyle(
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_3,
         ),
-        sourceSansProBody1: TextStyle(
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 11,
           color: AppColorsData.regular().greyShades_3,
         ),
-        lavina: TextStyle(
+        lavina: GoogleFonts.yesevaOne(
           fontWeight: FontWeight.w400,
-          fontFamily: "Lancelot",
           fontStyle: FontStyle.normal,
           fontSize: 12,
           color: AppColorsData.regular().greyShades_3,
@@ -328,100 +283,85 @@ class AppTypographyData extends Equatable {
       );
 
   factory AppTypographyData.greyShades_4() => AppTypographyData(
-        quicksandResultScore: TextStyle(
+        quicksandResultScore: GoogleFonts.quicksand(
           fontWeight: FontWeight.w600,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_4,
         ),
-        quicksandTitle: TextStyle(
+        quicksandTitle: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_4,
         ),
-        quicksandTitle1: TextStyle(
+        quicksandTitle1: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 28,
           color: AppColorsData.regular().greyShades_4,
         ),
-        quicksandTitle2: TextStyle(
+        quicksandTitle2: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 24,
           color: AppColorsData.regular().greyShades_4,
         ),
-        quicksandBody: TextStyle(
+        quicksandBody: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_4,
         ),
-        quicksandBodySmall: TextStyle(
+        quicksandBodySmall: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_4,
         ),
-        quicksandSmallButton: TextStyle(
+        quicksandSmallButton: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 13,
           color: AppColorsData.regular().greyShades_4,
         ),
-        quicksandBodyTiny: TextStyle(
-          fontFamily: 'Poppins',
-          package: 'asgard_core',
+        quicksandBodyTiny: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
           fontSize: 9,
           color: AppColorsData.regular().greyShades_4,
         ),
-        sourceSansProBodyBold: TextStyle(
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w700,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 20,
           color: AppColorsData.regular().greyShades_4,
         ),
-        sourceSansProBodySemibold: TextStyle(
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w600,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_4,
         ),
-        sourceSansProBody: TextStyle(
+        sourceSansProBody: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_4,
         ),
-        sourceSansProBodySmall: TextStyle(
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_4,
         ),
-        sourceSansProBody1: TextStyle(
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 11,
           color: AppColorsData.regular().greyShades_4,
         ),
-        lavina: TextStyle(
+        lavina: GoogleFonts.yesevaOne(
           fontWeight: FontWeight.w400,
-          fontFamily: "Lancelot",
           fontStyle: FontStyle.normal,
           fontSize: 12,
           color: AppColorsData.regular().greyShades_4,
@@ -429,100 +369,85 @@ class AppTypographyData extends Equatable {
       );
 
   factory AppTypographyData.greyShades_5() => AppTypographyData(
-        quicksandResultScore: TextStyle(
+        quicksandResultScore: GoogleFonts.quicksand(
           fontWeight: FontWeight.w600,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_5,
         ),
-        quicksandTitle: TextStyle(
+        quicksandTitle: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_5,
         ),
-        quicksandTitle1: TextStyle(
+        quicksandTitle1: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 28,
           color: AppColorsData.regular().greyShades_5,
         ),
-        quicksandTitle2: TextStyle(
+        quicksandTitle2: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 24,
           color: AppColorsData.regular().greyShades_5,
         ),
-        quicksandBody: TextStyle(
+        quicksandBody: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_5,
         ),
-        quicksandBodySmall: TextStyle(
+        quicksandBodySmall: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_5,
         ),
-        quicksandSmallButton: TextStyle(
+        quicksandSmallButton: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 13,
           color: AppColorsData.regular().greyShades_5,
         ),
-        quicksandBodyTiny: TextStyle(
-          fontFamily: 'Poppins',
-          package: 'asgard_core',
+        quicksandBodyTiny: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
           fontSize: 9,
           color: AppColorsData.regular().greyShades_5,
         ),
-        sourceSansProBodyBold: TextStyle(
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w700,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 20,
           color: AppColorsData.regular().greyShades_5,
         ),
-        sourceSansProBodySemibold: TextStyle(
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w600,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_5,
         ),
-        sourceSansProBody: TextStyle(
+        sourceSansProBody: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_5,
         ),
-        sourceSansProBodySmall: TextStyle(
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_5,
         ),
-        sourceSansProBody1: TextStyle(
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 11,
           color: AppColorsData.regular().greyShades_5,
         ),
-        lavina: TextStyle(
+        lavina: GoogleFonts.yesevaOne(
           fontWeight: FontWeight.w400,
-          fontFamily: "Lancelot",
           fontStyle: FontStyle.normal,
           fontSize: 12,
           color: AppColorsData.regular().greyShades_5,
@@ -530,100 +455,85 @@ class AppTypographyData extends Equatable {
       );
 
   factory AppTypographyData.greyShades_6() => AppTypographyData(
-        quicksandResultScore: TextStyle(
+        quicksandResultScore: GoogleFonts.quicksand(
           fontWeight: FontWeight.w600,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_6,
         ),
-        quicksandTitle: TextStyle(
+        quicksandTitle: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().greyShades_6,
         ),
-        quicksandTitle1: TextStyle(
+        quicksandTitle1: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 28,
           color: AppColorsData.regular().greyShades_6,
         ),
-        quicksandTitle2: TextStyle(
+        quicksandTitle2: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 24,
           color: AppColorsData.regular().greyShades_6,
         ),
-        quicksandBody: TextStyle(
+        quicksandBody: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_6,
         ),
-        quicksandBodySmall: TextStyle(
+        quicksandBodySmall: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_6,
         ),
-        quicksandSmallButton: TextStyle(
+        quicksandSmallButton: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 13,
           color: AppColorsData.regular().greyShades_6,
         ),
-        quicksandBodyTiny: TextStyle(
-          fontFamily: 'Poppins',
-          package: 'asgard_core',
+        quicksandBodyTiny: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
           fontSize: 9,
           color: AppColorsData.regular().greyShades_6,
         ),
-        sourceSansProBodyBold: TextStyle(
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w700,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 20,
           color: AppColorsData.regular().greyShades_6,
         ),
-        sourceSansProBodySemibold: TextStyle(
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w600,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_6,
         ),
-        sourceSansProBody: TextStyle(
+        sourceSansProBody: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().greyShades_6,
         ),
-        sourceSansProBodySmall: TextStyle(
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().greyShades_6,
         ),
-        sourceSansProBody1: TextStyle(
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 11,
           color: AppColorsData.regular().greyShades_6,
         ),
-        lavina: TextStyle(
+        lavina: GoogleFonts.yesevaOne(
           fontWeight: FontWeight.w400,
-          fontFamily: "Lancelot",
           fontStyle: FontStyle.normal,
           fontSize: 12,
           color: AppColorsData.regular().greyShades_6,
@@ -631,100 +541,85 @@ class AppTypographyData extends Equatable {
       );
 
   factory AppTypographyData.primaryWhite() => AppTypographyData(
-        quicksandResultScore: TextStyle(
+        quicksandResultScore: GoogleFonts.quicksand(
           fontWeight: FontWeight.w600,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().primaryWhite,
         ),
-        quicksandTitle: TextStyle(
+        quicksandTitle: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 48,
           color: AppColorsData.regular().primaryWhite,
         ),
-        quicksandTitle1: TextStyle(
+        quicksandTitle1: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 28,
           color: AppColorsData.regular().primaryWhite,
         ),
-        quicksandTitle2: TextStyle(
+        quicksandTitle2: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 24,
           color: AppColorsData.regular().primaryWhite,
         ),
-        quicksandBody: TextStyle(
+        quicksandBody: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().primaryWhite,
         ),
-        quicksandBodySmall: TextStyle(
+        quicksandBodySmall: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().primaryWhite,
         ),
-        quicksandSmallButton: TextStyle(
+        quicksandSmallButton: GoogleFonts.quicksand(
           fontWeight: FontWeight.w700,
-          fontFamily: "Quicksand",
           fontStyle: FontStyle.normal,
           fontSize: 13,
           color: AppColorsData.regular().primaryWhite,
         ),
-        quicksandBodyTiny: TextStyle(
-          fontFamily: 'Poppins',
-          package: 'asgard_core',
+        quicksandBodyTiny: GoogleFonts.quicksand(
           fontWeight: FontWeight.w400,
           fontSize: 9,
           color: AppColorsData.regular().primaryWhite,
         ),
-        sourceSansProBodyBold: TextStyle(
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w700,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 20,
           color: AppColorsData.regular().primaryWhite,
         ),
-        sourceSansProBodySemibold: TextStyle(
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w600,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().primaryWhite,
         ),
-        sourceSansProBody: TextStyle(
+        sourceSansProBody: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 17,
           color: AppColorsData.regular().primaryWhite,
         ),
-        sourceSansProBodySmall: TextStyle(
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 15,
           color: AppColorsData.regular().primaryWhite,
         ),
-        sourceSansProBody1: TextStyle(
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
           fontWeight: FontWeight.w400,
-          fontFamily: "SourceSansPro",
           fontStyle: FontStyle.normal,
           fontSize: 11,
           color: AppColorsData.regular().primaryWhite,
         ),
-        lavina: TextStyle(
+        lavina: GoogleFonts.yesevaOne(
           fontWeight: FontWeight.w400,
-          fontFamily: "Lancelot",
           fontStyle: FontStyle.normal,
           fontSize: 12,
           color: AppColorsData.regular().primaryWhite,
