@@ -1,6 +1,6 @@
 export 'buttons/_buttons.dart';
 export 'info_tag.dart';
-export 'backgrounds.dart';
+export 'background/backgrounds.dart';
 export 'gap.dart';
 // export 'product_tile.dart';
 // export 'notifiable_bar.dart';

@@ -99,7 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       body: CustomPaint(
-        painter: OrangeWaveTopPainter(),
+        size: MediaQuery.of(context).size,
+        painter: CurvyAppBarPainter(),
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
