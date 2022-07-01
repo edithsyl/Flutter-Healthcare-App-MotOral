@@ -1,3 +1,4 @@
+import 'package:beta_version/assets/custom_icons.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import '_bottomnav_pages.dart';
@@ -63,10 +64,13 @@ class _HomePageState extends State<HomePage> {
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'News'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.apps), label: 'Exercise'),
-              BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'Booking'),
-              BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'Profile'),
+                  icon: Icon(CustomIcons.exercise), label: 'Exercise'),
+              BottomNavigationBarItem(
+                  icon: Icon(CustomIcons.home), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(CustomIcons.people), label: 'People'),
+              BottomNavigationBarItem(
+                  icon: Icon(CustomIcons.profile), label: 'Profile'),
             ],
             showSelectedLabels: true,
             showUnselectedLabels: true,
