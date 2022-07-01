@@ -43,7 +43,9 @@ class _FrontPageState extends State<FrontPage> {
     return Scaffold(
       body: _buildBody(currentIndex), //pages[currentIndex],
       bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
         decoration: BoxDecoration(
+          color: AppColorsData.regular().primaryWhite,
           borderRadius:
               const AppRadiusData.regular().asBorderRadius().verticalRegular,
           boxShadow: [
@@ -53,31 +55,54 @@ class _FrontPageState extends State<FrontPage> {
         child: ClipRRect(
           borderRadius:
               const AppRadiusData.regular().asBorderRadius().verticalRegular,
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: AppColorsData.regular().primaryWhite,
-            onTap: onTap,
-            currentIndex: currentIndex,
-            selectedItemColor: AppColorsData.regular().primaryHighlightRed,
-            unselectedItemColor: AppColorsData.regular().greyTints_3,
-            selectedLabelStyle:
-                AppTypographyData.greyShades_3().sourceSansProBody1,
-            unselectedLabelStyle:
-                AppTypographyData.greyShades_2().sourceSansProBody1,
-            elevation: 0,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'News'),
-              BottomNavigationBarItem(
-                  icon: Icon(CustomIcons.exercise), label: 'Exercise'),
-              BottomNavigationBarItem(
-                  icon: Icon(CustomIcons.home), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(CustomIcons.people), label: 'People'),
-              BottomNavigationBarItem(
-                  icon: Icon(CustomIcons.profile), label: 'Profile'),
-            ],
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: AppColorsData.regular().primaryWhite,
+              onTap: onTap,
+              currentIndex: currentIndex,
+              selectedItemColor: AppColorsData.regular().primaryHighlightRed,
+              unselectedItemColor: AppColorsData.regular().greyTints_3,
+              selectedLabelStyle:
+                  AppTypographyData.greyShades_3().sourceSansProBody1,
+              unselectedLabelStyle:
+                  AppTypographyData.greyShades_2().sourceSansProBody1,
+              elevation: 0,
+              items: const [
+                BottomNavigationBarItem(icon: Icon(Icons.apps), label: 'News'),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2.0),
+                    child: Icon(CustomIcons.exercise),
+                  ),
+                  label: 'Exercise',
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2.0),
+                    child: Icon(CustomIcons.home),
+                  ),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2.0),
+                    child: Icon(CustomIcons.people),
+                  ),
+                  label: 'People',
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2.0),
+                    child: Icon(CustomIcons.profile),
+                  ),
+                  label: 'Profile',
+                ),
+              ],
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+            ),
           ),
         ),
       ),
