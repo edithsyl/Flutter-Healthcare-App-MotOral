@@ -7,15 +7,15 @@ class CategoryRepository extends BaseCategoryRepository {
 
   // initialize in constructor, could be null
   CategoryRepository({FirebaseFirestore? firebaseFirestore})
-    : _firebaseFirestore = firebaseFirestore ?? FirebaseFirestore.instance
+      : _firebaseFirestore = firebaseFirestore ?? FirebaseFirestore.instance;
 
   @override
   Stream<List<Category>> getAllCategories() {
     return _firebaseFirestore
-    .collection('categories')   // retrieve categories collection 
-    .snapshots()    // return a stream of query snapshots = all docs inside the collection
-    .map((snapshot){
-      return snapshot.docs.map((doc)=> Category.fromSnapshot(doc)).toList();
+        .collection('categories') // retrieve categories collection
+        .snapshots() // return a stream of query snapshots = all docs inside the collection
+        .map((snapshot) {
+      return snapshot.docs.map((doc) => Category.fromSnapshot(doc)).toList();
     }); // for each doc, return a category class instance
   }
 }
