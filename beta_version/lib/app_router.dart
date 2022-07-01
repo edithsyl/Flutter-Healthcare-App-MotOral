@@ -7,6 +7,8 @@ import 'package:custom_ui/source/pages.dart';
 import 'package:custom_ui/source/theme/data.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/bottomnav/home_page.dart';
+
 final appRouter = GoRouter(
   initialLocation: '/home',
   // redirect: (state) {
