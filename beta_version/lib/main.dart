@@ -1,12 +1,7 @@
 import 'package:beta_version/app_router.dart';
-import 'package:beta_version/screens/auth/_auth_pages.dart';
-import 'package:beta_version/screens/bottomnav/_bottomnav_pages.dart';
-import 'package:beta_version/screens/bottomnav/home_page.dart';
 
-import 'package:custom_ui/source/pages.dart';
 import 'package:custom_ui/source/theme/data.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 

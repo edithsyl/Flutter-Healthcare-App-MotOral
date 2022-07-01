@@ -7,10 +7,8 @@ import 'package:custom_ui/source/pages.dart';
 import 'package:custom_ui/source/theme/data.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/bottomnav/home_page.dart';
-
 final appRouter = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/front',
   // redirect: (state) {
   //   final loggedIn = LoginInfo.isLoggedIn;
   //   final isLogging = state.location == '/';
@@ -36,11 +34,11 @@ final appRouter = GoRouter(
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
-        name: 'home',
-        path: '/home',
+        name: 'front',
+        path: '/front',
         pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
             key: state.pageKey,
-            child: HomePage(),
+            child: FrontPage(),
             time: AppDurationsData.regular().quick),
         routes: [
           // GoRoute(
@@ -63,11 +61,11 @@ final appRouter = GoRouter(
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
-      name: 'booking',
-      path: '/booking',
+      name: 'people',
+      path: '/people',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
-          child: BookingPage(),
+          child: PeoplePage(),
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
