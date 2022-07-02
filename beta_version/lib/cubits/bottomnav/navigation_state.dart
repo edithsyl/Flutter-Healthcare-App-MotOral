@@ -4,7 +4,7 @@ class NavigationState extends Equatable {
   final NavbarItem navbarItem;
   final int index;
 
-  NavigationState(
+  const NavigationState(
     this.navbarItem,
     this.index,
   );

@@ -50,7 +50,7 @@ class App extends StatelessWidget {
             inputDecorationTheme: InputDecorationTheme(
                 labelStyle: AppTypographyData.greyShades_3().sourceSansProBody,
                 hintStyle: AppTypographyData.greyShades_3().sourceSansProBody,
-                contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                contentPadding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
                 border: UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: AppColorsData.regular().greyTints_2,
@@ -110,8 +110,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -147,23 +145,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-// class TabScreen extends StatelessWidget {
-
-//   const TabScreen({
-//     super.key,
-//     required this.screen
-//   });
-
-//   final String screen;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         Expanded(child: screen == 'home' ? const HomeScreen() : screen == 'discover' ? const DiscoverScreen() : screen == 'notifications' ? const NotificationsScreen() : ProfileScreen(),
-//         CustomBottomNavigationBar()
-     
-//       ]
-//     );
-//   }
-// }
