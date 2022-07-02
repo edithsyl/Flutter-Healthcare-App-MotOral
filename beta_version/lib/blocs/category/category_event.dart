@@ -13,6 +13,7 @@ class LoadCategories extends CategoryEvent {}
 // check which category and update to the screen
 class UpdateCategories extends CategoryEvent {
   final List<Category> categories;
+
   UpdateCategories(this.categories);
 
   @override

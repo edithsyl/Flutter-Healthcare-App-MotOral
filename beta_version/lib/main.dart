@@ -27,11 +27,13 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => CategoryBloc(categoryRepository: CategoryRepository()),
+          create: (_) => CategoryBloc(
+              categoryRepository:
+                  CategoryRepository()), // create an instance of this bloc
         ),
-        // BlocProvider(
-        //   create: (_) => ExerciseBloc(exerciseRepository: ExerciseRepository()),
-        // ),
+        BlocProvider(
+          create: (_) => AuthBloc(authRepository: AuthRepository()),
+        ),
       ],
       child: MaterialApp.router(
           routeInformationProvider: app_router.routeInformationProvider,

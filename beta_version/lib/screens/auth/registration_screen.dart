@@ -259,38 +259,38 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   void signUp(String email, String password) async {
-    if (_formKey.currentState!.validate()) {
-      await _auth
-          .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) => {postDetailsToFirestore()})
-          .catchError((e) {
-        Fluttertoast.showToast(msg: e!.message);
-      });
-    }
+    // if (_formKey.currentState!.validate()) {
+    //   await _auth
+    //       .createUserWithEmailAndPassword(email: email, password: password)
+    //       .then((value) => {postDetailsToFirestore()})
+    //       .catchError((e) {
+    //     Fluttertoast.showToast(msg: e!.message);
+    //   });
+    // }
   }
 
   postDetailsToFirestore() async {
     // calling our firestore
     // calling user model
     // sending these values
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    User? user = _auth.currentUser;
+    // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    // User? user = _auth.currentUser;
 
-    UserModel userModel = UserModel();
+    // User userModel = User();
 
-    // writing all the values
-    userModel.email = user!.email;
-    userModel.uid = user.uid;
-    userModel.firstName = firstNameEditingController.text;
-    userModel.secondName = secondNameEditingController.text;
+    // // writing all the values
+    // userModel.email = user!.email;
+    // userModel.uid = user.uid;
+    // userModel.firstName = firstNameEditingController.text;
+    // userModel.secondName = secondNameEditingController.text;
 
-    await firebaseFirestore
-        .collection("users")
-        .doc(user.uid)
-        .set(userModel.toMap());
+    // await firebaseFirestore
+    //     .collection("users")
+    //     .doc(user.uid)
+    //     .set(userModel.toMap());
 
-    Fluttertoast.showToast(msg: "account created successfully :)");
-    context.goNamed('home');
+    // Fluttertoast.showToast(msg: "account created successfully :)");
+    // context.goNamed('home');
     //Navigator.pushNamedAndRemoveUntil((context), '/home', (route) => false);
   }
 }

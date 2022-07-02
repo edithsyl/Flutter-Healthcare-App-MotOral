@@ -1,17 +1,24 @@
-class UserModel {
-  String? uid;
-  String? email;
-  String? firstName;
-  String? secondName;
+import 'package:equatable/equatable.dart';
 
-  UserModel({this.uid, this.email, this.firstName, this.secondName});
+class User extends Equatable {
+  final String uid;
+  final String? email;
+  final String? firstName;
+  final String? lastName;
 
-  factory UserModel.fromMap(map) {
-    return UserModel(
+  const User({required this.uid, this.email, this.firstName, this.lastName});
+
+  static const empty = User(uid: '');
+
+  bool get isEmpty => this == User.empty;
+  bool get isNotEmpty => this != User.empty;
+
+  factory User.fromMap(map) {
+    return User(
       uid: map['uid'],
       email: map['email'],
       firstName: map['firstName'],
-      secondName: map['secondName'],
+      lastName: map['lastName'],
     );
   }
   // sending data to our server
@@ -20,7 +27,10 @@ class UserModel {
       'uid': uid,
       'email': email,
       'firstName': firstName,
-      'secondName': secondName,
+      'lastName': lastName,
     };
   }
+
+  @override
+  List<Object?> get props => [uid, email, firstName, lastName];
 }

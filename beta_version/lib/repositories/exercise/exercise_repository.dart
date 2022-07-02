@@ -12,10 +12,10 @@ class ExerciseRepository extends BaseExerciseRepository {
   @override
   Stream<List<Exercise>> getAllExercises() {
     return _firebaseFirestore
-        .collection('exercises') // retrieve categories collection
+        .collection('exercises') // retrieve exercises collection
         .snapshots() // return a stream of query snapshots = all docs inside the collection
         .map((snapshot) {
       return snapshot.docs.map((doc) => Exercise.fromSnapshot(doc)).toList();
-    }); // for each doc, return a category class instance
+    }); // for each doc, return a exercise class instance
   }
 }

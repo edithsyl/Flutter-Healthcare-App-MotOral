@@ -10,8 +10,8 @@ part 'category_event.dart';
 part 'category_state.dart';
 
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
-  StreamSubscription? _categorySubscription;
   final CategoryRepository _categoryRepository;
+  StreamSubscription? _categorySubscription;
 
   CategoryBloc({required CategoryRepository categoryRepository})
       : _categoryRepository = categoryRepository,
