@@ -1,5 +1,6 @@
 import 'package:beta_version/app_router.dart';
 import 'package:beta_version/blocs/export_blocs.dart';
+import 'package:beta_version/cubits/bottomnav/navigation_cubit.dart';
 
 import 'package:custom_ui/source/theme/data.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,9 @@ class App extends StatelessWidget {
         BlocProvider(
           create: (_) => AuthBloc(authRepository: AuthRepository()),
         ),
+        BlocProvider<NavigationCubit>(
+          create: ((context) => NavigationCubit()),
+        )
       ],
       child: MaterialApp.router(
           routeInformationProvider: app_router.routeInformationProvider,
