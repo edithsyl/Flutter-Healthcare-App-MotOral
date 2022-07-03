@@ -9,11 +9,17 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._authRepository) : super(LoginState.initial());
 
   void emailChanged(String value) {
-    emit(state.copyWith(email: value, status: LoginStatus.initial));
+    emit(state.copyWith(
+      email: value,
+      status: LoginStatus.initial,
+    ));
   }
 
   void passwordChanged(String value) {
-    emit(state.copyWith(password: value, status: LoginStatus.initial));
+    emit(state.copyWith(
+      password: value,
+      status: LoginStatus.initial,
+    ));
   }
 
   void logInWithCredentials() async {

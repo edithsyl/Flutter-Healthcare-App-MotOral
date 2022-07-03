@@ -15,11 +15,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc({required AuthRepository authRepository})
       : _authRepository = authRepository,
-        super(const AuthState.unauthenticated()) {
+        super(
+          authRepository.currentUser.isNotEmpty
+              ? AuthState.authenticated(authRepository.currentUser)
+              : const AuthState.unauthenticated(),
+        ) {
     // initial state is unauthenticated
     // methods that are invoked under different events are as follows
     on<AuthUserChanged>(_onUserChanged);
     on<AuthLogoutRequested>(_onLogoutRequested);
+
+    _userSubscription =
+        _authRepository.user.listen((user) => add(AuthUserChanged(user)));
   }
 
   void _onUserChanged(
@@ -31,4 +38,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthLogoutRequested event,
     Emitter<AuthState> emit,
   ) {}
+
+  @override
+  Future<void> close() {
+    _userSubscription?.cancel();
+    return super.close();
+  }
 }
