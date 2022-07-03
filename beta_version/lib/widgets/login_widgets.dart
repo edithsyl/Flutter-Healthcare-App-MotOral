@@ -1,5 +1,6 @@
 import 'package:beta_version/logic/blocs/auth/auth_bloc.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
+import 'package:beta_version/main.dart';
 import 'package:beta_version/screens/customtoast.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
@@ -126,20 +127,14 @@ class LoginButton extends StatelessWidget {
 class _GoogleLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      key: const Key('loginForm_googleLogin_raisedButton'),
-      label: const Text(
-        'SIGN IN WITH GOOGLE',
-        style: TextStyle(color: Colors.white),
+    return ClipRRect(
+      borderRadius: const AppRadiusData.regular().asBorderRadius().allRegular,
+      child: SignInButton(
+        padding: const EdgeInsets.fromLTRB(55, 8, 15, 8),
+        Buttons.Google,
+        onPressed: () => () => context.read<LoginCubit>().logInWithGoogle(),
+        elevation: 0,
       ),
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        primary: theme.colorScheme.secondary,
-      ),
-      icon: const Icon(FontAwesomeIcons.google, color: Colors.white),
-      onPressed: () => context.read<LoginCubit>().logInWithGoogle(),
     );
   }
 }
@@ -151,7 +146,7 @@ class LogoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LongAppSolidButton(
       title: 'LOG OUT',
-      onPressed: () {
+      onPressed: () => () {
         context.read<AuthBloc>().add(AuthLogoutRequested());
       },
     );

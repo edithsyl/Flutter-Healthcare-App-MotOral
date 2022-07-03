@@ -2,6 +2,7 @@ import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 
 class SignupForm extends StatelessWidget {
@@ -11,9 +12,17 @@ class SignupForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SignupCubit, SignupState>(
       listener: (context, state) {
-        if (state.status == SignupStatus.error) {
+        if (state.status.isSubmissionSuccess) {
           // TODO: error handling
+          context.go('front');
+        } else if (state.status.isSubmissionFailure) {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(content: Text(state.errorMessage ?? 'Sign Up Failure')),
+            );
         }
+        ;
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -21,40 +30,12 @@ class SignupForm extends StatelessWidget {
           _EmailInput(),
           const VerticalGap(num: 25),
           _PasswordInput(),
+          const VerticalGap(num: 25),
+          _ConfirmPasswordInput(),
           const VerticalGap(num: 120),
           _SignupButton(),
         ],
       ),
-    );
-  }
-}
-
-class _PasswordInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<SignupCubit, SignupState>(
-      buildWhen: (previous, current) => previous.email != current.email,
-      builder: (context, state) {
-        return TextField(
-          keyboardType: TextInputType.visiblePassword,
-          // validator: (value) {
-          //   RegExp regex = new RegExp(r'^.{6,}$');
-          //   if (value!.isEmpty) {
-          //     return ("Please enter your password");
-          //   }
-          //   if (!regex.hasMatch(value)) {
-          //     return ("Please enter valid password(Minimum 6 Characters)");
-          //   }
-          //   return null;
-          // },
-          onChanged: (email) {
-            context.read<SignupCubit>().passwordChanged(email);
-          },
-          decoration: const InputDecoration(
-            hintText: "Password",
-          ),
-        );
-      },
     );
   }
 }
@@ -66,11 +47,59 @@ class _EmailInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return TextField(
-          onChanged: (email) {
-            context.read<SignupCubit>().emailChanged(email);
-          },
-          decoration: const InputDecoration(
-            hintText: "Email address",
+          key: const Key('signUpForm_emailInput_textField'),
+          onChanged: (email) => context.read<SignupCubit>().emailChanged(email),
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            labelText: 'Email address',
+            errorText: state.email.invalid ? 'invalid email' : null,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _PasswordInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SignupCubit, SignupState>(
+      buildWhen: (previous, current) => previous.password != current.password,
+      builder: (context, state) {
+        return TextField(
+          key: const Key('signUpForm_passwordInput_textField'),
+          onChanged: (password) =>
+              context.read<SignupCubit>().passwordChanged(password),
+          //obscureText: true,
+          decoration: InputDecoration(
+            labelText: 'Password',
+            errorText: state.password.invalid ? 'invalid password' : null,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _ConfirmPasswordInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SignupCubit, SignupState>(
+      buildWhen: (previous, current) =>
+          previous.password != current.password ||
+          previous.confirmedPassword != current.confirmedPassword,
+      builder: (context, state) {
+        return TextField(
+          key: const Key('signUpForm_confirmedPasswordInput_textField'),
+          onChanged: (confirmPassword) => context
+              .read<SignupCubit>()
+              .confirmedPasswordChanged(confirmPassword),
+          //obscureText: true,
+          decoration: InputDecoration(
+            labelText: 'confirm password',
+            errorText: state.confirmedPassword.invalid
+                ? 'passwords do not match'
+                : null,
           ),
         );
       },
@@ -84,15 +113,15 @@ class _SignupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignupCubit, SignupState>(
-      buildWhen: (previous, current) => previous.email != current.email,
+      buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
-        return state.status == SignupStatus.submitting
+        return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
             : LongAppSolidButton(
                 title: 'SIGN UP',
-                onPressed: () {
-                  context.read<SignupCubit>().SignupFormSubmitted();
-                },
+                onPressed: () => state.status.isValidated
+                    ? () => context.read<SignupCubit>().signupFormSubmitted()
+                    : null,
               );
       },
     );

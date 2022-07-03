@@ -8,15 +8,14 @@ enum EmailValidationError { invalid }
 /// Generic invalid error.
 enum PasswordValidationError { invalid }
 
-/// {@template email}
+/// Validation errors for the [ConfirmedPassword] [FormzInput].
+enum ConfirmedPasswordValidationError { invalid }
+
 /// Form input for an email input.
-/// {@endtemplate}
 class Email extends FormzInput<String, EmailValidationError> {
-  /// {@macro email}
   // Call super.pure to represent an unmodified form input.
   const Email.pure() : super.pure('');
 
-  /// {@macro email}
   // Call super.dirty to represent a modified form input.
   const Email.dirty([String value = '']) : super.dirty(value);
 
@@ -32,13 +31,10 @@ class Email extends FormzInput<String, EmailValidationError> {
   }
 }
 
-/// {@template password}
 /// Form input for an password input.
 class Password extends FormzInput<String, PasswordValidationError> {
-  /// {@macro password}
   const Password.pure() : super.pure('');
 
-  /// {@macro password}
   const Password.dirty([String value = '']) : super.dirty(value);
 
   static final _passwordRegExp =
@@ -49,5 +45,23 @@ class Password extends FormzInput<String, PasswordValidationError> {
     return _passwordRegExp.hasMatch(value ?? '')
         ? null
         : PasswordValidationError.invalid;
+  }
+}
+
+/// Form input for a confirmed password input.
+class ConfirmedPassword
+    extends FormzInput<String, ConfirmedPasswordValidationError> {
+  const ConfirmedPassword.pure({this.password = ''}) : super.pure('');
+
+  const ConfirmedPassword.dirty({required this.password, String value = ''})
+      : super.dirty(value);
+
+  final String password;
+
+  /// The original password.
+
+  @override
+  ConfirmedPasswordValidationError? validator(String? value) {
+    return password == value ? null : ConfirmedPasswordValidationError.invalid;
   }
 }
