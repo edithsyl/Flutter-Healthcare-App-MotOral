@@ -1,10 +1,12 @@
 import 'package:formz/formz.dart';
 
-/// Validation errors for the [Email] [FormzInput].
-enum EmailValidationError {
-  /// Generic invalid error.
-  invalid
-}
+/// Validation errors for the [Email] [FormzInput]
+/// Generic invalid error.
+enum EmailValidationError { invalid }
+
+/// Validation errors for the [Password] [FormzInput]
+/// Generic invalid error.
+enum PasswordValidationError { invalid }
 
 /// {@template email}
 /// Form input for an email input.
@@ -30,15 +32,8 @@ class Email extends FormzInput<String, EmailValidationError> {
   }
 }
 
-/// Validation errors for the [Password] [FormzInput].
-enum PasswordValidationError {
-  /// Generic invalid error.
-  invalid
-}
-
 /// {@template password}
 /// Form input for an password input.
-/// {@endtemplate}
 class Password extends FormzInput<String, PasswordValidationError> {
   /// {@macro password}
   const Password.pure() : super.pure('');

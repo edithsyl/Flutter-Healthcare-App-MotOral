@@ -1,4 +1,5 @@
 import 'package:beta_version/logic/blocs/export_blocs.dart';
+import 'package:beta_version/screens/setting_page.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/auth/_auth_pages.dart';
@@ -11,7 +12,7 @@ import 'package:flutter/material.dart';
 GoRouter appRouter(AuthStatus status) {
   return GoRouter(
     // first page shown after flutter run
-    initialLocation: '/front',
+    initialLocation: '/',
     // check if user has logged in, if not: redirect to loginscreen
     redirect: (state) {
       final isloggedIn = status == AuthStatus.authenticated;
@@ -83,10 +84,10 @@ GoRouter appRouter(AuthStatus status) {
       ),
       GoRoute(
         name: 'setting',
-        path: '/profile',
+        path: '/setting',
         pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
             key: state.pageKey,
-            child: const ProfilePage(),
+            child: const SettingPage(),
             time: AppDurationsData.regular().quick),
       ),
     ],

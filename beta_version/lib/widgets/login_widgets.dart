@@ -1,10 +1,15 @@
 import 'package:beta_version/logic/blocs/auth/auth_bloc.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
+import 'package:beta_version/screens/customtoast.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 
+/// [LoginForm] renders the form in response to the [LoginState]
+/// It invokes methods on the [LoginCubit] in response to user interactions
 class LoginForm extends StatelessWidget {
   const LoginForm({Key? key}) : super(key: key);
 
@@ -12,8 +17,8 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state.status == LoginStatus.error) {
-          // TODO: error handling
+        if (state.status.isSubmissionFailure) {
+          //ToastContext();
         }
       },
       child: Column(
@@ -26,6 +31,8 @@ class LoginForm extends StatelessWidget {
           _ForgetPassword(),
           const VerticalGap(num: 80),
           LoginButton(),
+          const VerticalGap(num: 25),
+          _GoogleLoginButton()
         ],
       ),
     );
@@ -51,36 +58,6 @@ class _ForgetPassword extends StatelessWidget {
   }
 }
 
-class _PasswordInput extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
-      buildWhen: (previous, current) => previous.email != current.email,
-      builder: (context, state) {
-        return TextField(
-          keyboardType: TextInputType.visiblePassword,
-          // validator: (value) {
-          //   RegExp regex = new RegExp(r'^.{6,}$');
-          //   if (value!.isEmpty) {
-          //     return ("Please enter your password");
-          //   }
-          //   if (!regex.hasMatch(value)) {
-          //     return ("Please enter valid password(Minimum 6 Characters)");
-          //   }
-          //   return null;
-          // },
-          onChanged: (email) {
-            context.read<LoginCubit>().passwordChanged(email);
-          },
-          decoration: const InputDecoration(
-            hintText: "Password",
-          ),
-        );
-      },
-    );
-  }
-}
-
 class _EmailInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -88,11 +65,36 @@ class _EmailInput extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return TextField(
+          key: const Key('loginForm_emailInput_textField'),
           onChanged: (email) {
             context.read<LoginCubit>().emailChanged(email);
           },
-          decoration: const InputDecoration(
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
             hintText: "Email address",
+            errorText: state.email.invalid ? 'invalid email' : null,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _PasswordInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LoginCubit, LoginState>(
+      buildWhen: (previous, current) => previous.password != current.password,
+      builder: (context, state) {
+        return TextField(
+          key: const Key('loginForm_passwordInput_textField'),
+          keyboardType: TextInputType.visiblePassword,
+          onChanged: (password) {
+            context.read<LoginCubit>().passwordChanged(password);
+          },
+          decoration: InputDecoration(
+            hintText: "Password",
+            errorText: state.password.invalid ? 'invalid password' : null,
           ),
         );
       },
@@ -108,15 +110,36 @@ class LoginButton extends StatelessWidget {
     return BlocBuilder<LoginCubit, LoginState>(
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
-        return state.status == LoginStatus.submitting
+        return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
             : LongAppSolidButton(
                 title: 'LOG IN',
-                onPressed: () {
-                  context.read<LoginCubit>().logInWithCredentials();
-                },
+                onPressed: () => state.status.isValidated
+                    ? () => context.read<LoginCubit>().logInWithCredentials()
+                    : null,
               );
       },
+    );
+  }
+}
+
+class _GoogleLoginButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      key: const Key('loginForm_googleLogin_raisedButton'),
+      label: const Text(
+        'SIGN IN WITH GOOGLE',
+        style: TextStyle(color: Colors.white),
+      ),
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        primary: theme.colorScheme.secondary,
+      ),
+      icon: const Icon(FontAwesomeIcons.google, color: Colors.white),
+      onPressed: () => context.read<LoginCubit>().logInWithGoogle(),
     );
   }
 }

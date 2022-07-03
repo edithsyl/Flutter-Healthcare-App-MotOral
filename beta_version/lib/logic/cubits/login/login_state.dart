@@ -1,37 +1,35 @@
 part of 'login_cubit.dart';
 
-enum LoginStatus { initial, submitting, success, error }
+// enum LoginStatus { initial, submitting, success, error }
 
+/// [LoginState] consists of an [Email], [Password], and [FormzStatus]
+/// [Email] and [Password] models extend [FormzInput] from the formz package
 class LoginState extends Equatable {
-  final String email;
-  final String password;
-  final LoginStatus status;
-
-  const LoginState({
-    required this.email,
-    required this.password,
-    required this.status,
-  });
+  final Email email;
+  final Password password;
+  final FormzStatus status;
+  final String? errorMessage;
 
   // constructor
-  factory LoginState.initial() {
-    return const LoginState(
-      email: '',
-      password: '',
-      status: LoginStatus.initial,
-    );
-  }
+  const LoginState({
+    this.email = const Email.pure(),
+    this.password = const Password.pure(),
+    this.status = FormzStatus.pure,
+    this.errorMessage,
+  });
 
   // another constructor for updating username or password without passing another value
   LoginState copyWith({
-    String? email,
-    String? password,
-    LoginStatus? status,
+    Email? email,
+    Password? password,
+    FormzStatus? status,
+    String? errorMessage,
   }) {
     return LoginState(
       email: email ?? this.email,
       password: password ?? this.password,
       status: status ?? this.status,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 

@@ -1,12 +1,7 @@
-import 'package:beta_version/screens/widgets/signup_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:beta_version/widgets/signup_widgets.dart';
 import 'package:custom_ui/custom_ui.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../models/user_model.dart';
 
 class RegistrationScreen extends StatefulWidget {
   RegistrationScreen({Key? key}) : super(key: key);
@@ -172,7 +167,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     //     },
     //   );
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -187,7 +181,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            color: Colors.white,
             child: Padding(
                 padding: const EdgeInsets.all(36.0),
                 child: Column(
