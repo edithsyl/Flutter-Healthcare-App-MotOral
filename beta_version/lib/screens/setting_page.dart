@@ -1,5 +1,3 @@
-import 'package:beta_version/logic/cubits/bottomnav/nav_bar_items.dart';
-import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
