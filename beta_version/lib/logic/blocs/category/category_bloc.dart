@@ -1,10 +1,9 @@
 import 'dart:async';
 
+import 'package:beta_version/models/category_model.dart';
 import 'package:beta_version/repositories/category/category_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-
-import '../../models/category_model.dart';
 
 part 'category_event.dart';
 part 'category_state.dart';

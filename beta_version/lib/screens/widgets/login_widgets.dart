@@ -1,5 +1,5 @@
-import 'package:beta_version/blocs/auth/auth_bloc.dart';
-import 'package:beta_version/cubits/login/login_cubit.dart';
+import 'package:beta_version/logic/blocs/auth/auth_bloc.dart';
+import 'package:beta_version/logic/cubits/login/login_cubit.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

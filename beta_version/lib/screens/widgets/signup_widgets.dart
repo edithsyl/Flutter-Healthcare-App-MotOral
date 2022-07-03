@@ -1,4 +1,4 @@
-import 'package:beta_version/cubits/signup/signup_cubit.dart';
+import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

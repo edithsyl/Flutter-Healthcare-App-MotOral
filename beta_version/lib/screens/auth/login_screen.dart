@@ -1,4 +1,3 @@
-import 'package:beta_version/cubits/login/login_cubit.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

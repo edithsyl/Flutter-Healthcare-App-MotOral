@@ -1,4 +1,4 @@
-import 'package:beta_version/blocs/export_blocs.dart';
+import 'package:beta_version/logic/blocs/export_blocs.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 part 'login_state.dart';

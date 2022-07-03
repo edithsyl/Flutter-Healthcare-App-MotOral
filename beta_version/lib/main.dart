@@ -1,8 +1,8 @@
 import 'package:beta_version/app_router.dart';
-import 'package:beta_version/blocs/export_blocs.dart';
-import 'package:beta_version/cubits/bottomnav/navigation_cubit.dart';
-import 'package:beta_version/cubits/login/login_cubit.dart';
-import 'package:beta_version/cubits/signup/signup_cubit.dart';
+import 'package:beta_version/logic/blocs/export_blocs.dart';
+import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
+import 'package:beta_version/logic/cubits/login/login_cubit.dart';
+import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
 
 import 'package:custom_ui/source/theme/data.dart';
 import 'package:flutter/material.dart';

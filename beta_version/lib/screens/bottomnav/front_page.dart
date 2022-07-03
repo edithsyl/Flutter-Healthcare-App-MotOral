@@ -1,5 +1,5 @@
-import 'package:beta_version/cubits/bottomnav/nav_bar_items.dart';
-import 'package:beta_version/cubits/bottomnav/navigation_cubit.dart';
+import 'package:beta_version/logic/cubits/bottomnav/nav_bar_items.dart';
+import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

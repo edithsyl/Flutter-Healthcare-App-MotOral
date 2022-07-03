@@ -1,4 +1,4 @@
-import 'package:beta_version/blocs/export_blocs.dart';
+import 'package:beta_version/logic/blocs/export_blocs.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/auth/_auth_pages.dart';

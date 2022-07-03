@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../repositories/exercise/exercise_repository.dart';
+import 'package:beta_version/repositories/exercise/exercise_repository.dart';
 
 part 'exercise_event.dart';
 part 'exercise_state.dart';
