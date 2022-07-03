@@ -1,4 +1,5 @@
 import 'package:beta_version/app_router.dart';
+import 'package:beta_version/logic/blocs/bloc_observer.dart';
 import 'package:beta_version/logic/blocs/export_blocs.dart';
 import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
@@ -10,13 +11,18 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  final authRepository = AuthRepository();
-  runApp(App(
-    authRepository: authRepository,
-  ));
+Future<void> main() async {
+  return BlocOverrides.runZoned(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp();
+      final authRepository = AuthRepository();
+      runApp(App(
+        authRepository: authRepository,
+      ));
+    },
+    blocObserver: AppBlocObserver(),
+  );
 }
 
 class LoginInfo {
@@ -32,7 +38,9 @@ class App extends StatelessWidget {
   })  : _authRepository = authRepository,
         super(key: key);
 
-  // This widget is the root of your application.
+  /// App will provide an instance of the AuthenticationRepository to the application via RepositoryProvider
+  /// it also creates and provides an instance of AuthenticationBloc
+  /// AppView consumes the AuthenticationBloc and handles updating the current route based on the AuthenticationState
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
@@ -61,9 +69,9 @@ class AppView extends StatelessWidget {
               categoryRepository:
                   CategoryRepository()), // create an instance of this bloc
         ),
-        BlocProvider(
-          create: (_) => AuthBloc(authRepository: AuthRepository()),
-        ),
+        // BlocProvider(
+        //   create: (_) => AuthBloc(authRepository: AuthRepository()),
+        // ),
         BlocProvider<NavigationCubit>(
           create: ((context) => NavigationCubit()),
         ),

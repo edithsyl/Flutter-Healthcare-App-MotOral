@@ -81,6 +81,14 @@ GoRouter appRouter(AuthStatus status) {
             child: const ProfilePage(),
             time: AppDurationsData.regular().quick),
       ),
+      GoRoute(
+        name: 'setting',
+        path: '/profile',
+        pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+            key: state.pageKey,
+            child: const ProfilePage(),
+            time: AppDurationsData.regular().quick),
+      ),
     ],
     errorPageBuilder: (context, state) => MaterialPage(
       child: Scaffold(

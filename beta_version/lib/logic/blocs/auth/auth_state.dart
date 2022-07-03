@@ -1,5 +1,8 @@
 part of 'auth_bloc.dart';
 
+/// [AuthState] consists of an [AuthStatus] and a [User]
+/// Two named constructors are exposed: [unauthenticated] and [authenticated] to make it easier to work with
+
 enum AuthStatus {
   authenticated,
   unauthenticated,

@@ -26,7 +26,7 @@ class SignupCubit extends Cubit<SignupState> {
     if (state.status == SignupStatus.submitting) return;
     emit(state.copyWith(status: SignupStatus.submitting));
     try {
-      await _authRepository.signup(
+      await _authRepository.signUp(
           email: state.email, password: state.password);
       emit(state.copyWith(status: SignupStatus.success));
     } catch (_) {}
