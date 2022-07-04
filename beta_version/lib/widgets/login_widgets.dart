@@ -1,13 +1,13 @@
 import 'package:beta_version/logic/blocs/auth/auth_bloc.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
-import 'package:beta_version/main.dart';
-import 'package:beta_version/screens/customtoast.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
+
+// FIXME: still couldn't log in
 
 /// [LoginForm] renders the form in response to the [LoginState]
 /// It invokes methods on the [LoginCubit] in response to user interactions
@@ -115,9 +115,11 @@ class LoginButton extends StatelessWidget {
             ? const CircularProgressIndicator()
             : LongAppSolidButton(
                 title: 'LOG IN',
-                onPressed: () => state.status.isValidated
-                    ? () => context.read<LoginCubit>().logInWithCredentials()
-                    : null,
+                onPressed: () {
+                  state.status.isValidated
+                      ? () => context.read<LoginCubit>().logInWithCredentials()
+                      : null;
+                },
               );
       },
     );
@@ -132,7 +134,9 @@ class _GoogleLoginButton extends StatelessWidget {
       child: SignInButton(
         padding: const EdgeInsets.fromLTRB(55, 8, 15, 8),
         Buttons.Google,
-        onPressed: () => () => context.read<LoginCubit>().logInWithGoogle(),
+        onPressed: () {
+          context.read<LoginCubit>().logInWithGoogle();
+        },
         elevation: 0,
       ),
     );
@@ -146,7 +150,7 @@ class LogoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LongAppSolidButton(
       title: 'LOG OUT',
-      onPressed: () => () {
+      onPressed: () {
         context.read<AuthBloc>().add(AuthLogoutRequested());
       },
     );

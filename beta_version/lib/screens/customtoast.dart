@@ -2,6 +2,7 @@ import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+// FIXME
 class ToastContext extends StatefulWidget {
   @override
   _ToastContextState createState() => _ToastContextState();
@@ -56,7 +57,7 @@ class _ToastContextState extends State<ToastContext> {
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25.0),
-        color: AppColorsData.regular().,
+        color: AppColorsData.regular().orangeTints_7,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -65,15 +66,11 @@ class _ToastContextState extends State<ToastContext> {
             child: Text(
               "This is a Custom Toast This is a Custom Toast This is a Custom Toast This is a Custom Toast This is a Custom Toast This is a Custom Toast",
               softWrap: true,
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: AppTypographyData.greyShades_3().sourceSansProBodySmall,
             ),
           ),
           IconButton(
-            icon: Icon(
-              Icons.close,
-            ),
+            icon: const Icon(Icons.close),
             color: Colors.white,
             onPressed: () {
               fToast.removeCustomToast();
@@ -85,7 +82,7 @@ class _ToastContextState extends State<ToastContext> {
     fToast.showToast(
       child: toastWithButton,
       gravity: ToastGravity.CENTER,
-      toastDuration: Duration(seconds: 50),
+      toastDuration: const Duration(seconds: 50),
     );
   }
 
@@ -108,47 +105,36 @@ class _ToastContextState extends State<ToastContext> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 24.0,
-        ),
+        const VerticalGap(num: 24),
         ElevatedButton(
-          child: Text("Show Custom Toast"),
+          child: const Text("Show Custom Toast"),
           onPressed: () {
             _showToast();
           },
         ),
         ElevatedButton(
-          child: Text("Show Custom Toast via PositionedToastBuilder"),
+          child: const Text("Show Custom Toast via PositionedToastBuilder"),
           onPressed: () {
             _showBuilderToast();
           },
         ),
-        SizedBox(
-          height: 24.0,
-        ),
+        const VerticalGap(num: 24),
         ElevatedButton(
-          child: Text("Custom Toast With Close Button"),
+          child: const Text("Custom Toast With Close Button"),
           onPressed: () {
             _showToastCancel();
           },
         ),
-        SizedBox(
-          height: 24.0,
-        ),
-        SizedBox(
-          height: 24.0,
-        ),
+        const VerticalGap(num: 24),
         ElevatedButton(
-          child: Text("Cancel Toast"),
+          child: const Text("Cancel Toast"),
           onPressed: () {
             _removeToast();
           },
         ),
-        SizedBox(
-          height: 24.0,
-        ),
+        const VerticalGap(num: 24),
         ElevatedButton(
-          child: Text("Remove Queued Toasts"),
+          child: const Text("Remove Queued Toasts"),
           onPressed: () {
             _removeAllQueuedToasts();
           },

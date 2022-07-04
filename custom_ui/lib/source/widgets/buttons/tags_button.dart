@@ -37,7 +37,8 @@ class TagSelected extends StatelessWidget {
           ),
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: AppRadiusData.regular().asBorderRadius().allRound,
+            borderRadius:
+                const AppRadiusData.regular().asBorderRadius().allRound,
           )),
       onPressed: onPressed,
       child: Text(title),

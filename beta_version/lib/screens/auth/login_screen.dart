@@ -23,54 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final emailField = TextFormField(
-    //   autofocus: false,
-    //   controller: emailController,
-    //   keyboardType: TextInputType.emailAddress,
-    //   validator: (value) {
-    //     if (value!.isEmpty) {
-    //       return ("Please enter your email");
-    //     }
-    //     // reg expression for email validation
-    //     if (!RegExp(
-    //             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-    //         .hasMatch(value)) {
-    //       return ("Please enter a valid email");
-    //     }
-    //     return null;
-    //   },
-    //   onSaved: (value) {
-    //     emailController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.next,
-    //   decoration: InputDecoration(
-    //     hintText: "Username/ Email address",
-    //   ),
-    // );
-
-    // final passwordField = TextFormField(
-    //   autofocus: false,
-    //   controller: passwordController,
-    //   keyboardType: TextInputType.visiblePassword,
-    //   validator: (value) {
-    //     RegExp regex = new RegExp(r'^.{6,}$');
-    //     if (value!.isEmpty) {
-    //       return ("Please enter your password");
-    //     }
-    //     if (!regex.hasMatch(value)) {
-    //       return ("Please enter valid password(Minimum 6 Characters)");
-    //     }
-    //     return null;
-    //   },
-    //   onSaved: (value) {
-    //     passwordController.text = value!;
-    //   },
-    //   textInputAction: TextInputAction.done,
-    //   decoration: const InputDecoration(
-    //     hintText: 'Password',
-    //   ),
-    // );
-
     return Scaffold(
       body: CustomPaint(
         size: MediaQuery.of(context).size,
@@ -78,15 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 0,
-                  horizontal: AppSpacingData.regular().x5,
-                ),
+                padding: EdgeInsets.all(AppSpacingData.regular().x4),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    const VerticalGap(num: 50),
                     Text(
                       'Log in',
                       style: TextStyle(
@@ -118,13 +66,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text("New here? "),
+                        Text("New here?  ",
+                            style: AppTypographyData.greyShades_6()
+                                .sourceSansProBodySmall),
                         GestureDetector(
                           onTap: () {
                             context.goNamed('signup');
-                            //Navigator.pushNamed(context, '/signup');
                           },
-                          child: Text('SignUp',
+                          child: Text('Sign up',
                               style: AppTypographyData.greyShades_6()
                                   .quicksandBodySmall),
                         )

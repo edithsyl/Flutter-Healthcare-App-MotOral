@@ -29,33 +29,52 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: SingleChildScrollView(
           child: Container(
             child: Padding(
-                padding: const EdgeInsets.all(36.0),
+                padding: EdgeInsets.all(AppSpacingData.regular().x4),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(
-                      height: 200,
-                      child: Image.asset(
-                        "assets/logo.png",
-                        fit: BoxFit.contain,
-                      ),
+                    Text(
+                      'Sign up',
+                      style: TextStyle(
+                          color: AppColorsData.regular().greyShades_5,
+                          fontWeight: FontWeight.w800,
+                          fontFamily: "SourceSansPro",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 32.0),
                     ),
-                    SignupForm(),
-                    const VerticalGap(num: 25),
+                    const VerticalGap(num: 24),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'create your account for ',
+                          style: AppTypographyData.greyShades_4()
+                              .sourceSansProBodySemibold,
+                        ),
+                        Text(
+                          'free',
+                          style: AppTypographyData.primaryOrange()
+                              .sourceSansProBodySemibold,
+                        ),
+                      ],
+                    ),
+                    const VerticalGap(num: 45),
+                    const SignupForm(),
+                    const VerticalGap(num: 40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text("Have an account already? "),
+                        Text("Have an account already?  ",
+                            style: AppTypographyData.greyShades_6()
+                                .sourceSansProBodySmall),
                         GestureDetector(
                           onTap: () {
                             context.goNamed('login');
                           },
-                          child: const Text("Login",
-                              style: TextStyle(
-                                  color: Colors.orange,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15)),
+                          child: Text("Log in",
+                              style: AppTypographyData.greyShades_6()
+                                  .quicksandBodySmall),
                         )
                       ],
                     )
