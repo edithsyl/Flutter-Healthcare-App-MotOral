@@ -12,10 +12,9 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          const Text('Setting page'),
-          const VerticalGap(num: 25),
-          // ToastContext(),
+        children: const <Widget>[
+          Text('Setting page'),
+          VerticalGap(num: 25),
         ],
       ),
     );

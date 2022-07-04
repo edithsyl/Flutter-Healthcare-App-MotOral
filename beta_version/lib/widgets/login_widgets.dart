@@ -1,5 +1,6 @@
 import 'package:beta_version/logic/blocs/auth/auth_bloc.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
+import 'package:beta_version/widgets/snack_bars.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,8 +19,23 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
+        if (state.status.isSubmissionSuccess) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            getSnackBarText('state.status.isSubmissionSuccess'),
+          );
+          context.goNamed('front');
+        }
         if (state.status.isSubmissionFailure) {
-          //ToastContext();
+          ScaffoldMessenger.of(context).showSnackBar(
+            getSnackBarWidget(
+              Text(state.errorMessage ?? 'null errorMessage'),
+            ),
+          );
+        }
+        if (state.status.isSubmissionInProgress) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            getSnackBarText('state.status.isSubmissionInProgress'),
+          );
         }
       },
       child: Column(
@@ -118,7 +134,9 @@ class LoginButton extends StatelessWidget {
                 onPressed: () {
                   state.status.isValidated
                       ? () => context.read<LoginCubit>().logInWithCredentials()
-                      : null;
+                      : ScaffoldMessenger.of(context).showSnackBar(
+                          getSnackBarText('null'),
+                        ); // null;
                 },
               );
       },

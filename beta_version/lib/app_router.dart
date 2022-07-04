@@ -12,19 +12,19 @@ import 'package:flutter/material.dart';
 GoRouter appRouter(AuthStatus status) {
   return GoRouter(
     // first page shown after flutter run
-    initialLocation: '/front',
+    initialLocation: '/',
     // check if user has logged in, if not: redirect to loginscreen
-    // redirect: (state) {
-    //   final isloggedIn = status == AuthStatus.authenticated;
-    //   final isLoggingIn = state.location == '/' || state.location == '/signup';
-    //   if (!isloggedIn && !isLoggingIn) {
-    //     return '/';
-    //   }
-    //   if (isloggedIn && isLoggingIn) {
-    //     return '/front';
-    //   }
-    //   return null;
-    // },
+    redirect: (state) {
+      final isloggedIn = status == AuthStatus.authenticated;
+      final isLoggingIn = state.location == '/' || state.location == '/signup';
+      if (!isloggedIn && !isLoggingIn) {
+        return '/';
+      }
+      if (isloggedIn && isLoggingIn) {
+        return '/front';
+      }
+      return null;
+    },
     routes: [
       GoRoute(
         name: 'login',
