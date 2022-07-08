@@ -2,6 +2,7 @@ import 'package:beta_version/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 part 'auth_failures.dart';
 
 // responsible for abstracting the underlying implementation of how a user is authenticated & fetched
@@ -46,6 +47,7 @@ class AuthRepository {
         email: email,
         password: password,
       );
+      //.then((value) => {postDetailsToFirestore()});
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw SignUpWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {
@@ -120,4 +122,21 @@ extension on firebase_auth.User {
       photo: photoURL,
     );
   }
+
+  // Future<void> postDetailsToFirestore() async {
+  //   // calling our firestore
+  //   // calling user model
+  //   // sending these values
+  //   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+  //   User userModel = User();
+
+  //   await firebaseFirestore
+  //       .collection("users")
+  //       .doc(user.uid)
+  //       .set(userModel.toMap());
+
+  //   Fluttertoast.showToast(msg: "account created successfully :)");
+  //   context.goNamed('home');
+  // }
 }

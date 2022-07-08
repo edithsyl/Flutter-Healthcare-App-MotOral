@@ -1,4 +1,5 @@
 import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
+import 'package:beta_version/widgets/snack_bars.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +14,11 @@ class SignupForm extends StatelessWidget {
     return BlocListener<SignupCubit, SignupState>(
       listener: (context, state) {
         if (state.status.isSubmissionSuccess) {
-          // TODO: error handling
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              getSnackBarText('state.status.isSubmissionSuccess'),
+            );
           context.go('front');
         } else if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context)
@@ -22,7 +27,13 @@ class SignupForm extends StatelessWidget {
               SnackBar(content: Text(state.errorMessage ?? 'Sign Up Failure')),
             );
         }
-        ;
+        if (state.status.isSubmissionInProgress) {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              getSnackBarText('state.status.isSubmissionInProgress'),
+            );
+        }
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

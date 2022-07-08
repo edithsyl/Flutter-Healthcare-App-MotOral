@@ -28,13 +28,19 @@ class LoginForm extends StatelessWidget {
         if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             getSnackBarWidget(
-              Text(state.errorMessage ?? 'null errorMessage'),
+              // state.errorMessage ??
+              Text('state.status Submission Failure'),
             ),
           );
         }
         if (state.status.isSubmissionInProgress) {
           ScaffoldMessenger.of(context).showSnackBar(
-            getSnackBarText('state.status.isSubmissionInProgress'),
+            getSnackBarText('state.status Submission In Progress'),
+          );
+        }
+        if (state.status.isSubmissionCanceled) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            getSnackBarText('state.status Submission Canceled'),
           );
         }
       },
@@ -135,7 +141,7 @@ class LoginButton extends StatelessWidget {
                   state.status.isValidated
                       ? () => context.read<LoginCubit>().logInWithCredentials()
                       : ScaffoldMessenger.of(context).showSnackBar(
-                          getSnackBarText('null'),
+                          getSnackBarText('login error'),
                         ); // null;
                 },
               );

@@ -4,6 +4,7 @@ import 'package:beta_version/models/user_model.dart';
 import 'package:beta_version/repositories/auth/auth_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -28,7 +29,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthUserChanged>(_onUserChanged);
     on<AuthLogoutRequested>(_onLogoutRequested);
 
-    // subscribes to the user stream from the authrepository & adds an [AuthUserChanged] event internally to process changes in the current user
+    /// subscribes to the user stream from the authrepository & adds an [AuthUserChanged] event internally to process changes in the current user
     _userSubscription = _authRepository.user.listen(
       (user) => add(AuthUserChanged(user)),
     );

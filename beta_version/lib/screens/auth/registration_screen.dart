@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  RegistrationScreen({Key? key}) : super(key: key);
+  const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -85,7 +85,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ),
     );
   }
-
+}
   // void signUp(String email, String password) async {
   // if (_formKey.currentState!.validate()) {
   //   await _auth
@@ -101,24 +101,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   // calling our firestore
   // calling user model
   // sending these values
-  // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-  // User? user = _auth.currentUser;
+//   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+//   User? user = _auth.currentUser;
 
-  // User userModel = User();
+//   User userModel = User();
 
-  // // writing all the values
-  // userModel.email = user!.email;
-  // userModel.uid = user.uid;
-  // userModel.firstName = firstNameEditingController.text;
-  // userModel.secondName = secondNameEditingController.text;
+//   // writing all the values
+//   userModel.email = user!.email;
+//   userModel.uid = user.uid;
+//   userModel.firstName = firstNameEditingController.text;
+//   userModel.secondName = secondNameEditingController.text;
 
-  // await firebaseFirestore
-  //     .collection("users")
-  //     .doc(user.uid)
-  //     .set(userModel.toMap());
+//   await firebaseFirestore
+//       .collection("users")
+//       .doc(user.uid)
+//       .set(userModel.toMap());
 
-  // Fluttertoast.showToast(msg: "account created successfully :)");
-  // context.goNamed('home');
-  //Navigator.pushNamedAndRemoveUntil((context), '/home', (route) => false);
-  // }
-}
+//   Fluttertoast.showToast(msg: "account created successfully :)");
+//   context.goNamed('home');
+//   Navigator.pushNamedAndRemoveUntil((context), '/home', (route) => false);
+//   }
+// }

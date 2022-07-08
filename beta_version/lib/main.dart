@@ -5,11 +5,9 @@ import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
 import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
 
-import 'package:custom_ui/source/theme/data.dart';
-import 'package:flutter/material.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 Future<void> main() async {
   return BlocOverrides.runZoned(
@@ -17,6 +15,7 @@ Future<void> main() async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();
       final authRepository = AuthRepository();
+      await authRepository.user.first;
       runApp(App(
         authRepository: authRepository,
       ));
@@ -47,21 +46,117 @@ class App extends StatelessWidget {
       value: _authRepository,
       child: BlocProvider(
         create: (_) => AuthBloc(authRepository: _authRepository),
-        child: const AppView(),
+        child: AppView(),
       ),
     );
   }
 }
 
 class AppView extends StatelessWidget {
-  const AppView({
+  AppView({
     Key? key,
   }) : super(key: key);
 
+  final List<GoRoute> _loggedOutRoutes = [
+    GoRoute(
+      name: 'login',
+      path: '/',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const LoginScreen(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'signup',
+      path: '/signup',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const RegistrationScreen(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      // FIXME: nested routers
+      name: 'front',
+      path: '/front',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const FrontPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'exercise',
+      path: '/exercise',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const ExercisePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'people',
+      path: '/people',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const PeoplePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'news',
+      path: '/news',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const NewsPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'profile',
+      path: '/profile',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const ProfilePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'setting',
+      path: '/setting',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const SettingPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    AuthStatus status = context.select((AuthBloc bloc) => bloc.state.status);
-    final app_router = appRouter(status);
+    AuthStatus aStatus = context.select((AuthBloc bloc) => bloc.state.status);
+    final authBloc = context.read<AuthBloc>();
+    final appRouter = GoRouter(
+      debugLogDiagnostics: true,
+      initialLocation: '/front',
+      // redirect: (state) {
+      //   // if the user is not logged in, they need to login
+      //   final isloggedIn = authBloc.state.status == AuthStatus.authenticated;
+      //   final isLoggingIn =
+      //       state.location == '/' || state.location == '/signup';
+      //   if (!isloggedIn && !isLoggingIn) {
+      //     Fluttertoast.showToast(msg: '!isloggedIn and !isLoggingIn');
+      //     return '/';
+      //   }
+      //   if (isloggedIn && isLoggingIn) {
+      //     Fluttertoast.showToast(msg: 'isloggedIn and isLoggingIn');
+      //     return '/front';
+      //   }
+      //   return null;
+      // },
+      refreshListenable: GoRouterRefreshStream(authBloc.stream),
+      routes: _loggedOutRoutes,
+      errorPageBuilder: (context, state) => MaterialPage(
+        child: Scaffold(
+          body: Center(
+            child: Text(state.error.toString()),
+          ),
+        ),
+      ),
+    );
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -69,9 +164,6 @@ class AppView extends StatelessWidget {
               categoryRepository:
                   CategoryRepository()), // create an instance of this bloc
         ),
-        // BlocProvider(
-        //   create: (_) => AuthBloc(authRepository: AuthRepository()),
-        // ),
         BlocProvider<NavigationCubit>(
           create: ((context) => NavigationCubit()),
         ),
@@ -83,9 +175,9 @@ class AppView extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-          routeInformationProvider: app_router.routeInformationProvider,
-          routeInformationParser: app_router.routeInformationParser,
-          routerDelegate: app_router.routerDelegate,
+          routeInformationProvider: appRouter.routeInformationProvider,
+          routeInformationParser: appRouter.routeInformationParser,
+          routerDelegate: appRouter.routerDelegate,
           title: 'title',
           theme: ThemeData(
             primaryColor: AppColorsData.regular().primaryOrange,
