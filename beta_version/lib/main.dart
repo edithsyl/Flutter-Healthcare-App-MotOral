@@ -88,7 +88,7 @@ class AppView extends StatelessWidget {
       path: '/exercise',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
-          child: const ExercisePage(),
+          child: ExercisePage(),
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
