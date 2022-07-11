@@ -17,7 +17,7 @@ class Category extends Equatable {
     return category;
   }
 
-  static List<Category> categories = const [
+  static const List<Category> allCategories = [
     Category(
       name: 'Tongue',
     ),
