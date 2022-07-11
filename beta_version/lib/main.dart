@@ -161,8 +161,8 @@ class AppView extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => CategoryBloc(
-              categoryRepository:
-                  CategoryRepository()), // create an instance of this bloc
+            categoryRepository: CategoryRepository(),
+          )..add(LoadCategories()), // create an instance of this bloc
         ),
         BlocProvider<NavigationCubit>(
           create: ((context) => NavigationCubit()),
@@ -172,6 +172,11 @@ class AppView extends StatelessWidget {
         ),
         BlocProvider<SignupCubit>(
           create: (_) => SignupCubit(context.read<AuthRepository>()),
+        ),
+        BlocProvider(
+          create: (_) => ExerciseBloc(
+            exerciseRepository: ExerciseRepository(),
+          )..add(LoadExercises()),
         ),
       ],
       child: MaterialApp.router(

@@ -3,9 +3,11 @@ import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../widgets/top_app_bar.dart';
+
 // MYTODO: recreate setting page
-class AppBarContent extends StatelessWidget {
-  const AppBarContent({Key? key}) : super(key: key);
+class SettingAppBarContent extends StatelessWidget {
+  const SettingAppBarContent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: make this appbar looks like the design
+      // TODO:  test app bar here
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(111),
         child: Container(
@@ -65,7 +67,7 @@ class _SettingPageState extends State<SettingPage> {
           decoration: BoxDecoration(
             color: AppColorsData.regular().primaryOrange,
           ),
-          child: const AppBarContent(),
+          child: const SettingAppBarContent(),
         ),
       ),
       body: Center(

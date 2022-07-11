@@ -17,6 +17,7 @@ class Exercise extends Equatable {
     required this.duration,
     required this.isDailyExercise,
   });
+
   @override
   List<Object?> get props => [
         name,
@@ -31,7 +32,7 @@ class Exercise extends Equatable {
   // need to compare data from firebase with instance in category class
   static Exercise fromSnapshot(DocumentSnapshot snap) {
     Exercise exercise = Exercise(
-      name: snap['name'],
+      name: snap['title'],
       category: snap['category'],
       description: snap['description'],
       image: snap['image'],

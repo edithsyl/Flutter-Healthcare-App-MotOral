@@ -3,6 +3,7 @@ import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+///TODO: 1.make daily exercise card
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 

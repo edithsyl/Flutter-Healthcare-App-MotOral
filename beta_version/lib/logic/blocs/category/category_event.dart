@@ -7,10 +7,10 @@ abstract class CategoryEvent extends Equatable {
   List<Object> get props => [];
 }
 
-// initialize category bloc
+/// initialize the [CategoryBloc]
 class LoadCategories extends CategoryEvent {}
 
-// check which category and update to the screen
+/// check which are the actual [categories] and update them to the screen
 class UpdateCategories extends CategoryEvent {
   final List<Category> categories;
 
