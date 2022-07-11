@@ -7,13 +7,13 @@ import 'package:simple_animations/timeline_tween/prop.dart';
 
 import '../../models/category_model.dart';
 import '../../models/exercise_model.dart';
+import '../../widgets/category_tags.dart';
 
 class ExercisePage extends StatelessWidget {
   ExercisePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // MYTODO: make exercise cards
     return Container(
       color: AppColorsData.regular().primaryWhite,
       padding: EdgeInsets.symmetric(horizontal: AppSpacingData.regular().x4),
