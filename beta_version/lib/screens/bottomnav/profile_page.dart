@@ -3,7 +3,7 @@ import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-// MYTODO: add firebase avatar
+// TODO: add firebase avatar
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 

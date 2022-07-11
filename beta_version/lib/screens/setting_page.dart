@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../widgets/top_app_bar.dart';
 
-// MYTODO: recreate setting page
+// TODO: recreate setting page
 class SettingAppBarContent extends StatelessWidget {
   const SettingAppBarContent({Key? key}) : super(key: key);
 
