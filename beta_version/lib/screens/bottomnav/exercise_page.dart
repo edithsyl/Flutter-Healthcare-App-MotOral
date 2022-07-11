@@ -1,5 +1,6 @@
 import 'package:beta_version/app_router.dart';
 import 'package:beta_version/logic/blocs/export_blocs.dart';
+import 'package:beta_version/screens/bottomnav/exercise_page2.dart';
 import 'package:beta_version/widgets/exercise_card.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,26 +29,28 @@ class ExercisePage extends StatelessWidget {
               style: AppTypographyData.greyShades_6().quicksandBody,
             ),
             const VerticalGap(num: 16),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxHeight: 30,
-              ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: const ScrollPhysics(),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
-                    CategoryList(
-                      categories: Category.allCategories,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            ExercisesList(
-              exercises: Exercise.allExercises,
-            )
+            MyTabBar(),
+            // const VerticalGap(num: 32),
+            // ConstrainedBox(
+            //   constraints: const BoxConstraints(
+            //     maxHeight: 30,
+            //   ),
+            //   child: SingleChildScrollView(
+            //     scrollDirection: Axis.horizontal,
+            //     physics: const ScrollPhysics(),
+            //     child: Row(
+            //       mainAxisSize: MainAxisSize.min,
+            //       children: const <Widget>[
+            //         CategoryList(
+            //           categories: Category.allCategories,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            // ExercisesList(
+            //   exercises: Exercise.allExercises,
+            // )
           ],
         ),
       ),

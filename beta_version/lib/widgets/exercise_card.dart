@@ -140,6 +140,42 @@ class ExerciseCard2 extends StatelessWidget {
   }
 }
 
+class ExercisesList2 extends StatelessWidget {
+  ExercisesList2({
+    Key? key,
+    required this.exercises,
+    required this.category_index,
+  }) : super(key: key);
+
+  final Category category_index;
+  final List<Exercise> exercises;
+  final List<Color> colorsList = [
+    const Color.fromARGB(255, 255, 190, 174), // light pink
+    const Color.fromARGB(255, 174, 191, 255), // light blue
+    const Color.fromARGB(255, 209, 193, 255), // light purple
+    AppColorsData.regular().orangeTints_4, // light purple
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
+      itemCount: exercises.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: ExerciseCard2(
+            exercise: exercises[index],
+            color: colorsList[index % colorsList.length],
+          ),
+        );
+      },
+    );
+  }
+}
+
 class ExercisesList extends StatelessWidget {
   ExercisesList({
     Key? key,

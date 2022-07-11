@@ -19,16 +19,16 @@ class Category extends Equatable {
 
   static const List<Category> allCategories = [
     Category(
-      name: 'Tongue',
+      name: 'Cheek',
+    ),
+    Category(
+      name: 'Jaw',
     ),
     Category(
       name: 'Lip',
     ),
     Category(
-      name: 'Cheek',
-    ),
-    Category(
-      name: 'Jaw',
+      name: 'Tongue',
     ),
   ];
 }

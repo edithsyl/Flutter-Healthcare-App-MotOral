@@ -57,11 +57,11 @@ class AppBarContent2 extends StatelessWidget {
   const AppBarContent2({
     Key? key,
     required this.title,
-    required this.leftOnPressed,
+    required this.rightOnPressed,
   }) : super(key: key);
 
   final String title;
-  final VoidCallback leftOnPressed;
+  final VoidCallback rightOnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +84,7 @@ class AppBarContent2 extends StatelessWidget {
                   size: 20,
                 ),
                 color: AppColorsData.regular().primaryWhite,
-                onPressed: () {},
+                onPressed: rightOnPressed,
               ),
             ],
           ),
