@@ -1,7 +1,5 @@
 import 'package:beta_version/widgets/snack_bars.dart';
 import 'package:custom_ui/custom_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 ///MYTODO: 1.make daily exercise card
 class HomePage extends StatelessWidget {

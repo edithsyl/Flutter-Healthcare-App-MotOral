@@ -1,14 +1,7 @@
 import 'package:beta_version/app_router.dart';
-import 'package:beta_version/logic/blocs/export_blocs.dart';
-import 'package:beta_version/widgets/exercise_card.dart';
-import 'package:custom_ui/custom_ui.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_animations/timeline_tween/prop.dart';
 
-import '../../models/category_model.dart';
 import '../../models/exercise_model.dart';
-import '../../widgets/category_tags.dart';
-import '../../widgets/top_app_bar.dart';
+import 'category_exerciseslist.dart';
 
 class MyTabBar extends StatefulWidget {
   @override
@@ -19,10 +12,10 @@ class _MyTabBarState extends State<MyTabBar>
     with SingleTickerProviderStateMixin {
   // define your tab controller here
   late TabController _tabController;
-  late List<Exercise> _allExercises;
-  List<Exercise> filterdExercises = [];
+  //late List<Exercise> _allExercises;
+  //List<Exercise> filterdExercises = [];
 
-  final List<Tab> categoryTabs = [
+  final List<Tab> categoryTabs = const [
     Tab(
       text: 'Cheek',
     ),
@@ -37,20 +30,13 @@ class _MyTabBarState extends State<MyTabBar>
     ),
   ];
 
-  // final List<Color> paletteColorsList = [
-  //   const Color.fromARGB(255, 255, 190, 174), // light pink
-  //   const Color.fromARGB(255, 174, 191, 255), // light blue
-  //   const Color.fromARGB(255, 209, 193, 255), // light purple
-  //   AppColorsData.regular().orangeTints_4, // light purple
-  // ];
-
   // List<Exercise> _filteredExercises(value) {
   //   return _allExercises.where((exercise) => exercise.name == value).toList();
   // }
 
   @override
   void initState() {
-    _allExercises = Exercise.allExercises;
+    //_allExercises = Exercise.allExercises;
     // initialise your tab controller here
     _tabController = TabController(
       length: 4,
@@ -114,43 +100,6 @@ class _MyTabBarState extends State<MyTabBar>
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ExerciseList extends StatefulWidget {
-  ExerciseList({
-    Key? key,
-    required this.thisList,
-  }) : super(key: key);
-
-  final List<Exercise> thisList;
-
-  @override
-  State<ExerciseList> createState() => ExerciseListState();
-}
-
-class ExerciseListState extends State<ExerciseList> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics()),
-        scrollDirection: Axis.vertical,
-        itemCount: widget.thisList.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: ExerciseCard2(
-              exercise: widget.thisList[index],
-              color: AppColorsData.regular().paletteColorsList[
-                  index % AppColorsData.regular().paletteColorsList.length],
-            ),
-          );
-        },
       ),
     );
   }

@@ -1,14 +1,5 @@
-import 'package:beta_version/app_router.dart';
-import 'package:beta_version/logic/blocs/export_blocs.dart';
-import 'package:beta_version/screens/bottomnav/exercise_page2.dart';
-import 'package:beta_version/widgets/exercise_card.dart';
+import 'package:beta_version/screens/exercise/category_tab_list.dart';
 import 'package:custom_ui/custom_ui.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_animations/timeline_tween/prop.dart';
-
-import '../../models/category_model.dart';
-import '../../models/exercise_model.dart';
-import '../../widgets/category_tags.dart';
 
 class ExercisePage extends StatelessWidget {
   ExercisePage({Key? key}) : super(key: key);
