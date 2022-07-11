@@ -52,6 +52,7 @@ class AppColorsData extends Equatable {
     required this.blueHighlightTint_3,
     required this.blueHighlightTint_4,
     required this.blueHighlightTint_5,
+    required this.paletteColorsList,
   });
 
   factory AppColorsData.regular() => const AppColorsData(
@@ -102,6 +103,12 @@ class AppColorsData extends Equatable {
         blueHighlightTint_3: Color(0xff8ffffd),
         blueHighlightTint_4: Color(0xffb5fffe),
         blueHighlightTint_5: Color(0xffdafffe),
+        paletteColorsList: [
+          const Color.fromARGB(255, 255, 190, 174), // light pink
+          const Color.fromARGB(255, 174, 191, 255), // light blue
+          const Color.fromARGB(255, 209, 193, 255), // light purple
+          const Color(0xffffc38b), // light purple
+        ],
       );
 
   // factory AppColorsData.dark() => const AppColorsData();
@@ -161,6 +168,12 @@ class AppColorsData extends Equatable {
   final Color blueHighlightTint_3;
   final Color blueHighlightTint_4;
   final Color blueHighlightTint_5;
+  final List<Color> paletteColorsList; // = [
+  //   const Color.fromARGB(255, 255, 190, 174), // light pink
+  //   const Color.fromARGB(255, 174, 191, 255), // light blue
+  //   const Color.fromARGB(255, 209, 193, 255), // light purple
+  //   AppColorsData.regular().orangeTints_4, // light purple
+  // ];
 
   @override
   List<Object?> get props => [

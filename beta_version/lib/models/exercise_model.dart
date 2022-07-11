@@ -41,63 +41,153 @@ class Exercise extends Equatable {
     );
     return exercise;
   }
+}
 
-  static const List<Exercise> allExercises = [
-    Exercise(
-      name: 'Pitch Glide',
-      category: 'Cheek',
-      description: 'strengthen the muscles of the cheek',
-      image: 'assets/images/thinking.png',
-      duration: '4',
-      isDailyExercise: true,
-    ),
-    Exercise(
-      name: 'Lips Rounding',
-      category: 'Cheek',
-      description: 'strengthen the muscles of the cheek',
-      image: 'assets/images/thinking.png',
-      duration: '4',
-      isDailyExercise: false,
-    ),
-    Exercise(
-      name: 'Cheek Strengthening',
-      category: 'Cheek',
-      description: 'strengthen the muscles of the cheek',
-      image: 'assets/images/thinking.png',
-      duration: '4',
-      isDailyExercise: true,
-    ),
-    Exercise(
-      name: 'Say /i-u/',
-      category: 'Lip',
-      description: 'for exercising muscles controlling your lip',
-      image: 'assets/images/thinking.png',
-      duration: '3',
-      isDailyExercise: true,
-    ),
-    Exercise(
-      name: 'Jaw Range of Movement',
-      category: 'Jaw',
-      description: 'for exercising your jaw',
-      image: 'assets/images/thinking.png',
-      duration: '2',
-      isDailyExercise: false,
-    ),
-    Exercise(
-      name: 'Tongue Elevation',
-      category: 'Tongue',
-      description: 'strengthen your tongue muscles',
-      image: 'assets/images/thinking.png',
-      duration: '2',
-      isDailyExercise: false,
-    ),
-    Exercise(
-      name: 'Tongue Lateral Movement',
-      category: 'Tongue',
-      description: 'strengthen your tongue muscles',
-      image: 'assets/images/thinking.png',
-      duration: '1',
-      isDailyExercise: false,
-    ),
-  ];
+class Exercises {
+  const Exercises({
+    required this.list,
+  });
+
+  final List<Exercise> list;
+
+  factory Exercises.all() => const Exercises(
+        list: <Exercise>[
+          Exercise(
+            name: 'Pitch Glide',
+            category: 'Cheek',
+            description: 'strengthen the muscles of the cheek',
+            image: 'assets/images/thinking.png',
+            duration: '4',
+            isDailyExercise: true,
+          ),
+          Exercise(
+            name: 'Lips Rounding',
+            category: 'Cheek',
+            description: 'strengthen the muscles of the cheek',
+            image: 'assets/images/thinking.png',
+            duration: '4',
+            isDailyExercise: false,
+          ),
+          Exercise(
+            name: 'Cheek Strengthening',
+            category: 'Cheek',
+            description: 'strengthen the muscles of the cheek',
+            image: 'assets/images/thinking.png',
+            duration: '4',
+            isDailyExercise: true,
+          ),
+          Exercise(
+            name: 'Say /i-u/',
+            category: 'Lip',
+            description: 'for exercising muscles controlling your lip',
+            image: 'assets/images/thinking.png',
+            duration: '3',
+            isDailyExercise: true,
+          ),
+          Exercise(
+            name: 'Jaw Range of Movement',
+            category: 'Jaw',
+            description: 'for exercising your jaw',
+            image: 'assets/images/thinking.png',
+            duration: '2',
+            isDailyExercise: false,
+          ),
+          Exercise(
+            name: 'Tongue Elevation',
+            category: 'Tongue',
+            description: 'strengthen your tongue muscles',
+            image: 'assets/images/thinking.png',
+            duration: '2',
+            isDailyExercise: false,
+          ),
+          Exercise(
+            name: 'Tongue Lateral Movement',
+            category: 'Tongue',
+            description: 'strengthen your tongue muscles',
+            image: 'assets/images/thinking.png',
+            duration: '1',
+            isDailyExercise: false,
+          ),
+        ],
+      );
+
+  factory Exercises.cheek() => const Exercises(
+        list: <Exercise>[
+          Exercise(
+            name: 'Pitch Glide',
+            category: 'Cheek',
+            description: 'strengthen the muscles of the cheek',
+            image: 'assets/images/thinking.png',
+            duration: '4',
+            isDailyExercise: true,
+          ),
+          Exercise(
+            name: 'Lips Rounding',
+            category: 'Lip',
+            description: 'strengthen the muscles of the cheek',
+            image: 'assets/images/thinking.png',
+            duration: '4',
+            isDailyExercise: false,
+          ),
+          Exercise(
+            name: 'Cheek Strengthening',
+            category: 'Cheek',
+            description: 'strengthen the muscles of the cheek',
+            image: 'assets/images/thinking.png',
+            duration: '4',
+            isDailyExercise: true,
+          ),
+        ],
+      );
+
+  factory Exercises.jaw() => const Exercises(
+        list: <Exercise>[
+          Exercise(
+            name: 'Jaw Range of Movement',
+            category: 'Jaw',
+            description: 'for exercising your jaw',
+            image: 'assets/images/thinking.png',
+            duration: '2',
+            isDailyExercise: false,
+          ),
+        ],
+      );
+
+  factory Exercises.lip() => const Exercises(
+        list: <Exercise>[
+          Exercise(
+            name: 'Lips Rounding',
+            category: 'Lip',
+            description: 'strengthen the muscles of the cheek',
+            image: 'assets/images/thinking.png',
+            duration: '4',
+            isDailyExercise: false,
+          ),
+        ],
+      );
+
+  factory Exercises.tongue() => const Exercises(
+        list: <Exercise>[
+          Exercise(
+            name: 'Tongue Elevation',
+            category: 'Tongue',
+            description: 'strengthen your tongue muscles',
+            image: 'assets/images/thinking.png',
+            duration: '2',
+            isDailyExercise: false,
+          ),
+          Exercise(
+            name: 'Tongue Lateral Movement',
+            category: 'Tongue',
+            description: 'strengthen your tongue muscles',
+            image: 'assets/images/thinking.png',
+            duration: '1',
+            isDailyExercise: false,
+          ),
+        ],
+      );
+
+  List<Exercise> getList() {
+    return list;
+  }
 }
