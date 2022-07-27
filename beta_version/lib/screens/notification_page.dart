@@ -8,14 +8,14 @@ import '../widgets/top_app_bar.dart';
 
 // TODO: recreate setting page
 
-class SettingPage extends StatefulWidget {
-  const SettingPage({Key? key}) : super(key: key);
+class NotificationPage extends StatefulWidget {
+  const NotificationPage({Key? key}) : super(key: key);
 
   @override
-  State<SettingPage> createState() => _SettingPageState();
+  State<NotificationPage> createState() => _NotificationPageState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +29,10 @@ class _SettingPageState extends State<SettingPage> {
             color: AppColorsData.regular().primaryOrange,
           ),
           child: AppBarContent(
-            title: 'Setting',
+            title: 'Notification',
             leftOnPressed: () {
-              context.go('/tfront/${BottomNavPages.data[4].id}');
+              context.go(
+                  '/tfront/${BottomNavPages.data[2].id}'); // FIXME: maybe change it to gonamed?
             },
           ),
         ),
@@ -45,11 +46,7 @@ class _SettingPageState extends State<SettingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text('Setting page'),
-                  Divider(
-                    color: AppColorsData.regular().primaryUnavaliableGrey,
-                    thickness: .5,
-                  ),
+                  const Text('Notification page'),
                   const VerticalGap(num: 25),
                   LogoutButton(),
                   const VerticalGap(num: 25),

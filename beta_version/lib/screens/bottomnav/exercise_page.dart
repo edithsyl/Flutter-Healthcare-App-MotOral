@@ -1,4 +1,11 @@
+import 'package:beta_version/app_router.dart';
 import 'package:beta_version/screens/exercise/category_tab_list.dart';
+import 'package:beta_version/screens/exercise/exercise_info_page.dart';
+import 'package:beta_version/test_nest/t_nested.dart';
+import 'package:beta_version/utils.dart';
+
+import 'package:beta_version/test_nest/t_data.dart';
+import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
 
 class ExercisePage extends StatelessWidget {
@@ -6,44 +13,109 @@ class ExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColorsData.regular().primaryWhite,
-      padding: EdgeInsets.symmetric(horizontal: AppSpacingData.regular().x4),
-      child: SingleChildScrollView(
-        physics: const ScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const VerticalGap(num: 16),
-            Text(
-              'Start here',
-              style: AppTypographyData.greyShades_6().quicksandBody,
+    final List<GoRoute> _exRoutes = [
+      GoRoute(
+        path: '/category/:cid',
+        pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+            key: state.pageKey,
+            child: CategoryTabsScreen(
+              // passexerciseTap: () =>
+              //     context.go('/category/${t_Categories.data[2].id}'), //FIXME
+              parentContext: context,
+              key: state.pageKey,
+              selectedCategory: t_Categories.t_category(state.params['cid']!),
             ),
-            const VerticalGap(num: 16),
-            MyTabBar(),
-            // const VerticalGap(num: 32),
-            // ConstrainedBox(
-            //   constraints: const BoxConstraints(
-            //     maxHeight: 30,
-            //   ),
-            //   child: SingleChildScrollView(
-            //     scrollDirection: Axis.horizontal,
-            //     physics: const ScrollPhysics(),
-            //     child: Row(
-            //       mainAxisSize: MainAxisSize.min,
-            //       children: const <Widget>[
-            //         CategoryList(
-            //           categories: Category.allCategories,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // ExercisesList(
-            //   exercises: Exercise.allExercises,
-            // )
-          ],
+            time: AppDurationsData.regular().quick),
+        routes: <GoRoute>[
+          GoRoute(
+            path: 'person/:eid',
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              final t_Category t_category =
+                  t_Categories.t_category(state.params['cid']!);
+              final t_Exercise exercise =
+                  t_category.t_exercise(state.params['eid']!);
+              return FadePage(
+                key: state.pageKey,
+                child: ThisExerciseScreen(
+                  category: t_category,
+                  exercise: exercise,
+                ),
+                time: AppDurationsData.regular().quick,
+              );
+            },
+          ),
+        ],
+      ),
+    ];
+    final exRouter = GoRouter(
+      debugLogDiagnostics: true,
+      initialLocation: '/category/${t_Categories.data[0].id}',
+      routes: _exRoutes,
+      errorPageBuilder: (context, state) => MaterialPage(
+        child: Scaffold(
+          body: Center(
+            child: Text(state.error.toString()),
+          ),
         ),
+      ),
+    );
+    return Container(
+      color: AppColorsData.regular().primaryOrange,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Padding(
+            padding: EdgeInsets.fromLTRB(24, 56, 24, 24),
+            child: AppBarContentExercise(
+              xpNum: 0, //FIXME
+              streakNum: 0,
+            ),
+          ),
+          //////////////
+          Expanded(
+            child: Container(
+              color: AppColorsData.regular().primaryWhite,
+              padding:
+                  EdgeInsets.symmetric(horizontal: AppSpacingData.regular().x4),
+              child: SingleChildScrollView(
+                physics: const ScrollPhysics(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const VerticalGap(num: 24),
+                    Text(
+                      'Start here',
+                      style: AppTypographyData.greyShades_6().quicksandBody,
+                    ),
+                    const VerticalGap(num: 16),
+                    ConstrainedBox(
+                      constraints: BoxConstraints.loose(
+                        const Size(432.0, 800.0),
+                      ),
+                      child: WillPopScope(
+                        child: ExerciseApp(
+                          parentContext: context,
+                        ),
+                        onWillPop: () async {
+                          return false;
+                        },
+                      ),
+                    ),
+                    //MyTabBar(),
+                    // Navigator(
+                    //   key: Utils.exerciseListNav,
+                    //   initialRoute: '/category/${t_Categories.data[0].id}',
+                    //   onGenerateRoute: (RouteSettings),
+                    // ),
+                    // MyTabBar(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

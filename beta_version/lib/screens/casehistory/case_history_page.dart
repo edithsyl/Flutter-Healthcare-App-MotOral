@@ -1,21 +1,18 @@
 import 'package:beta_version/test_nest/t_data.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
+import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widgets/top_app_bar.dart';
-
-// TODO: recreate setting page
-
-class SettingPage extends StatefulWidget {
-  const SettingPage({Key? key}) : super(key: key);
+class CaseHistoryPage extends StatefulWidget {
+  const CaseHistoryPage({Key? key}) : super(key: key);
 
   @override
-  State<SettingPage> createState() => _SettingPageState();
+  State<CaseHistoryPage> createState() => _CaseHistoryPageState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _CaseHistoryPageState extends State<CaseHistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +26,10 @@ class _SettingPageState extends State<SettingPage> {
             color: AppColorsData.regular().primaryOrange,
           ),
           child: AppBarContent(
-            title: 'Setting',
+            title: 'CaseHistory',
             leftOnPressed: () {
-              context.go('/tfront/${BottomNavPages.data[4].id}');
+              context.go(
+                  '/tfront/${BottomNavPages.data[4].id}'); // FIXME: maybe change it to gonamed?
             },
           ),
         ),
@@ -45,14 +43,7 @@ class _SettingPageState extends State<SettingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text('Setting page'),
-                  Divider(
-                    color: AppColorsData.regular().primaryUnavaliableGrey,
-                    thickness: .5,
-                  ),
-                  const VerticalGap(num: 25),
-                  LogoutButton(),
-                  const VerticalGap(num: 25),
+                  const Text('CaseHistory page'),
                 ],
               ),
             ),
