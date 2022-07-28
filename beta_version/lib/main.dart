@@ -1,10 +1,10 @@
 import 'package:beta_version/app_router.dart';
+import 'package:beta_version/data/data_export.dart';
 import 'package:beta_version/logic/blocs/bloc_observer.dart';
 import 'package:beta_version/logic/blocs/export_blocs.dart';
 import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
 import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
-import 'package:beta_version/models/exercise_categories_data.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
@@ -14,8 +14,6 @@ import 'package:beta_version/screens/exercise/exercise_info_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import 'package:beta_version/models/bottom_nav_pages_data.dart';
 
 import 'screens/exercise/category_tab_list.dart';
 import 'screens/notification_page.dart';

@@ -1,4 +1,4 @@
-import 'models.dart';
+import 'package:beta_version/models/models.dart';
 
 class ExerciseCategories {
   ExerciseCategories._();

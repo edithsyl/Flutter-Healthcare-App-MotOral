@@ -1,4 +1,3 @@
-import 'package:beta_version/models/bottom_nav_pages_data.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';

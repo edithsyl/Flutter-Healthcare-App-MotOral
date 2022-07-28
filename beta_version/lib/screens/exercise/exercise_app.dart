@@ -1,4 +1,4 @@
-import 'package:beta_version/models/exercise_categories_data.dart';
+import 'package:beta_version/data/exercise_categories_data.dart';
 import 'package:beta_version/screens/exercise/category_tab_list.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';

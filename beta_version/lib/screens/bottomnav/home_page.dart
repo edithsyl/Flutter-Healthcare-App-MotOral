@@ -1,6 +1,6 @@
 import 'package:beta_version/app_router.dart';
 import 'package:beta_version/assets/custom_icons.dart';
-import 'package:beta_version/models/exercise_categories_data.dart';
+import 'package:beta_version/data/exercise_categories_data.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_parctice_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_dots.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_lines.dart';

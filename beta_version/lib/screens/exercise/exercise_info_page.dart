@@ -1,7 +1,6 @@
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
-import 'package:beta_version/models/bottom_nav_pages_data.dart';
 import 'package:beta_version/widgets/exercise_widgets/exercise_instruction_row.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:beta_version/widgets/videoplayer/asset_player_widget.dart';
