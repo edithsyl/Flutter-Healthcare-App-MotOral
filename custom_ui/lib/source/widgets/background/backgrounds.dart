@@ -86,11 +86,13 @@ class ProfileBackgroundPainter extends CustomPainter {
 
     paint.color = AppColorsData.regular().primaryOrange;
 
-    path.lineTo(0, size.height - size.height / 5);
-    path.lineTo(size.width / 1.2, size.height);
-    //Added this line
-    path.relativeQuadraticBezierTo(15, 3, 30, -5);
-    path.lineTo(size.width, size.height - size.height / 5);
+    path.lineTo(0, size.height / 2);
+    path.relativeQuadraticBezierTo(
+        0, -140, size.width / 2, size.height / 3 - size.height / 2);
+    path.lineTo(size.width / 2, size.height / 3);
+    path.relativeQuadraticBezierTo(size.width / 2 + 24, 146, size.width / 2,
+        size.height / 3 - size.height / 2);
+    //path.lineTo(size.width, size.height / 2 - size.height / 3);
     path.lineTo(size.width, 0);
     path.close();
     canvas.drawPath(path, paint);
