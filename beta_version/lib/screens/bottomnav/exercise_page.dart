@@ -1,8 +1,9 @@
 import 'package:beta_version/app_router.dart';
+import 'package:beta_version/models/category_model.dart';
+import 'package:beta_version/models/exercise_model.dart';
 import 'package:beta_version/screens/exercise/category_tab_list.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
-import 'package:beta_version/test_nest/t_nested.dart';
-import 'package:beta_version/utils.dart';
+import 'package:beta_version/test_nest/exercise_app.dart';
 
 import 'package:beta_version/test_nest/t_data.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
@@ -23,21 +24,20 @@ class ExercisePage extends StatelessWidget {
               //     context.go('/category/${t_Categories.data[2].id}'), //FIXME
               parentContext: context,
               key: state.pageKey,
-              selectedCategory: t_Categories.t_category(state.params['cid']!),
+              selectedCategory: Categories.category(state.params['cid']!),
             ),
             time: AppDurationsData.regular().quick),
         routes: <GoRoute>[
           GoRoute(
             path: 'person/:eid',
             pageBuilder: (BuildContext context, GoRouterState state) {
-              final t_Category t_category =
-                  t_Categories.t_category(state.params['cid']!);
-              final t_Exercise exercise =
-                  t_category.t_exercise(state.params['eid']!);
+              final Category category =
+                  Categories.category(state.params['cid']!);
+              final Exercise exercise = category.exercise(state.params['eid']!);
               return FadePage(
                 key: state.pageKey,
                 child: ThisExerciseScreen(
-                  category: t_category,
+                  category: category,
                   exercise: exercise,
                 ),
                 time: AppDurationsData.regular().quick,
@@ -49,7 +49,7 @@ class ExercisePage extends StatelessWidget {
     ];
     final exRouter = GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: '/category/${t_Categories.data[0].id}',
+      initialLocation: '/category/${Categories.data[0].id}',
       routes: _exRoutes,
       errorPageBuilder: (context, state) => MaterialPage(
         child: Scaffold(

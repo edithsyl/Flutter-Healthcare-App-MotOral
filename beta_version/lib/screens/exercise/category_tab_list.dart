@@ -1,4 +1,5 @@
 import 'package:beta_version/app_router.dart';
+import 'package:beta_version/models/category_model.dart';
 import 'package:beta_version/test_nest/t_data.dart';
 import 'package:beta_version/widgets/exercise_card.dart';
 
@@ -8,11 +9,11 @@ import '../../models/exercise_model.dart';
 class CategoryTabsScreen extends StatefulWidget {
   /// Creates a [CategoryTabsScreen].
   CategoryTabsScreen({
-    required t_Category selectedCategory,
+    required Category selectedCategory,
     required this.parentContext,
     Key? key,
-  })  : index = t_Categories.data
-            .indexWhere((t_Category f) => f.id == selectedCategory.id),
+  })  : index = Categories.data
+            .indexWhere((Category f) => f.id == selectedCategory.id),
         super(key: key) {
     assert(index != -1);
   }
@@ -77,8 +78,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
                 unselectedLabelStyle:
                     AppTypographyData.greyShades_5().quicksandBodySmall,
                 tabs: <Tab>[
-                  for (final t_Category c in t_Categories.data)
-                    Tab(text: c.name)
+                  for (final Category c in Categories.data) Tab(text: c.name)
                 ],
                 onTap: (int index) => _tap(context, index),
               ),
@@ -90,7 +90,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
                 child: TabBarView(
                   controller: _controller,
                   children: <Widget>[
-                    for (final t_Category c in t_Categories.data)
+                    for (final Category c in Categories.data)
                       CategoryView(
                         category: c,
                         parentContext: widget.parentContext,
@@ -104,7 +104,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
       );
 
   void _tap(BuildContext context, int index) =>
-      context.go('/category/${t_Categories.data[index].id}');
+      context.go('/category/${Categories.data[index].id}');
 }
 
 /// The category view.
@@ -117,7 +117,7 @@ class CategoryView extends StatefulWidget {
   }) : super(key: key);
 
   /// The category to display.
-  final t_Category category;
+  final Category category;
   final BuildContext parentContext;
 
   @override

@@ -1,4 +1,6 @@
 import 'package:beta_version/assets/custom_icons.dart';
+import 'package:beta_version/models/category_model.dart';
+import 'package:beta_version/models/exercise_model.dart';
 import 'package:beta_version/test_nest/t_data.dart';
 import 'package:beta_version/widgets/exercise_instruction_row.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
@@ -16,10 +18,10 @@ class ThisExerciseScreen extends StatefulWidget {
   State<ThisExerciseScreen> createState() => _ThisExerciseScreenState();
 
   /// The category this person belong to.
-  final t_Category category;
+  final Category category;
 
   /// The person to be displayed.
-  final t_Exercise exercise;
+  final Exercise exercise;
 }
 
 class _ThisExerciseScreenState extends State<ThisExerciseScreen> {

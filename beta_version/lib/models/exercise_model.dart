@@ -1,5 +1,36 @@
+import 'package:beta_version/assets/custom_icons.dart';
+import 'package:beta_version/screens/bottomnav/_bottomnav_pages.dart';
+import 'package:flutter/material.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:equatable/equatable.dart';
+
+class Exercise {
+  /// Creates a [Exercise].
+  Exercise({
+    required this.id,
+    required this.name,
+    required this.category,
+    required this.description,
+    required this.image,
+    required this.duration,
+    required this.isDailyExercise,
+  });
+
+  /// The id of the t_exercise.
+  final String id;
+
+  /// The name of the t_exercise.
+  final String name;
+
+  /// The category of the t_exercise.
+  final String category;
+  final String description;
+  final String image;
+  final String duration;
+  final bool isDailyExercise;
+}
+
+
 
 // class Exercise extends Equatable {
 //   final String name;

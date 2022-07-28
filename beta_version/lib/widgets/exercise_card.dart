@@ -1,7 +1,5 @@
-import 'package:beta_version/test_nest/t_data.dart';
 import 'package:custom_ui/custom_ui.dart';
 
-import '../models/category_model.dart';
 import '../models/exercise_model.dart';
 
 class ExerciseCard3 extends StatelessWidget {
@@ -12,7 +10,7 @@ class ExerciseCard3 extends StatelessWidget {
     required this.ontap,
   }) : super(key: key);
 
-  final t_Exercise exercise;
+  final Exercise exercise;
   final Color color;
   final VoidCallback ontap;
 
