@@ -1,45 +1,45 @@
-import 'dart:async';
+// import 'dart:async';
 
-import 'package:beta_version/models/category_model.dart';
-import 'package:beta_version/repositories/category/category_repository.dart';
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+// import 'package:beta_version/models/category_model.dart';
+// import 'package:beta_version/repositories/category/category_repository.dart';
+// import 'package:bloc/bloc.dart';
+// import 'package:equatable/equatable.dart';
 
-part 'category_event.dart';
-part 'category_state.dart';
+// part 'category_event.dart';
+// part 'category_state.dart';
 
-class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
-  final CategoryRepository _categoryRepository;
-  StreamSubscription? _categorySubscription;
+// class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
+//   final CategoryRepository _categoryRepository;
+//   StreamSubscription? _categorySubscription;
 
-  CategoryBloc({required CategoryRepository categoryRepository})
-      : _categoryRepository = categoryRepository,
-        super(CategoryLoading());
+//   CategoryBloc({required CategoryRepository categoryRepository})
+//       : _categoryRepository = categoryRepository,
+//         super(CategoryLoading());
 
-  /// defining methods:
-  @override
-  Stream<CategoryState> mapEventToState(
-    CategoryEvent event,
-  ) async* {
-    if (event is LoadCategories) {
-      yield* _mapLoadCategoriesToState();
-    }
-    if (event is UpdateCategories) {
-      yield* _mapUpdateCategoriesToState(event);
-    }
-  }
+//   /// defining methods:
+//   @override
+//   Stream<CategoryState> mapEventToState(
+//     CategoryEvent event,
+//   ) async* {
+//     if (event is LoadCategories) {
+//       yield* _mapLoadCategoriesToState();
+//     }
+//     if (event is UpdateCategories) {
+//       yield* _mapUpdateCategoriesToState(event);
+//     }
+//   }
 
-  Stream<CategoryState> _mapLoadCategoriesToState() async* {
-    _categorySubscription?.cancel();
-    _categorySubscription = _categoryRepository
-        .getAllCategories()
-        .listen((categories) => add(UpdateCategories(categories)));
-  }
+//   Stream<CategoryState> _mapLoadCategoriesToState() async* {
+//     _categorySubscription?.cancel();
+//     _categorySubscription = _categoryRepository
+//         .getAllCategories()
+//         .listen((categories) => add(UpdateCategories(categories)));
+//   }
 
-  Stream<CategoryState> _mapUpdateCategoriesToState(
-      UpdateCategories event) async* {
-    yield CategoryLoaded(categories: event.categories);
-  }
-}
+//   Stream<CategoryState> _mapUpdateCategoriesToState(
+//       UpdateCategories event) async* {
+//     yield CategoryLoaded(categories: event.categories);
+//   }
+// }
 
-// review: https://www.youtube.com/watch?v=O8-Q6RyO8QY&ab_channel=MaxonFlutter
+// // review: https://www.youtube.com/watch?v=O8-Q6RyO8QY&ab_channel=MaxonFlutter

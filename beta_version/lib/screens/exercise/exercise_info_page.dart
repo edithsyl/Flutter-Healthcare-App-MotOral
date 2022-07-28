@@ -36,6 +36,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
             child: AppBarContent(
               title: 'Exercise',
               leftOnPressed: () {
+                //go back to exercise page
                 context.go('/tfront/${BottomNavPages.data[1].id}');
               },
             ),
@@ -107,8 +108,6 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                         shrinkWrap: true,
                         physics: const BouncingScrollPhysics(
                             parent: NeverScrollableScrollPhysics()),
-                        // const BouncingScrollPhysics(
-                        //     parent: AlwaysScrollableScrollPhysics()),
                         scrollDirection: Axis.vertical,
                         itemCount: 5,
                         itemBuilder: (context, index) {

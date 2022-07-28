@@ -1,5 +1,5 @@
-import 'package:beta_version/models/exercise_model.dart';
+// import 'package:beta_version/models/exercise_model.dart';
 
-abstract class BaseExerciseRepository {
-  Stream<List<Exercise>> getAllExercises();
-}
+// abstract class BaseExerciseRepository {
+//   Stream<List<Exercise>> getAllExercises();
+// }

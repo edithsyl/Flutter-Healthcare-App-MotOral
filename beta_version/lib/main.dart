@@ -71,7 +71,8 @@ class AppView extends StatelessWidget {
     GoRoute(
       // test route
       path: '/',
-      redirect: (_) => '/category/${t_Categories.data[0].id}', //'/front',
+      redirect: (_) =>
+          '/tfront/b3', //'/category/${t_Categories.data[0].id}', //'/front',
     ),
     // GoRoute(
     //   name: 'login',
@@ -87,14 +88,6 @@ class AppView extends StatelessWidget {
     //   pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
     //       key: state.pageKey,
     //       child: const RegistrationScreen(),
-    //       time: AppDurationsData.regular().quick),
-    // ),
-    // GoRoute(
-    //   name: 'front',
-    //   path: '/front',
-    //   pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
-    //       key: state.pageKey,
-    //       child: const FrontPage(),
     //       time: AppDurationsData.regular().quick),
     // ),
     GoRoute(
@@ -121,13 +114,13 @@ class AppView extends StatelessWidget {
           child: const CaseHistoryPage(),
           time: AppDurationsData.regular().quick),
     ),
+
+    /// for showing exercise info page
     GoRoute(
       path: '/category/:cid',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: CategoryTabsScreen(
-            // passexerciseTap: () =>
-            //     context.go('/category/${t_Categories.data[2].id}'), //FIXME
             parentContext: context,
             key: state.pageKey,
             selectedCategory: t_Categories.t_category(state.params['cid']!),
@@ -153,6 +146,8 @@ class AppView extends StatelessWidget {
         ),
       ],
     ),
+
+    /// for showing bottom navigation pages
     GoRoute(
       path: '/tfront/:bid',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
@@ -162,38 +157,6 @@ class AppView extends StatelessWidget {
             selectedPage: BottomNavPages.bottomNavPage(state.params['bid']!),
           ),
           time: AppDurationsData.regular().quick),
-      // routes: <GoRoute>[
-      //   GoRoute(
-      //     path: 'category/:cid',
-      //     pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
-      //         key: state.pageKey,
-      //         child: CategoryTabsScreen(
-      //           parentContext: context,
-      //           key: state.pageKey,
-      //           selectedCategory: t_Categories.t_category(state.params['cid']!),
-      //         ),
-      //         time: AppDurationsData.regular().quick),
-      //     routes: <GoRoute>[
-      //       GoRoute(
-      //         path: 'person/:eid',
-      //         pageBuilder: (BuildContext context, GoRouterState state) {
-      //           final t_Category t_category =
-      //               t_Categories.t_category(state.params['cid']!);
-      //           final t_Exercise exercise =
-      //               t_category.t_exercise(state.params['eid']!);
-      //           return FadePage(
-      //             key: state.pageKey,
-      //             child: ThisExerciseScreen(
-      //               category: t_category,
-      //               exercise: exercise,
-      //             ),
-      //             time: AppDurationsData.regular().quick,
-      //           );
-      //         },
-      //       ),
-      //     ],
-      // ),
-      // ],
     ),
   ];
 
@@ -203,8 +166,7 @@ class AppView extends StatelessWidget {
     // final authBloc = context.read<AuthBloc>(); //test
     final appRouter = GoRouter(
       debugLogDiagnostics: true,
-      initialLocation:
-          '/category/${t_Categories.data[0].id}/person/${t_Categories.data[0].exercises[0].id}', // '/tfront/${BottomNavPages.data[0].id}', //'/front', //'/category/${t_Categories.data[0].id}',
+      initialLocation: '/',
       // redirect: (state) {
       //   // if the user is not logged in, they need to login
       //   final isloggedIn = authBloc.state.status == AuthStatus.authenticated;
@@ -232,25 +194,25 @@ class AppView extends StatelessWidget {
     );
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) => CategoryBloc(
-            categoryRepository: CategoryRepository(),
-          )..add(LoadCategories()), // create an instance of this bloc
+        BlocProvider<LoginCubit>(
+          create: (_) => LoginCubit(context.read<AuthRepository>()),
+        ),
+        BlocProvider<SignupCubit>(
+          create: (_) => SignupCubit(context.read<AuthRepository>()),
         ),
         // BlocProvider<NavigationCubit>(
         //   create: ((context) => NavigationCubit()),
         // ),
-        // BlocProvider<LoginCubit>(
-        //   create: (_) => LoginCubit(context.read<AuthRepository>()),
+        // BlocProvider(
+        //   create: (_) => CategoryBloc(
+        //     categoryRepository: CategoryRepository(),
+        //   )..add(LoadCategories()), // create an instance of this bloc
         // ),
-        // BlocProvider<SignupCubit>(
-        //   create: (_) => SignupCubit(context.read<AuthRepository>()),
+        // BlocProvider(
+        //   create: (_) => ExerciseBloc(
+        //     exerciseRepository: ExerciseRepository(),
+        //   )..add(LoadExercises()),
         // ),
-        BlocProvider(
-          create: (_) => ExerciseBloc(
-            exerciseRepository: ExerciseRepository(),
-          )..add(LoadExercises()),
-        ),
       ],
       child: MaterialApp.router(
         key: Utils.mainAppNav,

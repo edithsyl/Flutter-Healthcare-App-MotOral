@@ -144,34 +144,22 @@ class _CategoryViewState extends State<CategoryView>
     // Call `super.build` when using `AutomaticKeepAliveClientMixin`.
     super.build(context);
     return ListView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        itemCount: widget.category.exercises.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 16.0),
-            child: ExerciseCard3(
-              exercise: widget.category.exercises[index],
-              color: AppColorsData.regular().paletteColorsList[index],
-              ontap: () => widget.parentContext.go(
-                  '/category/${widget.category.id}/person/${widget.category.exercises[index].id}'),
-            ),
-          );
-        }
-        // children: <Widget>[
-        //   for (final t_Exercise p in widget.category.exercises)
-        //     Padding(
-        //       padding: const EdgeInsets.fromLTRB(0, 0, 0, 16.0),
-        //       child: ExerciseCard3(
-        //         exercise: p,
-        //         color: AppColorsData.regular().paletteColorsList[0],
-        //         ontap: () => widget.parentContext
-        //             .go('/category/${widget.category.id}/person/${p.id}'),
-        //       ),
-        //     ),
-        // ],
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
+      itemCount: widget.category.exercises.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 16.0),
+          child: ExerciseCard3(
+            exercise: widget.category.exercises[index],
+            color: AppColorsData.regular().paletteColorsList[index],
+            ontap: () => widget.parentContext.go(
+                '/category/${widget.category.id}/person/${widget.category.exercises[index].id}'),
+          ),
         );
+      },
+    );
   }
 }
 

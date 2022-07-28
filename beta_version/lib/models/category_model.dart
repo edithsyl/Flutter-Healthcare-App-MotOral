@@ -1,34 +1,34 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:equatable/equatable.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:equatable/equatable.dart';
 
-class Category extends Equatable {
-  final String name;
+// class Category extends Equatable {
+//   final String name;
 
-  const Category({
-    required this.name,
-  });
-  @override
-  List<Object?> get props => [name];
+//   const Category({
+//     required this.name,
+//   });
+//   @override
+//   List<Object?> get props => [name];
 
-  // everytime we get data from firestore, we receive snapshots from it
-  // need to compare data from firebase with instance in category class
-  static Category fromSnapshot(DocumentSnapshot snap) {
-    Category category = Category(name: snap['name']);
-    return category;
-  }
+//   // everytime we get data from firestore, we receive snapshots from it
+//   // need to compare data from firebase with instance in category class
+//   static Category fromSnapshot(DocumentSnapshot snap) {
+//     Category category = Category(name: snap['name']);
+//     return category;
+//   }
 
-  static const List<Category> allCategories = [
-    Category(
-      name: 'Cheek',
-    ),
-    Category(
-      name: 'Jaw',
-    ),
-    Category(
-      name: 'Lip',
-    ),
-    Category(
-      name: 'Tongue',
-    ),
-  ];
-}
+//   static const List<Category> allCategories = [
+//     Category(
+//       name: 'Cheek',
+//     ),
+//     Category(
+//       name: 'Jaw',
+//     ),
+//     Category(
+//       name: 'Lip',
+//     ),
+//     Category(
+//       name: 'Tongue',
+//     ),
+//   ];
+// }

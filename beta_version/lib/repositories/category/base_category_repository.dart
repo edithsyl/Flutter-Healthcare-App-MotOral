@@ -1,5 +1,5 @@
-import 'package:beta_version/models/category_model.dart';
+// import 'package:beta_version/models/category_model.dart';
 
-abstract class BaseCategoryRepository {
-  Stream<List<Category>> getAllCategories();
-}
+// abstract class BaseCategoryRepository {
+//   Stream<List<Category>> getAllCategories();
+// }

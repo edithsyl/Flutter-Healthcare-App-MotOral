@@ -6,9 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import 't_data.dart';
 
-// void main() => runApp(ExerciseApp());
-
-/// The main app.
+///
 class ExerciseApp extends StatelessWidget {
   /// Creates an [App].
   ExerciseApp({
@@ -21,9 +19,6 @@ class ExerciseApp extends StatelessWidget {
   /// The title of the app.
   static const String title = 'GoRouter Example: Nested Navigation';
 
-  // void _exercisetap(BuildContext context) =>
-  //     context.go('/category/${t_Categories.data[2].id}');
-
   final List<GoRoute> exRoutes = <GoRoute>[
     GoRoute(
       path: '/',
@@ -34,32 +29,11 @@ class ExerciseApp extends StatelessWidget {
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: CategoryTabsScreen(
-            //FIXME
             key: state.pageKey,
             parentContext: context,
             selectedCategory: t_Categories.t_category(state.params['cid']!),
           ),
           time: AppDurationsData.regular().quick),
-      routes: <GoRoute>[
-        GoRoute(
-          path: 'person/:eid',
-          pageBuilder: (BuildContext context, GoRouterState state) {
-            final t_Category t_category =
-                t_Categories.t_category(state.params['cid']!);
-            final t_Exercise exercise =
-                t_category.t_exercise(state.params['eid']!);
-            return FadePage(
-              key: state.pageKey,
-              child: ThisExerciseScreen(
-                category: t_category,
-                exercise: exercise,
-                // parentContext: parentContext,
-              ),
-              time: AppDurationsData.regular().quick,
-            );
-          },
-        ),
-      ],
     ),
   ];
 

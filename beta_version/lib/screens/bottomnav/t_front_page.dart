@@ -28,7 +28,7 @@ class _BottomNavScreenState extends State<BottomNavScreen>
   void initState() {
     super.initState();
     _controller = TabController(
-      length: 5, //t_Categories.data.length,
+      length: 5,
       vsync: this,
       initialIndex: widget.index,
     );
@@ -52,6 +52,7 @@ class _BottomNavScreenState extends State<BottomNavScreen>
           width: double.maxFinite,
           height: MediaQuery.of(context).size.height,
           child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
             controller: _controller,
             children: <Widget>[
               for (final BottomNavPage c in BottomNavPages.data)
