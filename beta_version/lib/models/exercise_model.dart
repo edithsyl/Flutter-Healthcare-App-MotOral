@@ -1,9 +1,3 @@
-import 'package:beta_version/assets/custom_icons.dart';
-import 'package:beta_version/screens/bottomnav/_bottomnav_pages.dart';
-import 'package:flutter/material.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:equatable/equatable.dart';
-
 class Exercise {
   /// Creates a [Exercise].
   Exercise({
@@ -31,6 +25,8 @@ class Exercise {
 }
 
 
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:equatable/equatable.dart';
 
 // class Exercise extends Equatable {
 //   final String name;

@@ -1,5 +1,3 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:equatable/equatable.dart';
 import 'package:beta_version/models/exercise_model.dart';
 
 class Category {
@@ -119,6 +117,9 @@ extension on List<Category> {
         orElse: () => throw Exception('unknown t_category $cid'),
       );
 }
+
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:equatable/equatable.dart';
 
 // class Category extends Equatable {
 //   final String name;
