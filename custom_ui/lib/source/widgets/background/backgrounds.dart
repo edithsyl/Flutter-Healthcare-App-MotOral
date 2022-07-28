@@ -1,6 +1,7 @@
 import 'package:custom_ui/custom_ui.dart';
 import 'dart:math';
 
+// FIXME
 class OrangeWaveTopPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -60,6 +61,30 @@ class CurvyAppBarPainter extends CustomPainter {
     Path path = Path();
 
     paint.color = AppColorsData.regular().orangeTints_3;
+
+    path.lineTo(0, size.height - size.height / 5);
+    path.lineTo(size.width / 1.2, size.height);
+    //Added this line
+    path.relativeQuadraticBezierTo(15, 3, 30, -5);
+    path.lineTo(size.width, size.height - size.height / 5);
+    path.lineTo(size.width, 0);
+    path.close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class ProfileBackgroundPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint();
+    Path path = Path();
+
+    paint.color = AppColorsData.regular().primaryOrange;
 
     path.lineTo(0, size.height - size.height / 5);
     path.lineTo(size.width / 1.2, size.height);

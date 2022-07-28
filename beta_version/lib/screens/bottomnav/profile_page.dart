@@ -1,4 +1,5 @@
 import 'package:beta_version/assets/custom_icons.dart';
+import 'package:beta_version/widgets/profile_toggle_button.dart';
 import 'package:beta_version/widgets/snack_bars.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       size: MediaQuery.of(context).size,
-      painter: CurvyAppBarPainter(),
+      painter: ProfileBackgroundPainter(),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 56, 24, 24),
         child: Column(
@@ -224,6 +225,21 @@ class ProfilePage extends StatelessWidget {
                 ),
               ],
             ),
+            const VerticalGap(num: 24),
+            ProfileToggleButton(),
+            // ToggleButtons(
+            //   children: <Text>[
+            //     Text(
+            //       style: AppTypographyData.primaryWhite().quicksandBody,
+            //       'children',
+            //     ),
+            //     Text(
+            //       style: AppTypographyData.primaryWhite().quicksandBody,
+            //       'Badges',
+            //     )
+            //   ],
+            //   isSelected: true,
+            // ),
             const VerticalGap(num: 24),
             // TESTING
             AppSolidRoundButtonReg(

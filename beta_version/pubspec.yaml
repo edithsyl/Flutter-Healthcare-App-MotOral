@@ -45,6 +45,7 @@ dependencies:
   google_sign_in: ^5.3.3
   lint: ^1.8.2
   simple_animations: ^4.1.0
+  toggle_switch: ^2.0.1
   video_player: ^2.4.5
 
 dev_dependencies:
