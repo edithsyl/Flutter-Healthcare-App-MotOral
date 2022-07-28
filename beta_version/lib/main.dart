@@ -4,18 +4,18 @@ import 'package:beta_version/logic/blocs/export_blocs.dart';
 import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
 import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
-import 'package:beta_version/models/category_model.dart';
+import 'package:beta_version/models/exercise_categories_data.dart';
+import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
-import 'package:beta_version/utils.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'package:beta_version/test_nest/t_data.dart';
+import 'package:beta_version/models/bottom_nav_pages_data.dart';
 
 import 'screens/exercise/category_tab_list.dart';
 import 'screens/notification_page.dart';
@@ -125,14 +125,15 @@ class AppView extends StatelessWidget {
           child: CategoryTabsScreen(
             parentContext: context,
             key: state.pageKey,
-            selectedCategory: Categories.category(state.params['cid']!),
+            selectedCategory: ExerciseCategories.category(state.params['cid']!),
           ),
           time: AppDurationsData.regular().quick),
       routes: <GoRoute>[
         GoRoute(
           path: 'person/:eid',
           pageBuilder: (BuildContext context, GoRouterState state) {
-            final Category category = Categories.category(state.params['cid']!);
+            final ExerciseCategory category =
+                ExerciseCategories.category(state.params['cid']!);
             final Exercise exercise = category.exercise(state.params['eid']!);
             return FadePage(
               key: state.pageKey,
@@ -157,6 +158,31 @@ class AppView extends StatelessWidget {
             selectedPage: BottomNavPages.bottomNavPage(state.params['bid']!),
           ),
           time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'news',
+      path: '/news',
+      redirect: (_) => '/tfront/${BottomNavPages.data[0].id}',
+    ),
+    GoRoute(
+      name: 'exercise',
+      path: '/exercise',
+      redirect: (_) => '/tfront/${BottomNavPages.data[1].id}',
+    ),
+    GoRoute(
+      name: 'home',
+      path: '/home',
+      redirect: (_) => '/tfront/${BottomNavPages.data[2].id}',
+    ),
+    GoRoute(
+      name: 'people',
+      path: '/people',
+      redirect: (_) => '/tfront/${BottomNavPages.data[3].id}',
+    ),
+    GoRoute(
+      name: 'profile',
+      path: '/profile',
+      redirect: (_) => '/tfront/${BottomNavPages.data[4].id}',
     ),
   ];
 
@@ -215,7 +241,7 @@ class AppView extends StatelessWidget {
         // ),
       ],
       child: MaterialApp.router(
-        key: Utils.mainAppNav,
+        //key: Utils.mainAppNav,
         routeInformationProvider: appRouter.routeInformationProvider,
         routeInformationParser: appRouter.routeInformationParser,
         routerDelegate: appRouter.routerDelegate,

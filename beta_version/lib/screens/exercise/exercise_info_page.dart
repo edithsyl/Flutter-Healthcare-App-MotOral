@@ -1,8 +1,8 @@
 import 'package:beta_version/assets/custom_icons.dart';
-import 'package:beta_version/models/category_model.dart';
+import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
-import 'package:beta_version/test_nest/t_data.dart';
-import 'package:beta_version/widgets/exercise_instruction_row.dart';
+import 'package:beta_version/models/bottom_nav_pages_data.dart';
+import 'package:beta_version/widgets/exercise_widgets/exercise_instruction_row.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:beta_version/widgets/videoplayer/asset_player_widget.dart';
 import 'package:custom_ui/custom_ui.dart';
@@ -18,7 +18,7 @@ class ThisExerciseScreen extends StatefulWidget {
   State<ThisExerciseScreen> createState() => _ThisExerciseScreenState();
 
   /// The category this person belong to.
-  final Category category;
+  final ExerciseCategory category;
 
   /// The person to be displayed.
   final Exercise exercise;
@@ -39,7 +39,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
               title: 'Exercise',
               leftOnPressed: () {
                 //go back to exercise page
-                context.go('/tfront/${BottomNavPages.data[1].id}');
+                context.goNamed('exercise');
               },
             ),
           ),

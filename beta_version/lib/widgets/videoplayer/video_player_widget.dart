@@ -1,5 +1,4 @@
 import 'package:beta_version/app_router.dart';
-import 'package:flutter/material.dart';
 import 'basic_overlay_widget.dart';
 import 'package:video_player/video_player.dart';
 

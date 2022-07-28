@@ -1,10 +1,8 @@
-import 'package:beta_version/models/category_model.dart';
+import 'package:beta_version/models/exercise_categories_data.dart';
 import 'package:beta_version/screens/exercise/category_tab_list.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import 't_data.dart';
 
 ///
 class ExerciseApp extends StatelessWidget {
@@ -22,7 +20,7 @@ class ExerciseApp extends StatelessWidget {
   final List<GoRoute> exRoutes = <GoRoute>[
     GoRoute(
       path: '/',
-      redirect: (_) => '/category/${Categories.data[0].id}',
+      redirect: (_) => '/category/${ExerciseCategories.data[0].id}',
     ),
     GoRoute(
       path: '/category/:cid',
@@ -31,7 +29,7 @@ class ExerciseApp extends StatelessWidget {
           child: CategoryTabsScreen(
             key: state.pageKey,
             parentContext: context,
-            selectedCategory: Categories.category(state.params['cid']!),
+            selectedCategory: ExerciseCategories.category(state.params['cid']!),
           ),
           time: AppDurationsData.regular().quick),
     ),
@@ -40,7 +38,7 @@ class ExerciseApp extends StatelessWidget {
   late final GoRouter _router = GoRouter(
     debugLogDiagnostics: true,
     routes: exRoutes,
-    initialLocation: '/category/${Categories.data[0].id}',
+    initialLocation: '/category/${ExerciseCategories.data[0].id}',
     errorPageBuilder: (context, state) => MaterialPage(
       child: Scaffold(
         body: Center(

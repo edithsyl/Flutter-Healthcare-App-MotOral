@@ -1,11 +1,11 @@
 import 'package:beta_version/app_router.dart';
-import 'package:beta_version/models/category_model.dart';
+import 'package:beta_version/models/exercise_categories_data.dart';
+import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
 import 'package:beta_version/screens/exercise/category_tab_list.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
-import 'package:beta_version/test_nest/exercise_app.dart';
+import 'package:beta_version/screens/exercise/exercise_app.dart';
 
-import 'package:beta_version/test_nest/t_data.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
 
@@ -20,19 +20,18 @@ class ExercisePage extends StatelessWidget {
         pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
             key: state.pageKey,
             child: CategoryTabsScreen(
-              // passexerciseTap: () =>
-              //     context.go('/category/${t_Categories.data[2].id}'), //FIXME
               parentContext: context,
               key: state.pageKey,
-              selectedCategory: Categories.category(state.params['cid']!),
+              selectedCategory:
+                  ExerciseCategories.category(state.params['cid']!),
             ),
             time: AppDurationsData.regular().quick),
         routes: <GoRoute>[
           GoRoute(
             path: 'person/:eid',
             pageBuilder: (BuildContext context, GoRouterState state) {
-              final Category category =
-                  Categories.category(state.params['cid']!);
+              final ExerciseCategory category =
+                  ExerciseCategories.category(state.params['cid']!);
               final Exercise exercise = category.exercise(state.params['eid']!);
               return FadePage(
                 key: state.pageKey,
@@ -49,7 +48,7 @@ class ExercisePage extends StatelessWidget {
     ];
     final exRouter = GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: '/category/${Categories.data[0].id}',
+      initialLocation: '/category/${ExerciseCategories.data[0].id}',
       routes: _exRoutes,
       errorPageBuilder: (context, state) => MaterialPage(
         child: Scaffold(

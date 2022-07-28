@@ -1,9 +1,8 @@
+import 'package:beta_version/models/exercise_model.dart';
 import 'package:custom_ui/custom_ui.dart';
 
-import '../models/exercise_model.dart';
-
-class ExerciseCard3 extends StatelessWidget {
-  const ExerciseCard3({
+class ExerciseCard extends StatelessWidget {
+  const ExerciseCard({
     Key? key,
     required this.exercise,
     required this.color,

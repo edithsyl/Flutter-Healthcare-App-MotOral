@@ -1,19 +1,17 @@
 import 'package:beta_version/app_router.dart';
-import 'package:beta_version/models/category_model.dart';
-import 'package:beta_version/test_nest/t_data.dart';
-import 'package:beta_version/widgets/exercise_card.dart';
-
-import '../../models/exercise_model.dart';
+import 'package:beta_version/models/exercise_categories_data.dart';
+import 'package:beta_version/models/exercise_category_model.dart';
+import 'package:beta_version/widgets/exercise_widgets/exercise_card.dart';
 
 /// The category tabs screen
 class CategoryTabsScreen extends StatefulWidget {
   /// Creates a [CategoryTabsScreen].
   CategoryTabsScreen({
-    required Category selectedCategory,
+    required ExerciseCategory selectedCategory,
     required this.parentContext,
     Key? key,
-  })  : index = Categories.data
-            .indexWhere((Category f) => f.id == selectedCategory.id),
+  })  : index = ExerciseCategories.data
+            .indexWhere((ExerciseCategory f) => f.id == selectedCategory.id),
         super(key: key) {
     assert(index != -1);
   }
@@ -78,7 +76,8 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
                 unselectedLabelStyle:
                     AppTypographyData.greyShades_5().quicksandBodySmall,
                 tabs: <Tab>[
-                  for (final Category c in Categories.data) Tab(text: c.name)
+                  for (final ExerciseCategory c in ExerciseCategories.data)
+                    Tab(text: c.name)
                 ],
                 onTap: (int index) => _tap(context, index),
               ),
@@ -90,7 +89,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
                 child: TabBarView(
                   controller: _controller,
                   children: <Widget>[
-                    for (final Category c in Categories.data)
+                    for (final ExerciseCategory c in ExerciseCategories.data)
                       CategoryView(
                         category: c,
                         parentContext: widget.parentContext,
@@ -104,7 +103,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
       );
 
   void _tap(BuildContext context, int index) =>
-      context.go('/category/${Categories.data[index].id}');
+      context.go('/category/${ExerciseCategories.data[index].id}');
 }
 
 /// The category view.
@@ -117,7 +116,7 @@ class CategoryView extends StatefulWidget {
   }) : super(key: key);
 
   /// The category to display.
-  final Category category;
+  final ExerciseCategory category;
   final BuildContext parentContext;
 
   @override
@@ -151,7 +150,7 @@ class _CategoryViewState extends State<CategoryView>
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 16.0),
-          child: ExerciseCard3(
+          child: ExerciseCard(
             exercise: widget.category.exercises[index],
             color: AppColorsData.regular().paletteColorsList[index],
             ontap: () => widget.parentContext.go(

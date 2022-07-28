@@ -1,4 +1,4 @@
-import 'package:beta_version/test_nest/t_data.dart';
+import 'package:beta_version/models/bottom_nav_pages_data.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
@@ -28,8 +28,7 @@ class _CaseHistoryPageState extends State<CaseHistoryPage> {
           child: AppBarContent(
             title: 'CaseHistory',
             leftOnPressed: () {
-              context.go(
-                  '/tfront/${BottomNavPages.data[4].id}'); // FIXME: maybe change it to gonamed?
+              context.goNamed('profile');
             },
           ),
         ),

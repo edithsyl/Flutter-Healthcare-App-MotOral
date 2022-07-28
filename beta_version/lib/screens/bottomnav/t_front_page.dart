@@ -1,5 +1,5 @@
 import 'package:beta_version/app_router.dart';
-import 'package:beta_version/test_nest/t_data.dart';
+import 'package:beta_version/models/bottom_nav_pages_data.dart';
 
 /// The category tabs screen
 class BottomNavScreen extends StatefulWidget {

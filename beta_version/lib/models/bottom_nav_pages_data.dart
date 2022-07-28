@@ -2,32 +2,6 @@ import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/screens/bottomnav/_bottomnav_pages.dart';
 import 'package:flutter/material.dart';
 
-// class t_Exercise {
-//   /// Creates a [t_Exercise].
-//   t_Exercise({
-//     required this.id,
-//     required this.name,
-//     required this.category,
-//     required this.description,
-//     required this.image,
-//     required this.duration,
-//     required this.isDailyExercise,
-//   });
-
-//   /// The id of the t_exercise.
-//   final String id;
-
-//   /// The name of the t_exercise.
-//   final String name;
-
-//   /// The category of the t_exercise.
-//   final String category;
-//   final String description;
-//   final String image;
-//   final String duration;
-//   final bool isDailyExercise;
-// }
-
 class BottomNavPage {
   /// Creates a [BottomNavPage].
   BottomNavPage({
@@ -44,18 +18,11 @@ class BottomNavPage {
   final String name;
   final Widget thisIcon;
 
-  /// The list of [t_Exercise]s in the BottomNavPage.
+  /// The things shown in that specific BottomNavPage.
   final Widget thisPageShows;
-
-  // /// Gets the [t_Exercise] with the given id in this BottomNavPage.
-  // t_Exercise t_exercise(String eid) => exercises.singleWhere(
-  //       (t_Exercise e) => e.id == eid,
-  //       orElse: () =>
-  //           throw Exception('unknown t_exercise $eid for t_category $id'),
-  //     );
 }
 
-/// The mock of bottomnav data.
+/// Bottomnav [data]
 class BottomNavPages {
   BottomNavPages._();
 
@@ -68,7 +35,7 @@ class BottomNavPages {
         padding: EdgeInsets.symmetric(vertical: 2.0),
         child: Icon(Icons.apps),
       ),
-      thisPageShows: NewsPage(),
+      thisPageShows: const NewsPage(),
     ),
     BottomNavPage(
       id: 'b2',
@@ -108,18 +75,13 @@ class BottomNavPages {
     ),
   ];
 
-  /// Looks up a t_category in the data.
+  /// Looks up a [BottomNavPage] in the data with [id]
   static BottomNavPage bottomNavPage(String bid) => data.bottomNavPage(bid);
 }
 
 extension on List<BottomNavPage> {
-  BottomNavPage bottomNavPage(String cid) => singleWhere(
-        (BottomNavPage c) => c.id == cid,
-        orElse: () => throw Exception('unknown t_category $cid'),
+  BottomNavPage bottomNavPage(String bid) => singleWhere(
+        (b) => b.id == bid,
+        orElse: () => throw Exception('unknown category $bid'),
       );
 }
-
-/// t_Category data class.
-
-/// The person screen.
-

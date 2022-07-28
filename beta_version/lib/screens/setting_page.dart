@@ -1,4 +1,4 @@
-import 'package:beta_version/test_nest/t_data.dart';
+import 'package:beta_version/models/bottom_nav_pages_data.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class _SettingPageState extends State<SettingPage> {
           child: AppBarContent(
             title: 'Setting',
             leftOnPressed: () {
-              context.go('/tfront/${BottomNavPages.data[4].id}');
+              context.goNamed('profile');
             },
           ),
         ),

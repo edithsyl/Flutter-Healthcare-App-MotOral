@@ -1,8 +1,4 @@
-//MYTODO: 2. put daily exercise card here
-// reference exercise_card
-
 import 'package:beta_version/models/exercise_model.dart';
-import 'package:beta_version/test_nest/t_data.dart';
 import 'package:custom_ui/custom_ui.dart';
 
 class TodoDailyPractice extends StatelessWidget {

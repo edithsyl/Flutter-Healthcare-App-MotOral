@@ -1,6 +1,6 @@
 import 'package:beta_version/app_router.dart';
 import 'package:beta_version/assets/custom_icons.dart';
-import 'package:beta_version/models/category_model.dart';
+import 'package:beta_version/models/exercise_categories_data.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_parctice_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_dots.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_lines.dart';
@@ -9,7 +9,6 @@ import 'package:beta_version/widgets/home_announcements/do_case_history_card.dar
 import 'package:beta_version/widgets/snack_bars.dart';
 import 'package:custom_ui/custom_ui.dart';
 
-///MYTODO: 1.make daily exercise card
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -117,11 +116,11 @@ Widget _buildItem(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CompletedDailyPractice(
-              exercise: Categories.category('c1').exercise('e2'),
+              exercise: ExerciseCategories.category('c1').exercise('e2'),
               ontap: () {},
             ),
             ThisDailyPractice(
-              exercise: Categories.category('c1').exercise('e1'),
+              exercise: ExerciseCategories.category('c1').exercise('e1'),
               ontap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   getSnackBarWidget(
@@ -134,7 +133,7 @@ Widget _buildItem(BuildContext context) {
               },
             ),
             TodoDailyPractice(
-              exercise: Categories.category('c1').exercise('e2'),
+              exercise: ExerciseCategories.category('c1').exercise('e2'),
               ontap: () {},
             ),
           ],
