@@ -18,6 +18,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'screens/exercise/category_tab_list.dart';
 import 'screens/notification_page.dart';
 
+import 'inGoroutes.dart';
+
 Future<void> main() async {
   return BlocOverrides.runZoned(
     () async {
@@ -51,14 +53,14 @@ class App extends StatelessWidget {
   /// AppView consumes the AuthenticationBloc and handles updating the current route based on the AuthenticationState
   @override
   Widget build(BuildContext context) {
-    return AppView(); // test route
-    // return RepositoryProvider.value(
-    //   value: _authRepository,
-    //   child: BlocProvider(
-    //     create: (_) => AuthBloc(authRepository: _authRepository),
-    //     child: AppView(),
-    //   ),
-    // );
+    //return AppView(); // test route
+    return RepositoryProvider.value(
+      value: _authRepository,
+      child: BlocProvider(
+        create: (_) => AuthBloc(authRepository: _authRepository),
+        child: AppView(),
+      ),
+    );
   }
 }
 
@@ -67,29 +69,29 @@ class AppView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final List<GoRoute> _loggedOutRoutes = [
+  final _Routes = [
     GoRoute(
-      // test route
-      path: '/',
-      redirect: (_) =>
-          '/tfront/b3', //'/category/${t_Categories.data[0].id}', //'/front',
+        // test route
+        path: '/',
+        redirect: (_) =>
+            '/login' // '/tfront/b3', //'/category/${t_Categories.data[0].id}', //'/front',
+        ),
+    GoRoute(
+      name: 'login',
+      path: '/login',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const LoginScreen(),
+          time: AppDurationsData.regular().quick),
     ),
-    // GoRoute(
-    //   name: 'login',
-    //   path: '/',
-    //   pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
-    //       key: state.pageKey,
-    //       child: const LoginScreen(),
-    //       time: AppDurationsData.regular().quick),
-    // ),
-    // GoRoute(
-    //   name: 'signup',
-    //   path: '/signup',
-    //   pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
-    //       key: state.pageKey,
-    //       child: const RegistrationScreen(),
-    //       time: AppDurationsData.regular().quick),
-    // ),
+    GoRoute(
+      name: 'signup',
+      path: '/signup',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const RegistrationScreen(),
+          time: AppDurationsData.regular().quick),
+    ),
     GoRoute(
       name: 'setting',
       path: '/setting',
@@ -207,7 +209,7 @@ class AppView extends StatelessWidget {
       //   return null;
       // },
       // refreshListenable: GoRouterRefreshStream(authBloc.stream), // test
-      routes: _loggedOutRoutes,
+      routes: _Routes,
       errorPageBuilder: (context, state) => MaterialPage(
         child: Scaffold(
           body: Center(

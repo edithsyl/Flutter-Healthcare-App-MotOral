@@ -111,7 +111,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   AppSolidRoundButtonReg(
                     title: 'Go',
-                    onPressed: () => context.goNamed('casehistory'), // FIXME
+                    onPressed: () => context.goNamed('casehistory'),
                   )
                 ],
               ),

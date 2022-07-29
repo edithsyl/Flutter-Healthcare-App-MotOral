@@ -1,6 +1,7 @@
 import 'package:beta_version/app_router.dart';
-import 'package:flutter/material.dart';
-import 'package:toggle_switch/toggle_switch.dart';
+import 'package:beta_version/widgets/profile_widgets/badges.dart';
+import 'package:beta_version/widgets/profile_widgets/statistics.dart';
+import 'package:custom_ui/source/widgets/widgets.dart';
 
 class ProfileToggleButton extends StatefulWidget {
   @override
@@ -8,28 +9,67 @@ class ProfileToggleButton extends StatefulWidget {
 }
 
 class _ProfileToggleButtonState extends State<ProfileToggleButton> {
+  late List<bool> isSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    isSelected = [true, false];
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ToggleSwitch(
-      minHeight: 40.0,
-      minWidth: 120.0,
-      initialLabelIndex: 1,
-      cornerRadius: 40,
-      customTextStyles: List.generate(
-          2, (_) => AppTypographyData.primaryWhite().quicksandBody),
-      activeFgColor: AppColorsData.regular().primaryWhite,
-      activeBgColors:
-          List.generate(2, (_) => [AppColorsData.regular().primaryOrange]),
-      inactiveBgColor: AppColorsData.regular().orangeTints_8,
-      inactiveFgColor: AppColorsData.regular().primaryOrange,
-      totalSwitches: 2,
-      labels: const ['Statistics', 'Badges'],
-      borderWidth: 2.0,
-      borderColor: [AppColorsData.regular().primaryOrange],
-      dividerColor: AppColorsData.regular().primaryOrange,
-      onToggle: (index) {
-        print('switched to: $index');
-      },
+    var shownitem = Container(
+      child: isSelected[0] ? StatisticsList() : BadgesList(),
+    );
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          color: AppColorsData.regular().primaryWhite,
+          child: ToggleButtons(
+            isSelected: isSelected,
+            selectedColor: AppColorsData.regular().primaryWhite,
+            color: AppColorsData.regular().primaryOrange,
+            fillColor: AppColorsData.regular().primaryOrange,
+            renderBorder: true,
+            borderColor: AppColorsData.regular().primaryOrange,
+            selectedBorderColor: AppColorsData.regular().primaryOrange,
+            borderWidth: 2.5,
+            borderRadius:
+                const AppRadiusData.regular().asBorderRadius().allRound,
+            highlightColor: AppColorsData.regular().primaryOrange,
+            constraints: BoxConstraints(
+                minWidth: (MediaQuery.of(context).size.width) / 4 + 8,
+                minHeight: 36),
+            onPressed: (int newIndex) {
+              setState(() {
+                for (int index = 0; index < isSelected.length; index++) {
+                  if (index == newIndex) {
+                    isSelected[index] = true;
+                  } else {
+                    isSelected[index] = false;
+                  }
+                }
+              });
+            },
+            children: <Widget>[
+              Text(
+                style: AppTypographyData.noColor().quicksandBody,
+                'Statistics',
+              ),
+              Text(
+                style: AppTypographyData.noColor().quicksandBody,
+                'Badges',
+              ),
+            ],
+          ),
+        ),
+        const VerticalGap(num: 60),
+        shownitem,
+      ],
     );
   }
 }
