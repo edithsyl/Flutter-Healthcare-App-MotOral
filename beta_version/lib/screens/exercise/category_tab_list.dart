@@ -154,7 +154,7 @@ class _CategoryViewState extends State<CategoryView>
             exercise: widget.category.exercises[index],
             color: AppColorsData.regular().paletteColorsList[index],
             ontap: () => widget.parentContext.go(
-                '/category/${widget.category.id}/person/${widget.category.exercises[index].id}'),
+                '/category/${widget.category.id}/exerciseinfo/${widget.category.exercises[index].id}'),
           ),
         );
       },

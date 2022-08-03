@@ -28,7 +28,7 @@ class ExercisePage extends StatelessWidget {
             time: AppDurationsData.regular().quick),
         routes: <GoRoute>[
           GoRoute(
-            path: 'person/:eid',
+            path: 'exerciseinfo/:eid',
             pageBuilder: (BuildContext context, GoRouterState state) {
               final ExerciseCategory category =
                   ExerciseCategories.category(state.params['cid']!);
@@ -102,13 +102,6 @@ class ExercisePage extends StatelessWidget {
                         },
                       ),
                     ),
-                    //MyTabBar(),
-                    // Navigator(
-                    //   key: Utils.exerciseListNav,
-                    //   initialRoute: '/category/${t_Categories.data[0].id}',
-                    //   onGenerateRoute: (RouteSettings),
-                    // ),
-                    // MyTabBar(),
                   ],
                 ),
               ),

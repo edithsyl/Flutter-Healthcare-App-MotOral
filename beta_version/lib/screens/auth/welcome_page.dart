@@ -11,19 +11,68 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // this is an example, plz change it
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text("New here?  ",
-            style: AppTypographyData.greyShades_6().sourceSansProBodySmall),
-        GestureDetector(
-          onTap: () {
-            context.goNamed('signup');
-          },
-          child: Text('Sign up',
-              style: AppTypographyData.greyShades_6().quicksandBodySmall),
-        )
-      ],
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
+      alignment: Alignment.center,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+              'assets/images/girl_background.png'), //FIXME: not showing
+          fit: BoxFit.fitHeight,
+          alignment: Alignment.bottomRight,
+          repeat: ImageRepeat.noRepeat,
+        ),
+      ),
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 300,
+              decoration: BoxDecoration(
+                color: AppColorsData.regular().primaryWhite,
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/motoral.png'),
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.bottomRight,
+                  repeat: ImageRepeat.noRepeat,
+                ),
+              ),
+            ),
+            const VerticalGap(num: 32),
+            Text(
+              'Safeguarding',
+              style: AppTypographyData.primaryOrange().sourceSansProBodyBold,
+            ),
+            Text(' your oral motor muscles',
+                style: AppTypographyData.greyShades_5().sourceSansProBodyBold),
+            const VerticalGap(num: 500),
+            LongAppOutlineButton(
+                //FIXME: text is in white
+                title: 'LOG IN',
+                onPressed: () {
+                  context.goNamed('login');
+                }),
+            const VerticalGap(num: 16),
+            LongAppSolidButton(
+                title: 'SIGN UP',
+                onPressed: () {
+                  context.goNamed('signup');
+                }),
+          ]),
+      // Row(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: <Widget>[
+      //     Text("New here?  ",
+      //         style: AppTypographyData.greyShades_6().sourceSansProBodySmall),
+      //     GestureDetector(
+      //       onTap: () {
+      //         context.goNamed('signup');
+      //       },
+      //       child: Text('Sign up',
+      //           style: AppTypographyData.greyShades_6().quicksandBodySmall),
+      //     )
+      //   ],
     );
   }
 }

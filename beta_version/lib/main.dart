@@ -1,13 +1,17 @@
 import 'package:beta_version/app_router.dart';
+import 'package:beta_version/data/case_history_data.dart';
 import 'package:beta_version/data/data_export.dart';
 import 'package:beta_version/logic/blocs/bloc_observer.dart';
 import 'package:beta_version/logic/blocs/export_blocs.dart';
 import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
 import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
+import 'package:beta_version/models/case_history_model.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
+import 'package:beta_version/screens/auth/welcome_page.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
+import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
 
@@ -76,6 +80,15 @@ class AppView extends StatelessWidget {
         redirect: (_) =>
             '/login' // '/tfront/b3', //'/category/${t_Categories.data[0].id}', //'/front',
         ),
+
+    GoRoute(
+      name: 'welcome',
+      path: '/welcome',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const WelcomePage(),
+          time: AppDurationsData.regular().quick),
+    ),
     GoRoute(
       name: 'login',
       path: '/login',
@@ -115,6 +128,24 @@ class AppView extends StatelessWidget {
           key: state.pageKey,
           child: const CaseHistoryPage(),
           time: AppDurationsData.regular().quick),
+      routes: <GoRoute>[
+        GoRoute(
+          path: 'item/:chid',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            // final ExerciseCategory category =
+            //     ExerciseCategories.category(state.params['cid']!);
+            final CaseHistoryItem caseHistoryItem =
+                CaseHistoryItems.id(state.params['chid']!);
+            return FadePage(
+              key: state.pageKey,
+              child: ThisCaseHistoryItemScreen(
+                caseHistoryItem: caseHistoryItem,
+              ),
+              time: AppDurationsData.regular().quick,
+            );
+          },
+        ),
+      ],
     ),
 
     /// for showing exercise info page
@@ -130,7 +161,7 @@ class AppView extends StatelessWidget {
           time: AppDurationsData.regular().quick),
       routes: <GoRoute>[
         GoRoute(
-          path: 'person/:eid',
+          path: 'exerciseinfo/:eid',
           pageBuilder: (BuildContext context, GoRouterState state) {
             final ExerciseCategory category =
                 ExerciseCategories.category(state.params['cid']!);
@@ -189,10 +220,10 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // AuthStatus aStatus = context.select((AuthBloc bloc) => bloc.state.status); // test
-    // final authBloc = context.read<AuthBloc>(); //test
+    final authBloc = context.read<AuthBloc>(); //test
     final appRouter = GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: '/',
+      initialLocation: '/profile',
       // redirect: (state) {
       //   // if the user is not logged in, they need to login
       //   final isloggedIn = authBloc.state.status == AuthStatus.authenticated;
@@ -208,7 +239,7 @@ class AppView extends StatelessWidget {
       //   }
       //   return null;
       // },
-      // refreshListenable: GoRouterRefreshStream(authBloc.stream), // test
+      refreshListenable: GoRouterRefreshStream(authBloc.stream), // test
       routes: _Routes,
       errorPageBuilder: (context, state) => MaterialPage(
         child: Scaffold(
@@ -241,7 +272,6 @@ class AppView extends StatelessWidget {
         // ),
       ],
       child: MaterialApp.router(
-        //key: Utils.mainAppNav,
         routeInformationProvider: appRouter.routeInformationProvider,
         routeInformationParser: appRouter.routeInformationParser,
         routerDelegate: appRouter.routerDelegate,

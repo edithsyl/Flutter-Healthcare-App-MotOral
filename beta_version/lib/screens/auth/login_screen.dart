@@ -14,10 +14,6 @@ class _LoginScreenState extends State<LoginScreen> {
   // form key
   // final _formKey = GlobalKey<FormState>();
 
-  // //editing controller
-  // final TextEditingController emailController = new TextEditingController();
-  // final TextEditingController passwordController = new TextEditingController();
-
   // // firebase
   // final _auth = FirebaseAuth.instance;
 
@@ -30,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
-                padding: EdgeInsets.all(AppSpacingData.regular().x4),
+                padding: EdgeInsets.all(AppSpacingData.regular().x5),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,

@@ -26,6 +26,7 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+
 dependencies:
   bloc: ^8.0.3
   cloud_firestore: ^3.1.18
@@ -63,7 +64,17 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/motoral.png
+    - assets/images/girl_background.png
+    #MYTODO: import correct_background.png and incorrect_background.png, then run flutter pub get
     - assets/images/thinking.png
+    - assets/images/badges/badge1.png
+    - assets/images/badges/badge2.png
+    - assets/images/badges/badge3.png
+    - assets/images/badges/badge4.png
+    - assets/images/badges/badge5.png
+    - assets/images/badges/badge6.png
+    - assets/images/badges/badge7.png
     - assets/videos/test_exercise.mp4
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

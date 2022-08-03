@@ -70,8 +70,10 @@ class _ForgetPassword extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              getSnackBarText('clicked forget password'),
+            );
             context.goNamed('signup');
-            //Navigator.pushNamed(context, '/signup');
           },
           child: Text('Forget Password?',
               style: AppTypographyData.primaryOrange().quicksandSmallButton),
@@ -141,7 +143,7 @@ class LoginButton extends StatelessWidget {
                   state.status.isValidated
                       ? () => context.read<LoginCubit>().logInWithCredentials()
                       : ScaffoldMessenger.of(context).showSnackBar(
-                          getSnackBarText('login error'),
+                          getSnackBarText('${state.errorMessage}, no msg'),
                         ); // null;
                 },
               );

@@ -6,6 +6,9 @@ class SignUpWithEmailAndPasswordFailure implements Exception {
     this.message = 'An unknown exception occurred.',
   ]);
 
+  /// The associated error message.
+  final String message;
+
   // Create an authentication message
   // from a firebase authentication exception code.
   // https://pub.dev/documentation/firebase_auth/latest/firebase_auth/FirebaseAuth/createUserWithEmailAndPassword.html
@@ -35,9 +38,6 @@ class SignUpWithEmailAndPasswordFailure implements Exception {
         return const SignUpWithEmailAndPasswordFailure();
     }
   }
-
-  /// The associated error message.
-  final String message;
 }
 
 /// {@template log_in_with_email_and_password_failure}
@@ -89,6 +89,9 @@ class LogInWithGoogleFailure implements Exception {
     this.message = 'An unknown exception occurred.',
   ]);
 
+  /// The associated error message.
+  final String message;
+
   /// Create an authentication message
   /// from a firebase authentication exception code.
   factory LogInWithGoogleFailure.fromCode(String code) {
@@ -129,9 +132,6 @@ class LogInWithGoogleFailure implements Exception {
         return const LogInWithGoogleFailure();
     }
   }
-
-  /// The associated error message.
-  final String message;
 }
 
 /// Thrown during the logout process if a failure occurs.

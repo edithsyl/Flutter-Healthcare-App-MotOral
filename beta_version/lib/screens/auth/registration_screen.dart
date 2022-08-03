@@ -14,72 +14,65 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            context.goNamed('login');
-          },
-          icon: const Icon(Icons.arrow_back),
-          color: Colors.orange,
-        ),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            child: Padding(
-                padding: EdgeInsets.all(AppSpacingData.regular().x4),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Sign up',
-                      style: TextStyle(
-                          color: AppColorsData.regular().greyShades_5,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: "SourceSansPro",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 32.0),
-                    ),
-                    const VerticalGap(num: 24),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'create your account for ',
-                          style: AppTypographyData.greyShades_4()
-                              .sourceSansProBodySemibold,
-                        ),
-                        Text(
-                          'free',
-                          style: AppTypographyData.primaryOrange()
-                              .sourceSansProBodySemibold,
-                        ),
-                      ],
-                    ),
-                    const VerticalGap(num: 45),
-                    const SignupForm(),
-                    const VerticalGap(num: 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("Have an account already?  ",
-                            style: AppTypographyData.greyShades_6()
-                                .sourceSansProBodySmall),
-                        GestureDetector(
-                          onTap: () {
-                            context.goNamed('login');
-                          },
-                          child: Text("Log in",
+      body: CustomPaint(
+        size: MediaQuery.of(context).size,
+        painter: CurvyAppBarPainter(),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              child: Padding(
+                  padding: EdgeInsets.all(AppSpacingData.regular().x5),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Sign up',
+                        style: TextStyle(
+                            color: AppColorsData.regular().greyShades_5,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: "SourceSansPro",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 32.0),
+                      ),
+                      const VerticalGap(num: 24),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'create your account for ',
+                            style: AppTypographyData.greyShades_4()
+                                .sourceSansProBodySemibold,
+                          ),
+                          Text(
+                            'free',
+                            style: AppTypographyData.primaryOrange()
+                                .sourceSansProBodySemibold,
+                          ),
+                        ],
+                      ),
+                      const VerticalGap(num: 45),
+                      const SignupForm(),
+                      const VerticalGap(num: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text("Have an account already?  ",
                               style: AppTypographyData.greyShades_6()
-                                  .quicksandBodySmall),
-                        )
-                      ],
-                    )
-                  ],
-                )),
+                                  .sourceSansProBodySmall),
+                          GestureDetector(
+                            onTap: () {
+                              context.goNamed('login');
+                            },
+                            child: Text("Log in",
+                                style: AppTypographyData.greyShades_6()
+                                    .quicksandBodySmall),
+                          )
+                        ],
+                      )
+                    ],
+                  )),
+            ),
           ),
         ),
       ),

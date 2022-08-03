@@ -1,9 +1,11 @@
 import 'package:beta_version/app_router.dart';
-import 'package:beta_version/widgets/profile_widgets/badges.dart';
+import 'package:beta_version/widgets/profile_widgets/badges_list.dart';
 import 'package:beta_version/widgets/profile_widgets/statistics.dart';
 import 'package:custom_ui/source/widgets/widgets.dart';
 
 class ProfileToggleButton extends StatefulWidget {
+  const ProfileToggleButton({Key? key}) : super(key: key);
+
   @override
   _ProfileToggleButtonState createState() => _ProfileToggleButtonState();
 }
@@ -22,7 +24,6 @@ class _ProfileToggleButtonState extends State<ProfileToggleButton> {
     var shownitem = Container(
       child: isSelected[0] ? StatisticsList() : BadgesList(),
     );
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,8 +68,11 @@ class _ProfileToggleButtonState extends State<ProfileToggleButton> {
             ],
           ),
         ),
-        const VerticalGap(num: 60),
-        shownitem,
+        const VerticalGap(num: 24),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: shownitem,
+        ),
       ],
     );
   }
