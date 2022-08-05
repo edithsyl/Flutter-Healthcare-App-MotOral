@@ -231,32 +231,32 @@ class AppView extends StatelessWidget {
     final appRouter = GoRouter(
       debugLogDiagnostics: true,
       initialLocation: '/profile',
-      redirect: (state) {
-        AuthStatus authState = authBloc.state.status;
-        final isLoggedIn = authState == AuthStatus.authenticated;
-        final isLoggingIn = state.location == '/login' ||
-            state.location == '/signup' ||
-            state.location == '/welcome';
-        // context.select((AuthBloc bloc) => bloc.state.status);
-        // switch (authState) {
-        //   case AuthStatus.authenticated:
-        //     return '/front';
-        //   case AuthStatus.unauthenticated:
-        //     return '/login';
-        //   // default:
-        //   //   return '/login';
-        // }
-        // if the user is not logged in, they need to login
-        if (!isLoggedIn && !isLoggingIn) {
-          Fluttertoast.showToast(msg: '!isloggedIn and !isLoggingIn');
-          return '/welcome';
-        } else if (isLoggedIn && isLoggingIn) {
-          Fluttertoast.showToast(msg: 'isloggedIn and isLoggingIn');
-          return '/front';
-        } else {
-          return null;
-        }
-      },
+      // redirect: (state) {
+      //   AuthStatus authState = authBloc.state.status;
+      //   final isLoggedIn = authState == AuthStatus.authenticated;
+      //   final isLoggingIn = state.location == '/login' ||
+      //       state.location == '/signup' ||
+      //       state.location == '/welcome';
+      //   // context.select((AuthBloc bloc) => bloc.state.status);
+      //   // switch (authState) {
+      //   //   case AuthStatus.authenticated:
+      //   //     return '/front';
+      //   //   case AuthStatus.unauthenticated:
+      //   //     return '/login';
+      //   //   // default:
+      //   //   //   return '/login';
+      //   // }
+      //   // if the user is not logged in, they need to login
+      //   if (!isLoggedIn && !isLoggingIn) {
+      //     Fluttertoast.showToast(msg: '!isloggedIn and !isLoggingIn');
+      //     return '/welcome';
+      //   } else if (isLoggedIn && isLoggingIn) {
+      //     Fluttertoast.showToast(msg: 'isloggedIn and isLoggingIn');
+      //     return '/front';
+      //   } else {
+      //     return null;
+      //   }
+      // },
       refreshListenable: GoRouterRefreshStream(authBloc.stream), // test
       routes: routes,
       errorPageBuilder: (context, state) => MaterialPage(
