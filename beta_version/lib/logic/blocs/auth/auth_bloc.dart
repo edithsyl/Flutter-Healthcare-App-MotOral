@@ -35,10 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  void _onUserChanged(
-    AuthUserChanged event,
-    Emitter<AuthState> emit,
-  ) {
+  void _onUserChanged(AuthUserChanged event, Emitter<AuthState> emit) {
     emit(
       event.user.isNotEmpty
           ? AuthState.authenticated(event.user)
@@ -46,10 +43,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  void _onLogoutRequested(
-    AuthLogoutRequested event,
-    Emitter<AuthState> emit,
-  ) {
+  void _onLogoutRequested(AuthLogoutRequested event, Emitter<AuthState> emit) {
     unawaited(_authRepository.logOut());
   }
 

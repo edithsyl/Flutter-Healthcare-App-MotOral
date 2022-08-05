@@ -32,7 +32,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   // send to firebase auth
   Future<void> logInWithCredentials() async {
-    if (state.status.isSubmissionInProgress) return;
+    if (!state.status.isValidated) return;
+    //if (state.status.isSubmissionInProgress) return;
     emit(
       state.copyWith(
         status: FormzStatus.submissionInProgress,

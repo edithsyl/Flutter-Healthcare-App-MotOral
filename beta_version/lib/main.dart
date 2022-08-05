@@ -16,6 +16,8 @@ import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
 import 'package:beta_version/screens/setting_page.dart';
+import 'package:beta_version/widgets/login_widgets.dart';
+import 'package:beta_version/widgets/signup_widgets.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:custom_ui/source/pages.dart';
 //import 'package:custom_ui/custom_ui.dart';
@@ -78,14 +80,13 @@ class AppView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final _Routes = [
+  final routes = [
     GoRoute(
         // test route
         path: '/',
         redirect: (_) =>
             '/login' // '/tfront/b3', //'/category/${t_Categories.data[0].id}', //'/front',
         ),
-
     GoRoute(
       name: 'welcome',
       path: '/welcome',
@@ -224,7 +225,8 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // AuthStatus aStatus = context.select((AuthBloc bloc) => bloc.state.status); // test
+    // AuthStatus authState =
+    context.select((AuthBloc bloc) => bloc.state.status); // test
     final authBloc = context.read<AuthBloc>(); //test
     final appRouter = GoRouter(
       debugLogDiagnostics: true,
@@ -256,7 +258,7 @@ class AppView extends StatelessWidget {
         }
       },
       refreshListenable: GoRouterRefreshStream(authBloc.stream), // test
-      routes: _Routes,
+      routes: routes,
       errorPageBuilder: (context, state) => MaterialPage(
         child: Scaffold(
           body: Center(
@@ -269,9 +271,11 @@ class AppView extends StatelessWidget {
       providers: [
         BlocProvider<LoginCubit>(
           create: (_) => LoginCubit(context.read<AuthRepository>()),
+          child: const LoginForm(),
         ),
         BlocProvider<SignupCubit>(
           create: (_) => SignupCubit(context.read<AuthRepository>()),
+          child: const SignupForm(),
         ),
       ],
       child: MaterialApp.router(

@@ -131,9 +131,10 @@ class _SignupButton extends StatelessWidget {
             : LongAppSolidButton(
                 title: 'SIGN UP',
                 onPressed: () {
-                  if (state.status.isValidated) {
-                    context.read<SignupCubit>().signupFormSubmitted();
-                  }
+                  context.goNamed('home');
+                  // if (state.status.isValidated) {
+                  //   context.read<SignupCubit>().signupFormSubmitted();
+                  // }
                 },
               );
       },
