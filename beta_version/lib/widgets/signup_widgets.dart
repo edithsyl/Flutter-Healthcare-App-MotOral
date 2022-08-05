@@ -130,9 +130,11 @@ class _SignupButton extends StatelessWidget {
             ? const CircularProgressIndicator()
             : LongAppSolidButton(
                 title: 'SIGN UP',
-                onPressed: () => state.status.isValidated
-                    ? () => context.read<SignupCubit>().signupFormSubmitted()
-                    : null,
+                onPressed: () {
+                  if (state.status.isValidated) {
+                    context.read<SignupCubit>().signupFormSubmitted();
+                  }
+                },
               );
       },
     );

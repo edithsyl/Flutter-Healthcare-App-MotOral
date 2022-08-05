@@ -1,4 +1,3 @@
-import 'package:beta_version/app_router.dart';
 import 'package:beta_version/data/exercise_categories_data.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
@@ -8,6 +7,8 @@ import 'package:beta_version/screens/exercise/exercise_app.dart';
 
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ExercisePage extends StatelessWidget {
   ExercisePage({Key? key}) : super(key: key);

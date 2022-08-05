@@ -1,7 +1,7 @@
-import 'package:beta_version/app_router.dart';
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/widgets/customtoolpit.dart';
 import 'package:custom_ui/custom_ui.dart';
+import 'package:flutter/material.dart';
 
 // used in exercise_info_page.dart
 //used in setting_page.dart

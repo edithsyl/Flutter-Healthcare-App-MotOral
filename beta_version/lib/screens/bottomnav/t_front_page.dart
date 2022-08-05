@@ -1,5 +1,8 @@
-import 'package:beta_version/app_router.dart';
 import 'package:beta_version/data/bottom_nav_pages_data.dart';
+
+import 'package:custom_ui/custom_ui.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 /// The category tabs screen
 class BottomNavScreen extends StatefulWidget {

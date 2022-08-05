@@ -1,7 +1,8 @@
-import 'package:beta_version/app_router.dart';
 import 'package:beta_version/widgets/profile_widgets/badges_list.dart';
 import 'package:beta_version/widgets/profile_widgets/statistics.dart';
-import 'package:custom_ui/source/widgets/widgets.dart';
+import 'package:custom_ui/custom_ui.dart';
+
+import 'package:flutter/material.dart';
 
 class ProfileToggleButton extends StatefulWidget {
   const ProfileToggleButton({Key? key}) : super(key: key);

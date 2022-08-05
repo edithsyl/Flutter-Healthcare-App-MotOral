@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/cloud_firestore/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/cloud_firestore/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/cloud_firestore/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/path_provider_ios/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/path_provider_ios/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/path_provider_ios/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_auth/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_auth/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_auth/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/cloud_firestore/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/cloud_firestore/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/cloud_firestore/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_core/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_core/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_core/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/fluttertoast/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/fluttertoast/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/fluttertoast/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_core/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_core/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_core/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/path_provider_macos/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_auth/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_auth/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_auth/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/path_provider_ios/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/path_provider_ios/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/path_provider_ios/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_core/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_core/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_core/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_auth/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_auth/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_auth/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/cloud_firestore/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/cloud_firestore/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/cloud_firestore/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/cloud_firestore/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/cloud_firestore/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/cloud_firestore/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_core/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_core/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/macos/Flutter/ephemeral/.symlinks/plugins/firebase_core/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_auth/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_auth/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/firebase_auth/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/fluttertoast/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/fluttertoast/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/ios/.symlinks/plugins/fluttertoast/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/build" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/beta_version/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/custom_ui/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/custom_ui/build" />
+      <excludeFolder url="file://$MODULE_DIR$/custom_ui/.dart_tool" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

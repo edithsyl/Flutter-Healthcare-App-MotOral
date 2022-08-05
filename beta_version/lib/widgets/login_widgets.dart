@@ -133,7 +133,7 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginCubit, LoginState>(
-      buildWhen: (previous, current) => previous.email != current.email,
+      buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         return state.status.isSubmissionInProgress
             ? const CircularProgressIndicator()
@@ -143,7 +143,8 @@ class LoginButton extends StatelessWidget {
                   state.status.isValidated
                       ? () => context.read<LoginCubit>().logInWithCredentials()
                       : ScaffoldMessenger.of(context).showSnackBar(
-                          getSnackBarText('${state.errorMessage}, no msg'),
+                          getSnackBarText(
+                              '${state.errorMessage}, no msg, login button'),
                         ); // null;
                 },
               );

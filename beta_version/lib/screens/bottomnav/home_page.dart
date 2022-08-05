@@ -1,4 +1,3 @@
-import 'package:beta_version/app_router.dart';
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/data/exercise_categories_data.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_parctice_card.dart';
@@ -8,6 +7,9 @@ import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_lines
 import 'package:beta_version/widgets/home_announcements/do_case_history_card.dart';
 import 'package:beta_version/widgets/snack_bars.dart';
 import 'package:custom_ui/custom_ui.dart';
+
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

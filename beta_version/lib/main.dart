@@ -1,4 +1,3 @@
-import 'package:beta_version/app_router.dart';
 import 'package:beta_version/data/case_history_data.dart';
 import 'package:beta_version/data/data_export.dart';
 import 'package:beta_version/logic/blocs/bloc_observer.dart';
@@ -9,20 +8,26 @@ import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
 import 'package:beta_version/models/case_history_model.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
+import 'package:beta_version/screens/auth/login_screen.dart';
+import 'package:beta_version/screens/auth/registration_screen.dart';
 import 'package:beta_version/screens/auth/welcome_page.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
+import 'package:beta_version/screens/setting_page.dart';
+import 'package:custom_ui/custom_ui.dart';
+import 'package:custom_ui/source/pages.dart';
+//import 'package:custom_ui/custom_ui.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 
 import 'screens/exercise/category_tab_list.dart';
 import 'screens/notification_page.dart';
-
-import 'inGoroutes.dart';
 
 Future<void> main() async {
   return BlocOverrides.runZoned(
@@ -224,21 +229,32 @@ class AppView extends StatelessWidget {
     final appRouter = GoRouter(
       debugLogDiagnostics: true,
       initialLocation: '/profile',
-      // redirect: (state) {
-      //   // if the user is not logged in, they need to login
-      //   final isloggedIn = authBloc.state.status == AuthStatus.authenticated;
-      //   final isLoggingIn =
-      //       state.location == '/' || state.location == '/signup';
-      //   if (!isloggedIn && !isLoggingIn) {
-      //     Fluttertoast.showToast(msg: '!isloggedIn and !isLoggingIn');
-      //     return '/';
-      //   }
-      //   if (isloggedIn && isLoggingIn) {
-      //     Fluttertoast.showToast(msg: 'isloggedIn and isLoggingIn');
-      //     return '/front';
-      //   }
-      //   return null;
-      // },
+      redirect: (state) {
+        AuthStatus authState = authBloc.state.status;
+        final isLoggedIn = authState == AuthStatus.authenticated;
+        final isLoggingIn = state.location == '/login' ||
+            state.location == '/signup' ||
+            state.location == '/welcome';
+        // context.select((AuthBloc bloc) => bloc.state.status);
+        // switch (authState) {
+        //   case AuthStatus.authenticated:
+        //     return '/front';
+        //   case AuthStatus.unauthenticated:
+        //     return '/login';
+        //   // default:
+        //   //   return '/login';
+        // }
+        // if the user is not logged in, they need to login
+        if (!isLoggedIn && !isLoggingIn) {
+          Fluttertoast.showToast(msg: '!isloggedIn and !isLoggingIn');
+          return '/welcome';
+        } else if (isLoggedIn && isLoggingIn) {
+          Fluttertoast.showToast(msg: 'isloggedIn and isLoggingIn');
+          return '/front';
+        } else {
+          return null;
+        }
+      },
       refreshListenable: GoRouterRefreshStream(authBloc.stream), // test
       routes: _Routes,
       errorPageBuilder: (context, state) => MaterialPage(
@@ -257,19 +273,6 @@ class AppView extends StatelessWidget {
         BlocProvider<SignupCubit>(
           create: (_) => SignupCubit(context.read<AuthRepository>()),
         ),
-        // BlocProvider<NavigationCubit>(
-        //   create: ((context) => NavigationCubit()),
-        // ),
-        // BlocProvider(
-        //   create: (_) => CategoryBloc(
-        //     categoryRepository: CategoryRepository(),
-        //   )..add(LoadCategories()), // create an instance of this bloc
-        // ),
-        // BlocProvider(
-        //   create: (_) => ExerciseBloc(
-        //     exerciseRepository: ExerciseRepository(),
-        //   )..add(LoadExercises()),
-        // ),
       ],
       child: MaterialApp.router(
         routeInformationProvider: appRouter.routeInformationProvider,
