@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class User extends Equatable {
+class UserModel extends Equatable {
   final String uid; // The current user's id.
   final String? email; // The current user's email address.
   final String? firstName;
@@ -8,7 +8,7 @@ class User extends Equatable {
   final String? username; // The current user's name (display name)
   final String? photo; // Url for the current user's photo.
 
-  const User({
+  const UserModel({
     required this.uid,
     this.email,
     this.firstName,
@@ -18,14 +18,14 @@ class User extends Equatable {
   });
 
   // Empty user which represents an unauthenticated user
-  static const empty = User(uid: '');
+  static const empty = UserModel(uid: '');
 
   // Convenience getter to determine whether the current user is empty or not
-  bool get isEmpty => this == User.empty;
-  bool get isNotEmpty => this != User.empty;
+  bool get isEmpty => this == UserModel.empty;
+  bool get isNotEmpty => this != UserModel.empty;
 
-  factory User.fromMap(map) {
-    return User(
+  factory UserModel.fromMap(map) {
+    return UserModel(
       uid: map['uid'],
       email: map['email'],
       firstName: map['firstName'],

@@ -23,14 +23,14 @@ class AuthRepository {
   })  : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
         _googleSignIn = googleSignIn ?? GoogleSignIn.standard();
 
-  var currentUser = User.empty;
+  var currentUser = UserModel.empty;
 
-  /// Stream of [User] which will emit the current user when the authentication state changes
-  Stream<User> get user {
+  /// Stream of [UserModel] which will emit the current user when the authentication state changes
+  Stream<UserModel> get user {
     // get authenticated users' data
     return _firebaseAuth.authStateChanges().map((firebaseUser) {
       // if there's no data: return empty, else: convert it to object that matches our user model
-      final user = firebaseUser == null ? User.empty : firebaseUser.toUser;
+      final user = firebaseUser == null ? UserModel.empty : firebaseUser.toUser;
       currentUser = user;
       return user;
     }); // for each doc, return a category class instance
@@ -114,8 +114,8 @@ class AuthRepository {
 }
 
 extension on firebase_auth.User {
-  User get toUser {
-    return User(
+  UserModel get toUser {
+    return UserModel(
       uid: uid,
       email: email,
       username: displayName,
