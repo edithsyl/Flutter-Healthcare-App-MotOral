@@ -61,7 +61,7 @@ Future setLandScape() async {
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]);
-  // await Wakelock.enable(); //FIXME: add pubspec
+  // await Wakelock.enable();
 }
 
 Future setAllOrientations() async {

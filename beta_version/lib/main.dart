@@ -231,6 +231,8 @@ class AppView extends StatelessWidget {
     final appRouter = GoRouter(
       debugLogDiagnostics: true,
       initialLocation: '/profile',
+
+      /// comment out auth pages
       // redirect: (state) {
       //   AuthStatus authState = authBloc.state.status;
       //   final isLoggedIn = authState == AuthStatus.authenticated;

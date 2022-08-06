@@ -7,6 +7,8 @@ import '../widgets/top_app_bar.dart';
 
 // TODO: recreate setting page
 
+/// this is [_SettingPageState]
+
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
 
