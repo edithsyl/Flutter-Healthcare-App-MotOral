@@ -1,3 +1,5 @@
+//MYTODO
+
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/widgets/profile_toggle_button.dart';
 import 'package:custom_ui/custom_ui.dart';
@@ -5,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // TODO: add firebase avatar
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class OtherUserProfilePage extends StatelessWidget {
+  const OtherUserProfilePage({Key? key}) : super(key: key);
 
   final String userName = 'AnnaDoe';
   final int userId = 208329359;

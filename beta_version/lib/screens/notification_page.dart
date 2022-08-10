@@ -5,8 +5,6 @@ import 'package:go_router/go_router.dart';
 
 import '../widgets/top_app_bar.dart';
 
-// TODO: recreate setting page
-
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
 
@@ -45,8 +43,6 @@ class _NotificationPageState extends State<NotificationPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const Text('Notification page'),
-                  const VerticalGap(num: 25),
-                  LogoutButton(),
                   const VerticalGap(num: 25),
                 ],
               ),

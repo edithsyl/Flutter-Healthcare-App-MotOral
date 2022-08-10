@@ -6,23 +6,25 @@ class TodoDailyPractice extends StatelessWidget {
     Key? key,
     required this.exercise,
     required this.ontap,
+    required this.width,
   }) : super(key: key);
 
   final Exercise exercise;
   final VoidCallback ontap;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 8.0,
+        horizontal: 0,
         vertical: 8.0,
       ),
       child: GestureDetector(
         onTap: ontap,
         child: Container(
-          width: 280,
-          height: 120,
+          width: width,
+          height: width * 0.5,
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 174, 191, 255),
             image: DecorationImage(
@@ -86,23 +88,24 @@ class ThisDailyPractice extends StatelessWidget {
     Key? key,
     required this.exercise,
     required this.ontap,
+    required this.width,
   }) : super(key: key);
 
   final Exercise exercise;
   final VoidCallback ontap;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 8.0,
+        horizontal: 0,
         vertical: 8.0,
       ),
       child: GestureDetector(
         onTap: ontap,
         child: Container(
-          width: 280,
-          height: 160,
+          width: width,
           decoration: BoxDecoration(
             color: AppColorsData.regular().primaryWhite,
             border: Border.all(
@@ -171,23 +174,24 @@ class CompletedDailyPractice extends StatelessWidget {
     Key? key,
     required this.exercise,
     required this.ontap,
+    required this.width,
   }) : super(key: key);
 
   final Exercise exercise;
   final VoidCallback ontap;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 8.0,
+        horizontal: 0,
         vertical: 8.0,
       ),
       child: GestureDetector(
         onTap: ontap,
         child: Container(
-          width: 280,
-          height: 120,
+          width: width,
           decoration: BoxDecoration(
             color: AppColorsData.regular().greyTints_3,
             image: DecorationImage(
@@ -233,10 +237,11 @@ class CompletedDailyPractice extends StatelessWidget {
                   ],
                 ),
                 Text(
-                    exercise
-                        .description, // "strengthe the muscles of the cheek",
-                    style: AppTypographyData.primaryWhite()
-                        .sourceSansProBodySmall),
+                  exercise.description, // "strengthe the muscles of the cheek",
+                  style:
+                      AppTypographyData.primaryWhite().sourceSansProBodySmall,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ],
             ),
           ),

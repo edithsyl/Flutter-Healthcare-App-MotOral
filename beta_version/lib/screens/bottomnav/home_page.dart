@@ -1,5 +1,6 @@
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/data/exercise_categories_data.dart';
+import 'package:beta_version/widgets/daily_practice_widgets/completed_all_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_parctice_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_dots.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_lines.dart';
@@ -77,7 +78,17 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   const VerticalGap(num: 24),
-                  _buildItem(context),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        //const CompletedAllCard(),
+                        YourDailyPractice(context),
+                      ],
+                    ),
+                  )
                 ],
               ),
             )
@@ -89,14 +100,14 @@ class HomePage extends StatelessWidget {
 }
 
 ///// sample from https://stackoverflow.com/questions/61822182/flutter-expand-column-inside-row
-Widget _buildItem(BuildContext context) {
+Widget YourDailyPractice(BuildContext context) {
   return IntrinsicHeight(
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+          padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -120,6 +131,7 @@ Widget _buildItem(BuildContext context) {
             CompletedDailyPractice(
               exercise: ExerciseCategories.category('c1').exercise('e2'),
               ontap: () {},
+              width: MediaQuery.of(context).size.width * 0.7,
             ),
             ThisDailyPractice(
               exercise: ExerciseCategories.category('c1').exercise('e1'),
@@ -133,10 +145,12 @@ Widget _buildItem(BuildContext context) {
                   ),
                 );
               },
+              width: MediaQuery.of(context).size.width * 0.7,
             ),
             TodoDailyPractice(
               exercise: ExerciseCategories.category('c1').exercise('e2'),
               ontap: () {},
+              width: MediaQuery.of(context).size.width * 0.7,
             ),
           ],
         ),

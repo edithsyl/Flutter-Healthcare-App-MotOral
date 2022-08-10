@@ -20,6 +20,7 @@ class _CaseHistoryPageState extends State<CaseHistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColorsData.regular().primaryWhite,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: Container(
@@ -61,6 +62,8 @@ class _CaseHistoryPageState extends State<CaseHistoryPage> {
                             casehistory_item: CaseHistoryItems.data[index],
                             color: AppColorsData.regular().orangeTints_4,
                             ontap: () => context.go(
+                                '/casehistory/item/${CaseHistoryItems.data[index].id}'),
+                            buttonOnTap: () => context.go(
                                 '/casehistory/item/${CaseHistoryItems.data[index].id}'),
                           ),
                         );
