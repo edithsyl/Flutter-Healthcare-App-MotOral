@@ -103,8 +103,46 @@ class ProfileAppBarContent extends StatelessWidget {
   }
 }
 
-/// [title] on the left, no back button
-/// eg. homepage, exercise page
+// for news page
+class NewsAppBarContent extends StatelessWidget {
+  const NewsAppBarContent({
+    Key? key,
+    required this.rightOnPressed,
+  }) : super(key: key);
+
+  final VoidCallback rightOnPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              'News',
+              style: AppTypographyData.primaryWhite().quicksandTitle2,
+            ),
+            // const HorizontalGap(num: 50),
+            // IconButton(
+            //   onPressed: rightOnPressed,
+            //   icon: const Icon(CustomIcons.bookmark),
+            //   color: Colors.transparent,
+            // ),
+            IconButton(
+              onPressed: rightOnPressed,
+              icon: const Icon(CustomIcons.bookmark),
+              color: AppColorsData.regular().primaryWhite,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
 class AppBarContentExercise extends StatelessWidget {
   const AppBarContentExercise({
     Key? key,
@@ -125,7 +163,13 @@ class AppBarContentExercise extends StatelessWidget {
           'Exercises',
           style: AppTypographyData.primaryWhite().quicksandTitle2,
         ),
-        const HorizontalGap(num: 50),
+        IconButton(
+          icon: const Icon(
+            CustomIcons.inbox_1,
+          ),
+          color: Colors.transparent,
+          onPressed: () => {},
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -147,7 +191,7 @@ class AppBarContentExercise extends StatelessWidget {
                 ],
               ),
             ),
-            const HorizontalGap(num: 16),
+            const HorizontalGap(num: 8),
             MyTooltip(
               message: 'this shows your login streak',
               child: Row(

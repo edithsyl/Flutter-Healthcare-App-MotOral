@@ -32,7 +32,7 @@ class BottomNavPages {
     BottomNavPage(
       id: 'b1',
       name: 'news',
-      thisIcon: const Padding(
+      thisIcon: Padding(
         padding: EdgeInsets.symmetric(vertical: 2.0),
         child: Icon(Icons.apps),
       ),

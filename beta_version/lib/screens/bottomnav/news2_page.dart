@@ -1,3 +1,4 @@
+import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/data/news_categories_data.dart';
 import 'package:beta_version/models/news_category_model.dart';
 import 'package:beta_version/models/news_model.dart';
@@ -60,29 +61,49 @@ class News2Page extends StatelessWidget {
     );
     return Container(
       color: AppColorsData.regular().primaryOrange,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.fromLTRB(24, 56, 24, 24),
-            child: AppBarContent(
-              title: ,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 56, 24, 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'News',
+                    style: AppTypographyData.primaryWhite().quicksandTitle2,
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      CustomIcons.bookmark,
+                    ),
+                    color: AppColorsData.regular().primaryWhite,
+                    onPressed: () => context.goNamed('bookmark'),
+                  )
+                ],
+              ),
             ),
-          ),
-          //////////////
-          Expanded(
-            child: Container(
-              color: AppColorsData.regular().primaryWhite,
-              padding:
-                  EdgeInsets.symmetric(horizontal: AppSpacingData.regular().x4),
+            //////////////
+            Container(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height,
+              padding: const EdgeInsets.fromLTRB(32, 40, 32, 32),
+              decoration: BoxDecoration(
+                color: AppColorsData.regular().primaryWhite,
+                borderRadius: const AppRadiusData.regular()
+                    .asBorderRadius()
+                    .verticalRegular,
+              ),
               child: SingleChildScrollView(
-                physics: const ScrollPhysics(),
+                physics:
+                    const NeverScrollableScrollPhysics(), //const ScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const VerticalGap(num: 24),
                     ConstrainedBox(
                       constraints: BoxConstraints.loose(
                         const Size(432.0, 800.0),
@@ -100,8 +121,8 @@ class News2Page extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

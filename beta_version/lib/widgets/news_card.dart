@@ -21,7 +21,7 @@ class NewsCard extends StatelessWidget {
         onTap: ontap,
         child: Container(
           width: double.infinity,
-          height: 120,
+          height: 200,
           decoration: BoxDecoration(
             color: color, // AppColorsData.regular().orangeTints_4,
             image: DecorationImage(
@@ -47,16 +47,23 @@ class NewsCard extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(news.date, // "4",
-                    style: AppTypographyData.greyShades_6()
-                        .sourceSansProBodySmall),
-                Text(news.title, // "Cheek Strentheing",
-                    style:
-                        AppTypographyData.primaryWhite().sourceSansProBodyBold),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(news.date, // "4",
+                        style: AppTypographyData.primaryWhite()
+                            .quicksandBodySmall),
+                    const VerticalGap(num: 8),
+                    Text(news.title, // "Cheek Strentheing",
+                        style:
+                            AppTypographyData.primaryWhite().quicksandTitle2),
+                  ],
+                ),
                 Text('by ${news.author}', // "4",
-                    style: AppTypographyData.greyShades_6()
+                    style: AppTypographyData.primaryWhite()
                         .sourceSansProBodySmall),
               ],
             ),

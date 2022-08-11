@@ -1,3 +1,4 @@
+import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/widgets/people/buddies.dart';
 import 'package:beta_version/widgets/people/leaderboard.dart';
 import 'package:beta_version/widgets/people/therapists.dart';
@@ -70,10 +71,17 @@ class _PeoplePage2State extends State<PeoplePage2>
                     'People',
                     style: AppTypographyData.primaryWhite().quicksandTitle2,
                   ),
+                  IconButton(
+                    icon: const Icon(
+                      CustomIcons.inbox_1,
+                    ),
+                    color: Colors.transparent,
+                    onPressed: () => {},
+                  )
                 ],
               ),
             ),
-            const VerticalGap(num: 25),
+            //const VerticalGap(num: 25),
             Container(
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(32, 40, 32, 32),

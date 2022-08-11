@@ -61,30 +61,35 @@ class ExercisePage extends StatelessWidget {
     );
     return Container(
       color: AppColorsData.regular().primaryOrange,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.fromLTRB(24, 56, 24, 24),
-            child: AppBarContentExercise(
-              xpNum: 0, //FIXME
-              streakNum: 0,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.fromLTRB(24, 56, 24, 24),
+              child: AppBarContentExercise(
+                xpNum: 0, //FIXME
+                streakNum: 0,
+              ),
             ),
-          ),
-          //////////////
-          Expanded(
-            child: Container(
-              color: AppColorsData.regular().primaryWhite,
-              padding:
-                  EdgeInsets.symmetric(horizontal: AppSpacingData.regular().x4),
+            //////////////
+            Container(
+              width: double.infinity,
+              //height: MediaQuery.of(context).size.height,
+              padding: const EdgeInsets.fromLTRB(32, 40, 32, 32),
+              decoration: BoxDecoration(
+                color: AppColorsData.regular().primaryWhite,
+                borderRadius: const AppRadiusData.regular()
+                    .asBorderRadius()
+                    .verticalRegular,
+              ),
               child: SingleChildScrollView(
-                physics: const ScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const VerticalGap(num: 24),
                     Text(
                       'Start here',
                       style: AppTypographyData.greyShades_6().quicksandBody,
@@ -107,8 +112,8 @@ class ExercisePage extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
