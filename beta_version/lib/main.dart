@@ -12,6 +12,7 @@ import 'package:beta_version/models/news_category_model.dart';
 import 'package:beta_version/screens/auth/login_screen.dart';
 import 'package:beta_version/screens/auth/registration_screen.dart';
 import 'package:beta_version/screens/auth/welcome_page.dart';
+import 'package:beta_version/screens/bookmark_page.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
@@ -131,6 +132,14 @@ class AppView extends StatelessWidget {
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: const NotificationPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'bookmarked',
+      path: '/bookmarked',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const BookmarkedPage(),
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(

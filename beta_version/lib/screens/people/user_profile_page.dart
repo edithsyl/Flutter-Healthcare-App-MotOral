@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 class OtherUserProfilePage extends StatelessWidget {
   const OtherUserProfilePage({Key? key}) : super(key: key);
 
-  final String userName = 'AnnaDoe';
+  final String userName = 'Average Joe';
   final int userId = 208329359;
   final String userBio = 'Hi, nice to meet you :)';
 

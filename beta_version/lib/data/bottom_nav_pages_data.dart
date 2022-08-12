@@ -1,6 +1,6 @@
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/screens/bottomnav/_bottomnav_pages.dart';
-import 'package:beta_version/screens/bottomnav/news2_page.dart';
+import 'package:beta_version/screens/bottomnav/news_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavPage {
@@ -36,7 +36,7 @@ class BottomNavPages {
         padding: EdgeInsets.symmetric(vertical: 2.0),
         child: Icon(Icons.apps),
       ),
-      thisPageShows: News2Page(),
+      thisPageShows: NewsPage(),
     ),
     BottomNavPage(
       id: 'b2',

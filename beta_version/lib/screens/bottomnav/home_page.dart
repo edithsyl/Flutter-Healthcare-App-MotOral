@@ -15,7 +15,7 @@ import 'package:go_router/go_router.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  final String userName = 'Anne';
+  final String userName = 'Joe';
 
   @override
   Widget build(BuildContext context) {
@@ -137,14 +137,7 @@ Widget YourDailyPractice(BuildContext context) {
                 ThisDailyPractice(
                   exercise: ExerciseCategories.category('c1').exercise('e1'),
                   ontap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      getSnackBarWidget(
-                        Text(
-                          "you clicked ThisDailyPracticeCard",
-                          style: AppTypographyData.greyShades_6().quicksandBody,
-                        ),
-                      ),
-                    );
+                    context.go('/category/c1/exerciseinfo/e1'); //FIXME
                   },
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),

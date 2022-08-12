@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
-  final String userName = 'AnnaDoe McDonald';
+  final String userName = 'Average Joe';
   final int userId = 208329359;
   final String userBio =
       'Hi, nice to meet you :) Hi, nice to meet you :) Hi, nice to meet you :)';

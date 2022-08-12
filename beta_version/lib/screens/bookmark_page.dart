@@ -5,14 +5,14 @@ import 'package:go_router/go_router.dart';
 
 import '../widgets/top_app_bar.dart';
 
-class NotificationPage extends StatefulWidget {
-  const NotificationPage({Key? key}) : super(key: key);
+class BookmarkedPage extends StatefulWidget {
+  const BookmarkedPage({Key? key}) : super(key: key);
 
   @override
-  State<NotificationPage> createState() => _NotificationPageState();
+  State<BookmarkedPage> createState() => _BookmarkedPageState();
 }
 
-class _NotificationPageState extends State<NotificationPage> {
+class _BookmarkedPageState extends State<BookmarkedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +25,9 @@ class _NotificationPageState extends State<NotificationPage> {
             color: AppColorsData.regular().primaryOrange,
           ),
           child: AppBarContent(
-            title: 'Notification',
+            title: 'Bookmarked',
             leftOnPressed: () {
-              context.goNamed('home');
+              context.goNamed('news');
             },
           ),
         ),
@@ -41,7 +41,7 @@ class _NotificationPageState extends State<NotificationPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text('Notification page'),
+                  const Text('Bookmarked page'),
                   const VerticalGap(num: 25),
                 ],
               ),
