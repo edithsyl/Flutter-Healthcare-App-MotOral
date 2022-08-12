@@ -2,8 +2,8 @@ import 'package:beta_version/widgets/people/buddies_row.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 
-class showBuddies extends StatelessWidget {
-  const showBuddies({super.key});
+class ShowBuddies extends StatelessWidget {
+  const ShowBuddies({super.key});
 
   @override
   Widget build(BuildContext context) {

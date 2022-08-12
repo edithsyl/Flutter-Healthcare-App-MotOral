@@ -9,9 +9,6 @@ class PeoplePage2 extends StatefulWidget {
   PeoplePage2({super.key}) : index = 0;
 
   int index;
-  // const PeoplePage2({super.key}) : index = 0;
-
-  // final int index;
 
   @override
   State<PeoplePage2> createState() => _PeoplePage2State();
@@ -115,7 +112,7 @@ class _PeoplePage2State extends State<PeoplePage2>
                           AppColorsData.regular().greyShades_6,
                       unselectedLabelStyle:
                           AppTypographyData.greyShades_5().quicksandBodySmall,
-                      tabs: <Tab>[
+                      tabs: const <Tab>[
                         Tab(text: 'Leaderboard'),
                         Tab(text: 'Buddies'),
                         Tab(text: 'Therapists'),
@@ -133,9 +130,9 @@ class _PeoplePage2State extends State<PeoplePage2>
                         child: TabBarView(
                           controller: _controller,
                           children: const <Widget>[
-                            showLeaderboard(),
-                            showBuddies(),
-                            showTherapists(),
+                            ShowLeaderboard(),
+                            ShowBuddies(),
+                            ShowTherapists(),
                           ],
                         ),
                       ),
@@ -153,114 +150,3 @@ class _PeoplePage2State extends State<PeoplePage2>
 
   void _tap(BuildContext context, int index) => widget.index = index;
 }
-
-// /////////////////////////////
-// class PeoplePage extends StatelessWidget {
-//   const PeoplePage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       physics: const ScrollPhysics(),
-//       child: Container(
-//         color: AppColorsData.regular().primaryOrange,
-//         // height: MediaQuery.of(context).size.height,
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.start,
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           children: <Widget>[
-//             Padding(
-//               padding: const EdgeInsets.fromLTRB(24, 56, 24, 24),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 crossAxisAlignment: CrossAxisAlignment.center,
-//                 children: [
-//                   Text(
-//                     'People',
-//                     style: AppTypographyData.primaryWhite().quicksandTitle2,
-//                   ),
-//                 ],
-//               ),
-//             ),
-//             const VerticalGap(num: 25),
-//             Container(
-//               width: double.infinity,
-//               // height: 1000,
-//               padding: const EdgeInsets.fromLTRB(32, 40, 32, 32),
-//               decoration: BoxDecoration(
-//                 color: AppColorsData.regular().primaryWhite,
-//                 borderRadius: const AppRadiusData.regular()
-//                     .asBorderRadius()
-//                     .verticalRegular,
-//               ),
-//               child: ListView.builder(
-//                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
-//                 shrinkWrap: true,
-//                 physics: NeverScrollableScrollPhysics(),
-//                 // const BouncingScrollPhysics(
-//                 //    parent: AlwaysScrollableScrollPhysics()),
-//                 scrollDirection: Axis.vertical,
-//                 itemCount:
-//                     15, // FIXME: too many item will cause bottom overflow
-//                 itemBuilder: (context, index) {
-//                   return Padding(
-//                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-//                     child: Row(
-//                       mainAxisAlignment: MainAxisAlignment.start,
-//                       crossAxisAlignment: CrossAxisAlignment.center,
-//                       children: [
-//                         Text(
-//                           '${index + 1}.',
-//                           style: AppTypographyData.greyShades_4()
-//                               .sourceSansProBody,
-//                         ),
-//                         const HorizontalGap(num: 16),
-//                         const CircleAvatar(
-//                           backgroundImage: NetworkImage(
-//                               "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"),
-//                           radius: 32,
-//                         ),
-//                         const HorizontalGap(num: 16),
-//                         Expanded(
-//                           child: Column(
-//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                             crossAxisAlignment: CrossAxisAlignment.start,
-//                             children: [
-//                               Row(
-//                                 mainAxisAlignment:
-//                                     MainAxisAlignment.spaceBetween,
-//                                 crossAxisAlignment: CrossAxisAlignment.start,
-//                                 children: [
-//                                   Text(
-//                                     'Name',
-//                                     style: AppTypographyData.greyShades_6()
-//                                         .sourceSansProBodyBold,
-//                                   ),
-//                                   Text(
-//                                     '100xp',
-//                                     style: AppTypographyData.primaryOrange()
-//                                         .sourceSansProBodyBold,
-//                                   ),
-//                                 ],
-//                               ),
-//                               Text(
-//                                 'online',
-//                                 style: AppTypographyData.greyShades_6()
-//                                     .sourceSansProBody,
-//                               ),
-//                             ],
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   );
-//                 },
-//               ),
-//             ),
-//             //),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

@@ -1,5 +1,6 @@
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/data/exercise_categories_data.dart';
+import 'package:beta_version/widgets/alert_dialogue.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/completed_all_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_parctice_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_dots.dart';
@@ -131,7 +132,14 @@ Widget YourDailyPractice(BuildContext context) {
               children: [
                 CompletedDailyPractice(
                   exercise: ExerciseCategories.category('c1').exercise('e2'),
-                  ontap: () {},
+                  ontap: () => showCustomDialog(
+                    context,
+                    'Go to this exericse?',
+                    'cancel',
+                    'Confirm',
+                    () => Navigator.of(context).pop(),
+                    () => context.go('/category/c1/exerciseinfo/e2'),
+                  ),
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
                 ThisDailyPractice(
@@ -143,7 +151,14 @@ Widget YourDailyPractice(BuildContext context) {
                 ),
                 TodoDailyPractice(
                   exercise: ExerciseCategories.category('c1').exercise('e2'),
-                  ontap: () {},
+                  ontap: () => showCustomDialog(
+                    context,
+                    'Go to this exericse?',
+                    'cancel',
+                    'Confirm',
+                    () => Navigator.of(context).pop(),
+                    () => context.go('/category/c1/exerciseinfo/e2'),
+                  ),
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
               ],

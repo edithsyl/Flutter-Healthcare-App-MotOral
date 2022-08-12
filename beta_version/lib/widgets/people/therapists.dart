@@ -2,8 +2,8 @@ import 'package:beta_version/widgets/people/therapist_row.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:go_router/go_router.dart';
 
-class showTherapists extends StatelessWidget {
-  const showTherapists({super.key});
+class ShowTherapists extends StatelessWidget {
+  const ShowTherapists({super.key});
 
   @override
   Widget build(BuildContext context) {

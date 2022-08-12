@@ -124,7 +124,7 @@ class AppOutlinedRoundButtonSmall extends StatelessWidget {
       style: OutlinedButton.styleFrom(
           minimumSize: const Size(5, 5),
           textStyle: AppTypographyData.primaryOrange().quicksandSmallButton,
-          primary: AppColorsData.regular().primaryWhite,
+          primary: AppColorsData.regular().primaryOrange,
           side: BorderSide(
             color: AppColorsData.regular().primaryOrange,
             width: 1,

@@ -2,8 +2,8 @@ import 'package:beta_version/widgets/people/leaderboard_row.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 
-class showLeaderboard extends StatelessWidget {
-  const showLeaderboard({super.key});
+class ShowLeaderboard extends StatelessWidget {
+  const ShowLeaderboard({super.key});
 
   @override
   Widget build(BuildContext context) {
