@@ -11,15 +11,14 @@ class showTherapists extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: ListView.builder(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         itemCount: 5,
         itemBuilder: (context, index) {
           return TherapistRow(
-            name: 'Matt',
+            name: 'Joe with longname',
             title: 'Chief therapist',
-            photoURL:
-                "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg",
+            photoURL: "https://i.pravatar.cc/500",
             onTap: () => context.go('/therapistProfile'),
             buttonOnTap:
                 () {}, //FIXME: change this when booking system eg. date picker is completed

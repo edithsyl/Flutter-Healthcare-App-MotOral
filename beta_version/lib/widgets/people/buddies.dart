@@ -13,14 +13,13 @@ class showBuddies extends StatelessWidget {
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
-        itemCount: 5,
+        itemCount: 10,
         itemBuilder: (context, index) {
           return BuddiesRow(
-            name: 'Matt',
+            name: 'Average Joe',
             xp: 100,
             isOnline: true,
-            photoURL:
-                "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg",
+            photoURL: "https://i.pravatar.cc/200",
             onTap: () {},
           );
         },

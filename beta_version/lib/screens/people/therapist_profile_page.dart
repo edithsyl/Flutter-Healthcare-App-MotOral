@@ -35,39 +35,6 @@ class TherapistProfilePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              // PreferredSize(
-              //   preferredSize: const Size.fromHeight(80),
-              //   child: Container(
-              //     width: double.infinity,
-              //     padding: const EdgeInsets.fromLTRB(24, 30, 24, 0),
-              //     decoration: BoxDecoration(
-              //       color: AppColorsData.regular().primaryOrange,
-              //     ),
-              //     child: ProfileAppBarContent(
-              //       title: 'Profile',
-              //       leftOnPressed: () {},
-              //       rightOnPressed: () {},
-              //     ),
-              //   ),
-              // ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   children: [
-              //     Text(
-              //       'Profile',
-              //       style: AppTypographyData.primaryWhite().quicksandTitle2,
-              //     ),
-              //     IconButton(
-              //       onPressed: () {},
-              //       icon: Icon(
-              //         CustomIcons.report,
-              //         color: AppColorsData.regular().primaryWhite,
-              //         //size: 16,
-              //       ),
-              //     )
-              //   ],
-              // ),
               const VerticalGap(num: 24),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -76,9 +43,9 @@ class TherapistProfilePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"),
-                      radius: 56,
+                      backgroundImage:
+                          NetworkImage("https://i.pravatar.cc/500"),
+                      radius: 40,
                     ),
                     const HorizontalGap(num: 24),
                     Column(
@@ -172,29 +139,30 @@ class TherapistProfilePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Qualification',
-                        style: AppTypographyData.primaryOrange().quicksandBody,
-                      ),
-                      // for (i in qualification){
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Qualification',
+                      style: AppTypographyData.primaryOrange().quicksandBody,
+                    ),
+                    // for (i in qualification){
 
-                      // }
-                      // Text(qualification[i])
-                      const VerticalGap(num: 24),
-                      Text(
-                        'Area of Interest',
-                        style: AppTypographyData.primaryOrange().quicksandBody,
-                      ),
-                      Text(
-                        areaOfInterest,
-                        softWrap: true,
-                        style:
-                            AppTypographyData.greyShades_5().sourceSansProBody,
-                      ),
-                    ]),
+                    // }
+                    // Text(qualification[i])
+                    const VerticalGap(num: 24),
+                    Text(
+                      'Area of Interest',
+                      style: AppTypographyData.primaryOrange().quicksandBody,
+                    ),
+                    Text(
+                      areaOfInterest,
+                      softWrap: true,
+                      style: AppTypographyData.greyShades_5().sourceSansProBody,
+                    ),
+                    const VerticalGap(num: 320),
+                  ],
+                ),
               )
             ],
           ),

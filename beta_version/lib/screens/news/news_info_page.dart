@@ -24,39 +24,23 @@ class _ThisExerciseScreenState extends State<ThisNewsScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: AppColorsData.regular().primaryOrange,
-        // appBar: PreferredSize(
-        //   preferredSize: const Size.fromHeight(80),
-        //   child: Container(
-        //     width: double.infinity,
-        //     padding: const EdgeInsets.fromLTRB(24, 30, 24, 0),
-        //     decoration: BoxDecoration(
-        //       color: AppColorsData.regular().primaryOrange,
-        //     ),
-        //     child: AppBarContent(
-        //       title: 'News',
-        //       leftOnPressed: () {
-        //         //go back to news page
-        //         context.goNamed('news');
-        //       },
-        //     ),
-        //   ),
-        // ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
+                height: 320,
                 decoration: BoxDecoration(
                     color: AppColorsData.regular().primaryOrange,
                     image: DecorationImage(
                       image: AssetImage(widget.news.image),
                     )),
-                padding: const EdgeInsets.all(40.0),
+                padding: const EdgeInsets.all(32.0),
                 child: Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,19 +66,26 @@ class _ThisExerciseScreenState extends State<ThisNewsScreen> {
                           ),
                         ],
                       ),
-                      const VerticalGap(num: 12),
-                      Text(
-                        widget.news.title,
-                        style: AppTypographyData.primaryWhite().quicksandTitle2,
-                        textAlign: TextAlign.center,
-                        softWrap: true,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            widget.news.title,
+                            style: AppTypographyData.primaryWhite()
+                                .quicksandTitle2,
+                            textAlign: TextAlign.center,
+                            softWrap: true,
+                          ),
+                          const VerticalGap(num: 12),
+                          Text(
+                            'by ${widget.news.author}',
+                            style: AppTypographyData.orangeTints_8()
+                                .sourceSansProBody,
+                          ),
+                        ],
                       ),
-                      const VerticalGap(num: 8),
-                      Text(
-                        'by ${widget.news.author}',
-                        style:
-                            AppTypographyData.orangeTints_8().sourceSansProBody,
-                      ),
+                      const VerticalGap(num: 2),
                     ],
                   ),
                 ),
@@ -102,12 +93,12 @@ class _ThisExerciseScreenState extends State<ThisNewsScreen> {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.fromLTRB(32, 40, 32, 32),
-                decoration: BoxDecoration(
-                  color: AppColorsData.regular().primaryWhite,
-                  borderRadius: const AppRadiusData.regular()
-                      .asBorderRadius()
-                      .verticalRegular,
-                ),
+                // decoration: BoxDecoration(
+                color: AppColorsData.regular().primaryWhite,
+                //   borderRadius: const AppRadiusData.regular()
+                //       .asBorderRadius()
+                //       .verticalRegular,
+                // ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

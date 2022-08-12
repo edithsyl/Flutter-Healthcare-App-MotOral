@@ -8,9 +8,10 @@ import 'package:go_router/go_router.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
-  final String userName = 'AnnaDoe';
+  final String userName = 'AnnaDoe McDonald';
   final int userId = 208329359;
-  final String userBio = 'Hi, nice to meet you :)';
+  final String userBio =
+      'Hi, nice to meet you :) Hi, nice to meet you :) Hi, nice to meet you :)';
 
   @override
   Widget build(BuildContext context) {
@@ -56,41 +57,69 @@ class ProfilePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"),
-                      radius: 56,
+                      backgroundImage:
+                          NetworkImage("https://i.pravatar.cc/400"),
+                      radius: 40,
                     ),
-                    const HorizontalGap(num: 24),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          userName,
-                          style: AppTypographyData.primaryWhite()
-                              .sourceSansProBodyBold,
+                    const HorizontalGap(num: 16),
+                    Flexible(
+                      child: Container(
+                        width: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              userName,
+                              style: AppTypographyData.primaryWhite()
+                                  .sourceSansProBodyBold,
+                              maxLines: 2,
+                              softWrap: true,
+                              overflow: TextOverflow.fade,
+                            ),
+                            Text(
+                              'ID: $userId',
+                              style: AppTypographyData.primaryWhite()
+                                  .sourceSansProBodySmall,
+                            ),
+                          ],
                         ),
-                        Text(
-                          'ID: $userId',
-                          style: AppTypographyData.primaryWhite()
-                              .sourceSansProBodySmall,
-                        ),
-                        const VerticalGap(num: 12),
-                        Text(
-                          'Bio: $userBio',
-                          style: AppTypographyData.primaryWhite()
-                              .sourceSansProBodySmall,
-                        ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              const VerticalGap(num: 24),
+              Container(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Bio: ',
+                      style: AppTypographyData.primaryWhite()
+                          .sourceSansProBodySmall,
+                    ),
+                    Flexible(
+                      child: Container(
+                        width: double.infinity,
+                        child: Text(
+                          userBio,
+                          style: AppTypographyData.primaryWhite()
+                              .sourceSansProBodySmall,
+                          maxLines: 2,
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Container(
                 // case history
                 padding:
@@ -125,10 +154,9 @@ class ProfilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width / 4,
+                    width: MediaQuery.of(context).size.width / 3.6,
                     // streak
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 4.0, horizontal: 12),
+                    padding: const EdgeInsets.all(4.0),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: AppColorsData.regular().greyTints_3,
@@ -137,15 +165,17 @@ class ProfilePage extends StatelessWidget {
                       color: AppColorsData.regular().primaryWhite,
                       borderRadius: const AppRadiusData.regular()
                           .asBorderRadius()
-                          .allRegular,
+                          .allSmall,
                     ),
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           'Streak',
-                          style: AppTypographyData.greyShades_5().quicksandBody,
+                          style: AppTypographyData.greyShades_2()
+                              .sourceSansProBodySmall,
+                          overflow: TextOverflow.clip,
                         ),
                         Text(
                           '0',
@@ -156,9 +186,8 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width / 4,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 4.0, horizontal: 12),
+                    width: MediaQuery.of(context).size.width / 3.6,
+                    padding: const EdgeInsets.all(4.0),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: AppColorsData.regular().greyTints_3,
@@ -167,15 +196,17 @@ class ProfilePage extends StatelessWidget {
                       color: AppColorsData.regular().primaryWhite,
                       borderRadius: const AppRadiusData.regular()
                           .asBorderRadius()
-                          .allRegular,
+                          .allSmall,
                     ),
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           'xp',
-                          style: AppTypographyData.greyShades_5().quicksandBody,
+                          style: AppTypographyData.greyShades_2()
+                              .sourceSansProBodySmall,
+                          overflow: TextOverflow.clip,
                         ),
                         Text(
                           '0',
@@ -186,9 +217,8 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width / 4,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 4.0, horizontal: 12),
+                    width: MediaQuery.of(context).size.width / 3.6,
+                    padding: const EdgeInsets.all(4.0),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: AppColorsData.regular().greyTints_3,
@@ -197,15 +227,17 @@ class ProfilePage extends StatelessWidget {
                       color: AppColorsData.regular().primaryWhite,
                       borderRadius: const AppRadiusData.regular()
                           .asBorderRadius()
-                          .allRegular,
+                          .allSmall,
                     ),
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'Frd',
-                          style: AppTypographyData.greyShades_5().quicksandBody,
+                          'Buddy',
+                          style: AppTypographyData.greyShades_2()
+                              .sourceSansProBodySmall,
+                          overflow: TextOverflow.clip,
                         ),
                         Text(
                           '0',

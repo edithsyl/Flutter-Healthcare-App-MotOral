@@ -24,7 +24,6 @@ class TodoDailyPractice extends StatelessWidget {
         onTap: ontap,
         child: Container(
           width: width,
-          height: width * 0.5,
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 174, 191, 255),
             image: DecorationImage(
@@ -53,9 +52,13 @@ class TodoDailyPractice extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(exercise.name, // "Cheek Strentheing",
-                    style:
-                        AppTypographyData.primaryWhite().sourceSansProBodyBold),
+                Text(
+                  exercise.name, // "Cheek Strentheing",
+                  style: AppTypographyData.primaryWhite().quicksandBody,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 Row(
                   children: <Widget>[
                     Text(exercise.duration, // "4",
@@ -70,10 +73,13 @@ class TodoDailyPractice extends StatelessWidget {
                   ],
                 ),
                 Text(
-                    exercise
-                        .description, // "strengthe the muscles of the cheek",
-                    style: AppTypographyData.greyShades_6()
-                        .sourceSansProBodySmall),
+                  exercise.description, // "strengthe the muscles of the cheek",
+                  style:
+                      AppTypographyData.greyShades_6().sourceSansProBodySmall,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ],
             ),
           ),
@@ -112,17 +118,6 @@ class ThisDailyPractice extends StatelessWidget {
               color: AppColorsData.regular().primaryOrange,
               width: 2,
             ),
-            // image: DecorationImage(
-            //   image: AssetImage(exercise.image), // 'assets/images/thinking.png'
-            //   colorFilter: ColorFilter.mode(
-            //     AppColorsData.regular()
-            //         .primaryOrange, // AppColorsData.regular().orangeTints_4,
-            //     BlendMode.hardLight,
-            //   ),
-            //   fit: BoxFit.fitHeight,
-            //   alignment: Alignment.bottomRight,
-            //   repeat: ImageRepeat.noRepeat,
-            // ),
             borderRadius:
                 const AppRadiusData.regular().asBorderRadius().allRegular,
           ),
@@ -135,8 +130,13 @@ class ThisDailyPractice extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(exercise.name, // "Cheek Strentheing",
-                    style: AppTypographyData.greyShades_6().quicksandBody),
+                Text(
+                  exercise.name, // "Cheek Strentheing",
+                  style: AppTypographyData.greyShades_6().quicksandBody,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 Row(
                   children: <Widget>[
                     Text(exercise.duration, // "4",
@@ -151,10 +151,12 @@ class ThisDailyPractice extends StatelessWidget {
                   ],
                 ),
                 Text(
-                    exercise
-                        .description, // "strengthe the muscles of the cheek",
-                    style: AppTypographyData.greyShades_6()
-                        .sourceSansProBodySmall),
+                  exercise.description, // "strengthe the muscles of the cheek",
+                  style:
+                      AppTypographyData.greyShades_6().sourceSansProBodySmall,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 const VerticalGap(num: 16),
                 AppSolidRoundButtonReg(
                   title: 'Go',
@@ -220,9 +222,13 @@ class CompletedDailyPractice extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(exercise.name, // "Cheek Strentheing",
-                    style:
-                        AppTypographyData.primaryWhite().sourceSansProBodyBold),
+                Text(
+                  exercise.name, // "Cheek Strentheing",
+                  style: AppTypographyData.primaryWhite().quicksandBody,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 Row(
                   children: <Widget>[
                     Text(exercise.duration, // "4",

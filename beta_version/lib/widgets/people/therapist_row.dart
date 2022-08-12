@@ -23,45 +23,58 @@ class TherapistRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 24),
       child: GestureDetector(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                backgroundImage: NetworkImage(photoURL),
-                radius: 32,
-              ),
-              const HorizontalGap(num: 16),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          name,
-                          style: AppTypographyData.greyShades_6()
-                              .sourceSansProBodyBold,
-                        ),
-                        Text(
-                          title,
-                          style: AppTypographyData.greyShades_2()
-                              .sourceSansProBody,
-                        ),
-                      ],
+        onTap: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundImage: NetworkImage(photoURL),
+              radius: 28,
+            ),
+            const HorizontalGap(num: 12.0),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Flexible(
+                    child: Container(
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            name,
+                            style:
+                                AppTypographyData.greyShades_6().quicksandBody,
+                            maxLines: 2,
+                            softWrap: true,
+                            overflow: TextOverflow.fade,
+                          ),
+                          const HorizontalGap(num: 12.0),
+                          Text(
+                            title,
+                            style: AppTypographyData.greyShades_2()
+                                .sourceSansProBodySmall,
+                            maxLines: 2,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
                     ),
-                    Expanded(child: Container()),
-                    AppOutlinedRoundButtonReg(
-                        title: 'Book', onPressed: buttonOnTap),
-                  ],
-                ),
+                  ),
+                  const HorizontalGap(num: 4.0),
+                  AppOutlinedRoundButtonReg(
+                      title: 'Book', onPressed: buttonOnTap),
+                ],
               ),
-            ],
-          ),
-          onTap: onTap),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

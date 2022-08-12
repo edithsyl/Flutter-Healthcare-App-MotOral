@@ -104,55 +104,58 @@ Widget YourDailyPractice(BuildContext context) {
   return IntrinsicHeight(
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              const InvisibleLine(),
-              const CompletedDot(),
-              const GreyLine(),
-              ////
-              const GreyLine(),
-              const ThisDot(),
-              const OrangeLine(),
-              ////
-              const OrangeLine(),
-              const TodoDot(),
-              const OrangeLine(),
-            ],
-          ),
-        ),
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            CompletedDailyPractice(
-              exercise: ExerciseCategories.category('c1').exercise('e2'),
-              ontap: () {},
-              width: MediaQuery.of(context).size.width * 0.7,
-            ),
-            ThisDailyPractice(
-              exercise: ExerciseCategories.category('c1').exercise('e1'),
-              ontap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  getSnackBarWidget(
-                    Text(
-                      "you clicked ThisDailyPracticeCard",
-                      style: AppTypographyData.greyShades_6().quicksandBody,
-                    ),
-                  ),
-                );
-              },
-              width: MediaQuery.of(context).size.width * 0.7,
-            ),
-            TodoDailyPractice(
-              exercise: ExerciseCategories.category('c1').exercise('e2'),
-              ontap: () {},
-              width: MediaQuery.of(context).size.width * 0.7,
-            ),
+            const InvisibleLine(),
+            const CompletedDot(),
+            const GreyLine(),
+            ////
+            const GreyLine(),
+            const ThisDot(),
+            const OrangeLine(),
+            ////
+            const OrangeLine(),
+            const TodoDot(),
+            const OrangeLine(),
           ],
+        ),
+        const HorizontalGap(num: 16.0),
+        Flexible(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CompletedDailyPractice(
+                  exercise: ExerciseCategories.category('c1').exercise('e2'),
+                  ontap: () {},
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+                ThisDailyPractice(
+                  exercise: ExerciseCategories.category('c1').exercise('e1'),
+                  ontap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      getSnackBarWidget(
+                        Text(
+                          "you clicked ThisDailyPracticeCard",
+                          style: AppTypographyData.greyShades_6().quicksandBody,
+                        ),
+                      ),
+                    );
+                  },
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+                TodoDailyPractice(
+                  exercise: ExerciseCategories.category('c1').exercise('e2'),
+                  ontap: () {},
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     ),

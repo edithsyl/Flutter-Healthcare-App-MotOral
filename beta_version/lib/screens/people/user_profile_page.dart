@@ -62,8 +62,8 @@ class OtherUserProfilePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"),
+                      backgroundImage:
+                          NetworkImage("https://i.pravatar.cc/300"),
                       radius: 56,
                     ),
                     const HorizontalGap(num: 24),

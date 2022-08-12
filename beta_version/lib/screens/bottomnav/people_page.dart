@@ -125,14 +125,14 @@ class _PeoplePage2State extends State<PeoplePage2>
                   ),
                   //const VerticalGap(num: 32),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
                     child: Flexible(
                       child: SizedBox(
                         width: double.maxFinite,
                         height: 1000,
                         child: TabBarView(
                           controller: _controller,
-                          children: <Widget>[
+                          children: const <Widget>[
                             showLeaderboard(),
                             showBuddies(),
                             showTherapists(),

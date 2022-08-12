@@ -17,11 +17,10 @@ class showLeaderboard extends StatelessWidget {
         itemBuilder: (context, index) {
           return LeaderboardRow(
             index: index + 1,
-            name: 'Matt',
+            name: 'Very Averagecommon Joe',
             xp: 100,
             isOnline: true,
-            photoURL:
-                "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg",
+            photoURL: "https://i.pravatar.cc/300",
             onTap: () {},
           );
         },
