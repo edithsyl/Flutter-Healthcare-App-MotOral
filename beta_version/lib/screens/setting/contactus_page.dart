@@ -1,20 +1,19 @@
 import 'package:beta_version/widgets/login_widgets.dart';
+import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widgets/top_app_bar.dart';
-
 // TODO: recreate setting page
 
-class NotificationPage extends StatefulWidget {
-  const NotificationPage({Key? key}) : super(key: key);
+class ContactUsPage extends StatefulWidget {
+  const ContactUsPage({Key? key}) : super(key: key);
 
   @override
-  State<NotificationPage> createState() => _NotificationPageState();
+  State<ContactUsPage> createState() => _ContactUsPageState();
 }
 
-class _NotificationPageState extends State<NotificationPage> {
+class _ContactUsPageState extends State<ContactUsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +27,7 @@ class _NotificationPageState extends State<NotificationPage> {
             color: AppColorsData.regular().primaryOrange,
           ),
           child: AppBarContent(
-            title: 'Notification',
+            title: 'ContactUs',
             leftOnPressed: () {
               context.goNamed('home');
             },
@@ -44,9 +43,8 @@ class _NotificationPageState extends State<NotificationPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text('Push Notifications page'),
+                  const Text('ContactUs page'),
                   const VerticalGap(num: 25),
-                  LogoutButton(),
                   const VerticalGap(num: 25),
                 ],
               ),

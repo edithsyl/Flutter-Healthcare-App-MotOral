@@ -1558,6 +1558,92 @@ class AppTypographyData extends Equatable {
         ),
       );
 
+  factory AppTypographyData.primaryHighlightRed() => AppTypographyData(
+        quicksandResultScore: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.normal,
+          fontSize: 48,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        quicksandTitle: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+          fontSize: 48,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        quicksandTitle1: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.normal,
+          fontSize: 28,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        quicksandTitle2: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.normal,
+          fontSize: 24,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        quicksandBody: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.normal,
+          fontSize: 17,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        quicksandBodySmall: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.normal,
+          fontSize: 15,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        quicksandSmallButton: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.normal,
+          fontSize: 13,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        quicksandBodyTiny: GoogleFonts.quicksand(
+          fontWeight: FontWeight.w400,
+          fontSize: 9,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        sourceSansProBodyBold: GoogleFonts.sourceSansPro(
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.normal,
+          fontSize: 20,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        sourceSansProBodySemibold: GoogleFonts.sourceSansPro(
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.normal,
+          fontSize: 17,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        sourceSansProBody: GoogleFonts.sourceSansPro(
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+          fontSize: 17,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        sourceSansProBodySmall: GoogleFonts.sourceSansPro(
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+          fontSize: 15,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        sourceSansProBody1: GoogleFonts.sourceSansPro(
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+          fontSize: 11,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+        lavina: GoogleFonts.yesevaOne(
+          fontWeight: FontWeight.w400,
+          fontStyle: FontStyle.normal,
+          fontSize: 12,
+          color: AppColorsData.regular().primaryHighlightRed,
+        ),
+      );
+
   // factory AppTypographyData.small() => const AppTypographyData();
 
   final TextStyle quicksandResultScore;
@@ -1593,4 +1679,6 @@ class AppTypographyData extends Equatable {
         sourceSansProBody1.named('sourceSansProBody1'),
         lavina.named('lavina'),
       ];
+
+  // static primaryHighlightRed() {}
 }

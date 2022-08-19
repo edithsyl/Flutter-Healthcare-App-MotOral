@@ -15,6 +15,14 @@ import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
+import 'package:beta_version/screens/setting/aboutus_page.dart';
+import 'package:beta_version/screens/setting/contactus_page.dart';
+import 'package:beta_version/screens/setting/deleteaccount_page.dart';
+import 'package:beta_version/screens/setting/fontsize_page.dart';
+import 'package:beta_version/screens/setting/language_page.dart';
+import 'package:beta_version/screens/setting/privatepolicy_page.dart';
+import 'package:beta_version/screens/setting/security_page.dart';
+import 'package:beta_version/screens/setting/termsandconditions_page.dart';
 import 'package:beta_version/screens/setting_page.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
 import 'package:beta_version/widgets/signup_widgets.dart';
@@ -125,6 +133,70 @@ class AppView extends StatelessWidget {
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: const NotificationPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'security',
+      path: '/security',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const SecurityPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'language',
+      path: '/language',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const LanguagePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'fontsize',
+      path: '/fontsize',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const FontSizePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'aboutus',
+      path: '/aboutus',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const AboutUsPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'contactus',
+      path: '/contactus',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const ContactUsPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'privatepolicy',
+      path: '/privatepolicy',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const PrivatePolicyPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'termsandconditions',
+      path: '/termsandconditions',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const TermsAndConditionsPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'deleteaccount',
+      path: '/deleteaccount',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const DeleteAccountPage(),
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
