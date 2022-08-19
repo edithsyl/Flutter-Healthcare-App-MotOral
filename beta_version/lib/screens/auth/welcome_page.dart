@@ -1,8 +1,6 @@
 import 'package:custom_ui/custom_ui.dart';
 import 'package:go_router/go_router.dart';
 
-// MYTODO: recreate welcome page
-
 /// make [login] & [signup] button using long button from [custom_ui] package
 /// use context.go() from gorouter to navigate to login screen and registration screen
 class WelcomePage extends StatelessWidget {
@@ -16,8 +14,7 @@ class WelcomePage extends StatelessWidget {
       alignment: Alignment.center,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-              'assets/images/girl_background.png'), //FIXME: not showing
+          image: AssetImage('assets/images/girl_background.png'),
           fit: BoxFit.fitHeight,
           alignment: Alignment.bottomRight,
           repeat: ImageRepeat.noRepeat,
