@@ -13,6 +13,9 @@ import '../widgets/top_app_bar.dart';
 // TODO: recreate setting page
 
 /// this is [_SettingPageState]
+final String userName = 'AnnaDoe';
+final int userId = 208329359;
+final String userBio = 'Hi, nice to meet you :)';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -51,9 +54,58 @@ class _SettingPageState extends State<SettingPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  Row(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q_400x400.jpg"),
+                            radius: 24,
+                          ),
+                          const HorizontalGap(num: 8),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                userName,
+                                style:
+                                    AppTypographyData.orangeShadesAlmostBlack()
+                                        .sourceSansProBodyBold,
+                              ),
+                              Text(
+                                'ID: $userId',
+                                style:
+                                    AppTypographyData.orangeShadesAlmostBlack()
+                                        .sourceSansProBodySmall,
+                              ),
+                              const VerticalGap(num: 12),
+                            ],
+                          ),
+                        ],
+                      ),
+                      IconOutlinedRoundButtonReg(
+                        icon: Icon(
+                          CustomIcons.edit,
+                          color: AppColorsData.regular().primaryWhite,
+                          size: 16,
+                        ),
+                        title: 'Edit profile',
+                        titlestyle:
+                            AppTypographyData.primaryWhite().quicksandBody,
+                        borderColor: AppColorsData.regular().primaryOrange,
+                        onPressed: () {
+                          context.goNamed('editprofile');
+                        },
+                      ),
+                    ],
+                  ),
                   Text(
                     'Account Setting',
-                    style: AppTypographyData.greyShades_2().sourceSansProBody,
+                    style: AppTypographyData.primaryWhite().sourceSansProBody,
                   ),
                   SettingRepeatRow(name: 'Security', destination: 'security'),
                   SettingRepeatRow(name: 'Language', destination: 'language'),
