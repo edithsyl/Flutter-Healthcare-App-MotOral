@@ -91,7 +91,10 @@ class AppOutlineButton extends StatelessWidget {
             borderRadius: rad,
           )),
       onPressed: onPressed,
-      child: Text(title),
+      child: Text(
+        title,
+        style: tStyle,
+      ),
     );
   }
 }
