@@ -1,7 +1,6 @@
 part of 'login_cubit.dart';
 
 // enum LoginStatus { initial, submitting, success, error }
-
 /// [LoginState] consists of an [Email], [Password], and [FormzStatus]
 /// [Email] and [Password] models extend [FormzInput] from the formz package
 class LoginState extends Equatable {
@@ -9,8 +8,8 @@ class LoginState extends Equatable {
   final Password password;
   final FormzStatus status;
   final String? errorMessage;
-
   // constructor
+
   const LoginState({
     this.email = const Email.pure(),
     this.password = const Password.pure(),
