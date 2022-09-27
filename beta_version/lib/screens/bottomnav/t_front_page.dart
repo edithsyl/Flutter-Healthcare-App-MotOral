@@ -1,5 +1,7 @@
 import 'package:beta_version/data/bottom_nav_pages_data.dart';
-
+import 'package:beta_version/models/user_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -26,6 +28,8 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen>
     with TickerProviderStateMixin {
   late final TabController _controller;
+  // User? user = FirebaseAuth.instance.currentUser;
+  // UserModel loggedInUser = UserModel(uid: '');
 
   @override
   void initState() {
@@ -35,6 +39,15 @@ class _BottomNavScreenState extends State<BottomNavScreen>
       vsync: this,
       initialIndex: widget.index,
     );
+    // fetch user info from firestore
+    // FirebaseFirestore.instance
+    //     .collection("users")
+    //     .doc(user!.uid)
+    //     .get()
+    //     .then((value) {
+    //   this.loggedInUser = UserModel.fromMap(value.data());
+    //   setState(() {});
+    // });
   }
 
   @override

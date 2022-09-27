@@ -81,10 +81,11 @@ class AppOutlineButton extends StatelessWidget {
       style: OutlinedButton.styleFrom(
           fixedSize: size,
           textStyle: tStyle,
-          primary: AppColorsData.regular().primaryWhite,
+          backgroundColor: AppColorsData.regular().primaryWhite,
+          primary: AppColorsData.regular().primaryOrange,
           side: BorderSide(
             color: AppColorsData.regular().primaryOrange,
-            width: 1,
+            width: 1.4,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: rad,

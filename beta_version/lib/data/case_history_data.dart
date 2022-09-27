@@ -1,5 +1,5 @@
 import 'package:beta_version/models/case_history_model.dart';
-import 'package:beta_version/models/models.dart';
+import 'package:beta_version/models/exercise_models.dart';
 
 /// dummy data of [CaseHistoryItem]
 class CaseHistoryItems {

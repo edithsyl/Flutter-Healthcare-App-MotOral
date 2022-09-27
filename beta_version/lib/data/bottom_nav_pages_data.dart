@@ -31,11 +31,11 @@ class BottomNavPages {
     BottomNavPage(
       id: 'b1',
       name: 'news',
-      thisIcon: const Padding(
+      thisIcon: Padding(
         padding: EdgeInsets.symmetric(vertical: 2.0),
         child: Icon(Icons.apps),
       ),
-      thisPageShows: const NewsPage(),
+      thisPageShows: NewsPage(),
     ),
     BottomNavPage(
       id: 'b2',
@@ -62,7 +62,7 @@ class BottomNavPages {
         padding: EdgeInsets.symmetric(vertical: 2.0),
         child: Icon(CustomIcons.people),
       ),
-      thisPageShows: PeoplePage(),
+      thisPageShows: PeoplePage2(),
     ),
     BottomNavPage(
       id: 'b5',

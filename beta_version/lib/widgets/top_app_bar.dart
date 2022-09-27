@@ -58,16 +58,18 @@ class AppBarContent extends StatelessWidget {
   }
 }
 
-/// [title] on the left, no back button
-/// eg. homepage, exercise page
-class AppBarContent2 extends StatelessWidget {
-  const AppBarContent2({
+/// [title] at center, back button on the left, report icon on the right
+/// eg. case history page, notification page, exercise info page
+class ProfileAppBarContent extends StatelessWidget {
+  const ProfileAppBarContent({
     Key? key,
     required this.title,
+    required this.leftOnPressed,
     required this.rightOnPressed,
   }) : super(key: key);
 
   final String title;
+  final VoidCallback leftOnPressed;
   final VoidCallback rightOnPressed;
 
   @override
@@ -76,33 +78,71 @@ class AppBarContent2 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            children: <Widget>[
-              Text(
-                title,
-                style: AppTypographyData.primaryWhite().quicksandTitle2,
-              ),
-              const HorizontalGap(num: 50),
-              IconButton(
-                icon: const Icon(
-                  Icons.more_vert,
-                  size: 20,
-                ),
-                color: AppColorsData.regular().primaryWhite,
-                onPressed: rightOnPressed,
-              ),
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              onPressed: leftOnPressed,
+              icon: const Icon(CustomIcons.back),
+              color: AppColorsData.regular().primaryWhite,
+            ),
+            // const HorizontalGap(num: 50),
+            Text(
+              title,
+              style: AppTypographyData.primaryWhite().quicksandTitle2,
+            ),
+            IconButton(
+              onPressed: rightOnPressed,
+              icon: const Icon(CustomIcons.report),
+              color: AppColorsData.regular().primaryWhite,
+            ),
+          ],
         ),
       ],
     );
   }
 }
 
-/// [title] on the left, no back button
-/// eg. homepage, exercise page
+// for news page
+class NewsAppBarContent extends StatelessWidget {
+  const NewsAppBarContent({
+    Key? key,
+    required this.rightOnPressed,
+  }) : super(key: key);
+
+  final VoidCallback rightOnPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              'News',
+              style: AppTypographyData.primaryWhite().quicksandTitle2,
+            ),
+            // const HorizontalGap(num: 50),
+            // IconButton(
+            //   onPressed: rightOnPressed,
+            //   icon: const Icon(CustomIcons.bookmark),
+            //   color: Colors.transparent,
+            // ),
+            IconButton(
+              onPressed: rightOnPressed,
+              icon: const Icon(CustomIcons.bookmark),
+              color: AppColorsData.regular().primaryWhite,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
 class AppBarContentExercise extends StatelessWidget {
   const AppBarContentExercise({
     Key? key,
@@ -123,7 +163,13 @@ class AppBarContentExercise extends StatelessWidget {
           'Exercises',
           style: AppTypographyData.primaryWhite().quicksandTitle2,
         ),
-        const HorizontalGap(num: 50),
+        IconButton(
+          icon: const Icon(
+            CustomIcons.inbox_1,
+          ),
+          color: Colors.transparent,
+          onPressed: () => {},
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -145,7 +191,7 @@ class AppBarContentExercise extends StatelessWidget {
                 ],
               ),
             ),
-            const HorizontalGap(num: 16),
+            const HorizontalGap(num: 8),
             MyTooltip(
               message: 'this shows your login streak',
               child: Row(

@@ -51,23 +51,27 @@ class AppOutlinedRoundButtonReg extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-          minimumSize: const Size(5, 5),
-          textStyle: AppTypographyData.primaryOrange().quicksandBody,
-          primary: AppColorsData.regular().primaryWhite,
-          side: BorderSide(
-            color: AppColorsData.regular().primaryOrange,
-            width: 1,
-          ),
-          padding: EdgeInsets.symmetric(
-            vertical: AppSpacingData.regular().x0_5,
-            horizontal: AppSpacingData.regular().x2,
-          ),
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: AppRadiusData.regular().asBorderRadius().allRound,
-          )),
+        minimumSize: const Size(5, 5),
+        textStyle: AppTypographyData.primaryOrange().quicksandBody,
+        primary: AppColorsData.regular().primaryWhite,
+        side: BorderSide(
+          color: AppColorsData.regular().primaryOrange,
+          width: 1,
+        ),
+        padding: EdgeInsets.symmetric(
+          vertical: AppSpacingData.regular().x0_5,
+          horizontal: AppSpacingData.regular().x1_5,
+        ),
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: AppRadiusData.regular().asBorderRadius().allRound,
+        ),
+      ),
       onPressed: onPressed,
-      child: Text(title),
+      child: Text(
+        title,
+        style: AppTypographyData.primaryOrange().quicksandBodySmall,
+      ),
     );
   }
 }
@@ -120,7 +124,7 @@ class AppOutlinedRoundButtonSmall extends StatelessWidget {
       style: OutlinedButton.styleFrom(
           minimumSize: const Size(5, 5),
           textStyle: AppTypographyData.primaryOrange().quicksandSmallButton,
-          primary: AppColorsData.regular().primaryWhite,
+          primary: AppColorsData.regular().primaryOrange,
           side: BorderSide(
             color: AppColorsData.regular().primaryOrange,
             width: 1,

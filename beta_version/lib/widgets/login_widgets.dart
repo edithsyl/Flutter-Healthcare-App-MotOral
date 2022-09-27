@@ -141,7 +141,7 @@ class LoginButton extends StatelessWidget {
                 title: 'LOG IN',
                 onPressed: () {
                   state.status.isValidated
-                      ? () => context.read<LoginCubit>().logInWithCredentials()
+                      ? context.read<LoginCubit>().logInWithCredentials()
                       : ScaffoldMessenger.of(context).showSnackBar(
                           getSnackBarText(
                               '${state.errorMessage}, no msg, login button'),

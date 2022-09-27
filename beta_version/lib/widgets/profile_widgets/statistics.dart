@@ -10,23 +10,9 @@ class StatisticsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
+        children: const [
           Text('stats here'),
           const VerticalGap(num: 24),
-          // TESTING
-          AppSolidRoundButtonReg(
-            title: 'test snackbar',
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                getSnackBarWidget(
-                  Text(
-                    "I'm a snack Text",
-                    style: AppTypographyData.greyShades_6().quicksandBody,
-                  ),
-                ),
-              );
-            },
-          ),
           SizedBox(
             height: 300,
           )

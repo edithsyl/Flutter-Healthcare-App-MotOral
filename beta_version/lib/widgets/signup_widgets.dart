@@ -132,9 +132,9 @@ class _SignupButton extends StatelessWidget {
                 title: 'SIGN UP',
                 onPressed: () {
                   context.goNamed('home');
-                  // if (state.status.isValidated) {
-                  //   context.read<SignupCubit>().signupFormSubmitted();
-                  // }
+                  if (state.status.isValidated) {
+                    context.read<SignupCubit>().signupFormSubmitted();
+                  }
                 },
               );
       },

@@ -75,3 +75,35 @@ class ProfileBackgroundPainter extends CustomPainter {
     return false;
   }
 }
+
+class TherapistProfileBackgroundPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint();
+    Path path = Path();
+
+    /// fill the whole screen with white
+    paint.color = AppColorsData.regular().primaryWhite;
+    var rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    canvas.drawRect(rect, paint);
+
+    /// change paint to orange
+    paint.color = AppColorsData.regular().primaryOrange;
+
+    path.lineTo(0, 200);
+    // path.relativeQuadraticBezierTo(0, -140, size.width / 2, 780 / 3 - 290);
+    // path.lineTo(size.width / 2, 780 / 3);
+    // path.relativeQuadraticBezierTo(
+    //     size.width / 2 + 24, 146, size.width / 2, 780 / 3 - 390);
+
+    path.lineTo(size.width, 200);
+    path.lineTo(size.width, 0);
+    path.close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
+  }
+}

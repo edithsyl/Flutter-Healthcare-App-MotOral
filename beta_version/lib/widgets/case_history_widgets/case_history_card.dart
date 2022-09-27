@@ -7,11 +7,13 @@ class CaseHistoryCard extends StatelessWidget {
     required this.casehistory_item,
     required this.color,
     required this.ontap,
+    required this.buttonOnTap,
   }) : super(key: key);
 
   final CaseHistoryItem casehistory_item;
   final Color color;
   final VoidCallback ontap;
+  final VoidCallback buttonOnTap;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,10 @@ class CaseHistoryCard extends StatelessWidget {
                           style: AppTypographyData.primaryWhite()
                               .sourceSansProBodySmall),
                     ),
-                    AppSolidRoundButtonSmall(title: 'View', onPressed: () {})
+                    AppSolidRoundButtonSmall(
+                      title: 'View',
+                      onPressed: buttonOnTap,
+                    )
                   ],
                 ),
               ],

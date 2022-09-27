@@ -14,7 +14,7 @@ part 'auth_state.dart';
 /// It has a dependency on the [AuthRepository] and subscribes to the [User] Stream in order to emit new states in response to changes in the current user
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
-  late final StreamSubscription<User> _userSubscription;
+  late final StreamSubscription<UserModel> _userSubscription;
 
   // constructor
   AuthBloc({required AuthRepository authRepository})

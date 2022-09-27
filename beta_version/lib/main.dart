@@ -1,28 +1,27 @@
 import 'package:beta_version/data/case_history_data.dart';
 import 'package:beta_version/data/data_export.dart';
+import 'package:beta_version/data/news_categories_data.dart';
 import 'package:beta_version/logic/blocs/bloc_observer.dart';
 import 'package:beta_version/logic/blocs/export_blocs.dart';
-import 'package:beta_version/logic/cubits/bottomnav/navigation_cubit.dart';
 import 'package:beta_version/logic/cubits/login/login_cubit.dart';
 import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
 import 'package:beta_version/models/case_history_model.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
+import 'package:beta_version/models/news_category_model.dart';
 import 'package:beta_version/screens/auth/login_screen.dart';
 import 'package:beta_version/screens/auth/registration_screen.dart';
 import 'package:beta_version/screens/auth/welcome_page.dart';
+import 'package:beta_version/screens/bookmark_page.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
+import 'package:beta_version/screens/setting/setting_pages.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
-import 'package:beta_version/screens/setting/aboutus_page.dart';
-import 'package:beta_version/screens/setting/contactus_page.dart';
-import 'package:beta_version/screens/setting/deleteaccount_page.dart';
-import 'package:beta_version/screens/setting/fontsize_page.dart';
-import 'package:beta_version/screens/setting/language_page.dart';
-import 'package:beta_version/screens/setting/privatepolicy_page.dart';
-import 'package:beta_version/screens/setting/security_page.dart';
-import 'package:beta_version/screens/setting/termsandconditions_page.dart';
+import 'package:beta_version/screens/news/news_category_tab_list.dart';
+import 'package:beta_version/screens/news/news_info_page.dart';
+import 'package:beta_version/screens/people/therapist_profile_page.dart';
+import 'package:beta_version/screens/people/user_profile_page.dart';
 import 'package:beta_version/screens/setting_page.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
 import 'package:beta_version/widgets/signup_widgets.dart';
@@ -36,6 +35,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 
+import 'models/news_model.dart';
 import 'screens/exercise/category_tab_list.dart';
 import 'screens/notification_page.dart';
 
@@ -197,6 +197,12 @@ class AppView extends StatelessWidget {
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: const DeleteAccountPage(),
+=======
+      name: 'bookmarked',
+      path: '/bookmarked',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const BookmarkedPage(),
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
@@ -257,6 +263,37 @@ class AppView extends StatelessWidget {
       ],
     ),
 
+    /// for showing news info page
+    GoRoute(
+      path: '/newscategory/:nid',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: NewsCategoryTabsScreen(
+            parentContext: context,
+            key: state.pageKey,
+            selectedCategory: NewsCategories.category(state.params['nid']!),
+          ),
+          time: AppDurationsData.regular().quick),
+      routes: <GoRoute>[
+        GoRoute(
+          path: 'newsinfo/:eid',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            final NewsCategory category =
+                NewsCategories.category(state.params['nid']!);
+            final News news = category.news(state.params['eid']!);
+            return FadePage(
+              key: state.pageKey,
+              child: ThisNewsScreen(
+                category: category,
+                news: news,
+              ),
+              time: AppDurationsData.regular().quick,
+            );
+          },
+        ),
+      ],
+    ),
+
     /// for showing bottom navigation pages
     GoRoute(
       path: '/tfront/:bid',
@@ -293,6 +330,22 @@ class AppView extends StatelessWidget {
       path: '/profile',
       redirect: (_) => '/tfront/${BottomNavPages.data[4].id}',
     ),
+    GoRoute(
+      name: 'therapistProfile',
+      path: '/therapistProfile',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: TherapistProfilePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'otherUserProfile',
+      path: '/otherUserProfile',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const OtherUserProfilePage(),
+          time: AppDurationsData.regular().quick),
+    ),
   ];
 
   @override
@@ -302,35 +355,33 @@ class AppView extends StatelessWidget {
     final authBloc = context.read<AuthBloc>(); //test
     final appRouter = GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: '/profile',
-
-      /// comment out auth pages
-      // redirect: (state) {
-      //   AuthStatus authState = authBloc.state.status;
-      //   final isLoggedIn = authState == AuthStatus.authenticated;
-      //   final isLoggingIn = state.location == '/login' ||
-      //       state.location == '/signup' ||
-      //       state.location == '/welcome';
-      //   // context.select((AuthBloc bloc) => bloc.state.status);
-      //   // switch (authState) {
-      //   //   case AuthStatus.authenticated:
-      //   //     return '/front';
-      //   //   case AuthStatus.unauthenticated:
-      //   //     return '/login';
-      //   //   // default:
-      //   //   //   return '/login';
-      //   // }
-      //   // if the user is not logged in, they need to login
-      //   if (!isLoggedIn && !isLoggingIn) {
-      //     Fluttertoast.showToast(msg: '!isloggedIn and !isLoggingIn');
-      //     return '/welcome';
-      //   } else if (isLoggedIn && isLoggingIn) {
-      //     Fluttertoast.showToast(msg: 'isloggedIn and isLoggingIn');
-      //     return '/front';
-      //   } else {
-      //     return null;
-      //   }
-      // },
+      initialLocation: '/',
+      redirect: (state) {
+        AuthStatus authState = authBloc.state.status;
+        final isLoggedIn = authState == AuthStatus.authenticated;
+        final isLoggingIn = state.location == '/login' ||
+            state.location == '/signup' ||
+            state.location == '/welcome';
+        // context.select((AuthBloc bloc) => bloc.state.status);
+        // switch (authState) {
+        //   case AuthStatus.authenticated:
+        //     return '/front';
+        //   case AuthStatus.unauthenticated:
+        //     return '/login';
+        //   // default:
+        //   //   return '/login';
+        // }
+        // if the user is not logged in, they need to login
+        if (!isLoggedIn && !isLoggingIn) {
+          Fluttertoast.showToast(msg: '!isloggedIn and !isLoggingIn');
+          return '/welcome';
+        } else if (isLoggedIn && isLoggingIn) {
+          Fluttertoast.showToast(msg: 'isloggedIn and isLoggingIn');
+          return '/home';
+        } else {
+          return null;
+        }
+      },
       refreshListenable: GoRouterRefreshStream(authBloc.stream), // test
       routes: routes,
       errorPageBuilder: (context, state) => MaterialPage(

@@ -21,6 +21,10 @@ class CustomIcons {
   static const _kFontFam = 'CustomIcons';
   // static const String? _kFontPkg = null;
 
+  static const IconData bookmark = IconData(
+    0xe802,
+    fontFamily: _kFontFam,
+  );
   static const IconData edit = IconData(
     0xe801,
     fontFamily: _kFontFam,

@@ -1,5 +1,7 @@
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/data/exercise_categories_data.dart';
+import 'package:beta_version/widgets/alert_dialogue.dart';
+import 'package:beta_version/widgets/daily_practice_widgets/completed_all_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_parctice_card.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_dots.dart';
 import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_lines.dart';
@@ -14,7 +16,7 @@ import 'package:go_router/go_router.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  final String userName = 'Anne';
+  final String userName = 'Joe';
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,17 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   const VerticalGap(num: 24),
-                  _buildItem(context),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        //const CompletedAllCard(),
+                        YourDailyPractice(context),
+                      ],
+                    ),
+                  )
                 ],
               ),
             )
@@ -89,56 +101,69 @@ class HomePage extends StatelessWidget {
 }
 
 ///// sample from https://stackoverflow.com/questions/61822182/flutter-expand-column-inside-row
-Widget _buildItem(BuildContext context) {
+Widget YourDailyPractice(BuildContext context) {
   return IntrinsicHeight(
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              const InvisibleLine(),
-              const CompletedDot(),
-              const GreyLine(),
-              ////
-              const GreyLine(),
-              const ThisDot(),
-              const OrangeLine(),
-              ////
-              const OrangeLine(),
-              const TodoDot(),
-              const OrangeLine(),
-            ],
-          ),
-        ),
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            CompletedDailyPractice(
-              exercise: ExerciseCategories.category('c1').exercise('e2'),
-              ontap: () {},
-            ),
-            ThisDailyPractice(
-              exercise: ExerciseCategories.category('c1').exercise('e1'),
-              ontap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  getSnackBarWidget(
-                    Text(
-                      "you clicked ThisDailyPracticeCard",
-                      style: AppTypographyData.greyShades_6().quicksandBody,
-                    ),
-                  ),
-                );
-              },
-            ),
-            TodoDailyPractice(
-              exercise: ExerciseCategories.category('c1').exercise('e2'),
-              ontap: () {},
-            ),
+            const InvisibleLine(),
+            const CompletedDot(),
+            const GreyLine(),
+            ////
+            const GreyLine(),
+            const ThisDot(),
+            const OrangeLine(),
+            ////
+            const OrangeLine(),
+            const TodoDot(),
+            const OrangeLine(),
           ],
+        ),
+        const HorizontalGap(num: 16.0),
+        Flexible(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CompletedDailyPractice(
+                  exercise: ExerciseCategories.category('c1').exercise('e2'),
+                  ontap: () => showCustomDialog(
+                    context,
+                    'Go to this exericse?',
+                    'cancel',
+                    'Confirm',
+                    () => Navigator.of(context).pop(),
+                    () => context.go('/category/c1/exerciseinfo/e2'),
+                  ),
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+                ThisDailyPractice(
+                  exercise: ExerciseCategories.category('c1').exercise('e1'),
+                  ontap: () {
+                    context.go('/category/c1/exerciseinfo/e1'); //FIXME
+                  },
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+                TodoDailyPractice(
+                  exercise: ExerciseCategories.category('c1').exercise('e2'),
+                  ontap: () => showCustomDialog(
+                    context,
+                    'Go to this exericse?',
+                    'cancel',
+                    'Confirm',
+                    () => Navigator.of(context).pop(),
+                    () => context.go('/category/c1/exerciseinfo/e2'),
+                  ),
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     ),
