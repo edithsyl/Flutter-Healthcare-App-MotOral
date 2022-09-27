@@ -14,8 +14,7 @@ class WelcomePage extends StatelessWidget {
       alignment: Alignment.center,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-              'assets/images/girl_background.png'), //FIXME: not showing
+          image: AssetImage('assets/images/girl_background.png'),
           fit: BoxFit.fitHeight,
           alignment: Alignment.bottomRight,
           repeat: ImageRepeat.noRepeat,

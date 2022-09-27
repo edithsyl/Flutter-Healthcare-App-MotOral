@@ -1,7 +1,6 @@
 import 'package:beta_version/models/badge_model.dart';
 import 'package:custom_ui/custom_ui.dart';
 
-// FIXME
 class BadgeRow extends StatelessWidget {
   const BadgeRow({
     Key? key,

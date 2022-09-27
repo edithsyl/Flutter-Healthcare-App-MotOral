@@ -41,7 +41,7 @@ class _NotificationPageState extends State<NotificationPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  const Text('Notification page'),
+                  const Text('Push Notifications page'),
                   const VerticalGap(num: 25),
                 ],
               ),

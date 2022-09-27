@@ -136,6 +136,68 @@ class AppView extends StatelessWidget {
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
+      name: 'security',
+      path: '/security',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const SecurityPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'language',
+      path: '/language',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const LanguagePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'fontsize',
+      path: '/fontsize',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const FontSizePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'aboutus',
+      path: '/aboutus',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const AboutUsPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'contactus',
+      path: '/contactus',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const ContactUsPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'privatepolicy',
+      path: '/privatepolicy',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const PrivatePolicyPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'termsandconditions',
+      path: '/termsandconditions',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const TermsAndConditionsPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'deleteaccount',
+      path: '/deleteaccount',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const DeleteAccountPage(),
+=======
       name: 'bookmarked',
       path: '/bookmarked',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
