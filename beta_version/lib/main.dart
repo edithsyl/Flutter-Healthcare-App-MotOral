@@ -15,6 +15,7 @@ import 'package:beta_version/screens/auth/welcome_page.dart';
 import 'package:beta_version/screens/bookmark_page.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
+import 'package:beta_version/screens/setting/setting_pages.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
 import 'package:beta_version/screens/news/news_category_tab_list.dart';

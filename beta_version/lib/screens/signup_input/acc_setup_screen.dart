@@ -1,4 +1,4 @@
-import 'package:beta_version/widgets/AccSetup_widgets.dart';
+import 'package:beta_version/widgets/acc_setup_widgets.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -57,7 +57,7 @@ class _AccSetupScreenState extends State<AccSetupScreen> {
                       ],
                     ),
                     const VerticalGap(num: 45),
-                    const AccSetupForm(),
+                    //const AccSetupForm(),
                     const VerticalGap(num: 40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

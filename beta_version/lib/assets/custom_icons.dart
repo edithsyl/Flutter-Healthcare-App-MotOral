@@ -76,11 +76,11 @@ class CustomIcons {
     fontFamily: _kFontFam,
   );
   static const IconData arrowLeft = IconData(
-    0xe814,
+    0xe815,
     fontFamily: _kFontFam,
   );
   static const IconData arrowRight = IconData(
-    0xe815,
+    0xe814,
     fontFamily: _kFontFam,
   );
   static const IconData minus = IconData(
