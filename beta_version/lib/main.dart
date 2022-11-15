@@ -23,6 +23,7 @@ import 'package:beta_version/screens/news/news_info_page.dart';
 import 'package:beta_version/screens/people/therapist_profile_page.dart';
 import 'package:beta_version/screens/people/user_profile_page.dart';
 import 'package:beta_version/screens/setting_page.dart';
+import 'package:beta_version/screens/signup_input/acc_setup_screen.dart';
 import 'package:beta_version/widgets/login_widgets.dart';
 import 'package:beta_version/widgets/signup_widgets.dart';
 import 'package:custom_ui/custom_ui.dart';
@@ -197,7 +198,9 @@ class AppView extends StatelessWidget {
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: const DeleteAccountPage(),
-=======
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
       name: 'bookmarked',
       path: '/bookmarked',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
@@ -344,6 +347,14 @@ class AppView extends StatelessWidget {
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: const OtherUserProfilePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'accSetup',
+      path: '/accSetup',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const AccSetupScreen(),
           time: AppDurationsData.regular().quick),
     ),
   ];

@@ -1,38 +1,47 @@
-// part of 'acc_setup_cubit.dart';
+part of 'acc_setup_cubit.dart';
 
-// // enum AccSetupStatus { initial, submitting, success, error }
+// enum AccSetupStatus { initial, submitting, success, error }
 
-// /// [AccSetupState] consists of an [Email], [Password], and [FormzStatus]
-// /// [Email] and [Password] models extend [FormzInput] from the formz package
-// class AccSetupState extends Equatable {
-//   final Email email;
-//   final Password password;
-//   final FormzStatus status;
-//   final String? errorMessage;
+/// [AccSetupState] consists of an [Email], [Password], and [FormzStatus]
+/// [Email] and [Password] models extend [FormzInput] from the formz package
+class AccSetupState extends Equatable {
+  final FirstName firstName;
+  final LastName lastName;
+  final UserName userName;
+  final Bio bio;
 
-//   // constructor
-//   const AccSetupState({
-//     this.email = const Email.pure(),
-//     this.password = const Password.pure(),
-//     this.status = FormzStatus.pure,
-//     this.errorMessage,
-//   });
+  final FormzStatus status;
+  final String? errorMessage;
 
-//   // another constructor for updating username or password without passing another value
-//   AccSetupState copyWith({
-//     Email? email,
-//     Password? password,
-//     FormzStatus? status,
-//     String? errorMessage,
-//   }) {
-//     return AccSetupState(
-//       email: email ?? this.email,
-//       password: password ?? this.password,
-//       status: status ?? this.status,
-//       errorMessage: errorMessage ?? this.errorMessage,
-//     );
-//   }
+  // constructor
+  const AccSetupState({
+    this.firstName = const FirstName.pure(),
+    this.lastName = const LastName.pure(),
+    this.userName = const UserName.pure(),
+    this.bio = const Bio.pure(),
+    this.status = FormzStatus.pure,
+    this.errorMessage,
+  });
 
-//   @override
-//   List<Object?> get props => [email, password, status];
-// }
+  // another constructor for updating username or password without passing another value
+  AccSetupState copyWith({
+    FirstName? firstName,
+    LastName? lastName,
+    UserName? userName,
+    Bio? bio,
+    FormzStatus? status,
+    String? errorMessage,
+  }) {
+    return AccSetupState(
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      userName: userName ?? this.userName,
+      bio: bio ?? this.bio,
+      status: status ?? this.status,
+      errorMessage: errorMessage ?? this.errorMessage,
+    );
+  }
+
+  @override
+  List<Object?> get props => [firstName, lastName, userName, bio, status];
+}

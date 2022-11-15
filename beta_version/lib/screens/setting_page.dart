@@ -74,7 +74,7 @@ class _SettingPageState extends State<SettingPage> {
                                 userName,
                                 style:
                                     AppTypographyData.orangeShadesAlmostBlack()
-                                        .sourceSansProBodyBold,
+                                        .sourceSansProBodySemibold,
                               ),
                               Text(
                                 'ID: $userId',
@@ -87,19 +87,23 @@ class _SettingPageState extends State<SettingPage> {
                           ),
                         ],
                       ),
-                      IconOutlinedRoundButtonReg(
-                        icon: Icon(
-                          CustomIcons.edit,
-                          color: AppColorsData.regular().primaryWhite,
-                          size: 16,
+                      const HorizontalGap(num: 16),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.35,
+                        child: SettingProfileEditButton(
+                          icon: Icon(
+                            CustomIcons.edit,
+                            color: AppColorsData.regular().primaryWhite,
+                            size: 16,
+                          ),
+                          title: 'Edit Profile',
+                          titlestyle: AppTypographyData.primaryWhite()
+                              .quicksandBodySmall,
+                          borderColor: AppColorsData.regular().primaryOrange,
+                          onPressed: () {
+                            context.goNamed('editprofile');
+                          },
                         ),
-                        title: 'Edit profile',
-                        titlestyle:
-                            AppTypographyData.primaryWhite().quicksandBody,
-                        borderColor: AppColorsData.regular().primaryOrange,
-                        onPressed: () {
-                          context.goNamed('editprofile');
-                        },
                       ),
                     ],
                   ),

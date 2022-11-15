@@ -32,7 +32,7 @@ class _AccSetupScreenState extends State<AccSetupScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Log in',
+                      'Sign Up',
                       style: TextStyle(
                           color: AppColorsData.regular().greyShades_5,
                           fontWeight: FontWeight.w800,
@@ -45,13 +45,8 @@ class _AccSetupScreenState extends State<AccSetupScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'welcome back! ',
-                          style: AppTypographyData.primaryOrange()
-                              .sourceSansProBodySemibold,
-                        ),
-                        Text(
-                          'tell us your',
-                          style: AppTypographyData.greyShades_4()
+                          'tell us more about yourself',
+                          style: AppTypographyData.greyShades_6()
                               .sourceSansProBodySemibold,
                         ),
                       ],

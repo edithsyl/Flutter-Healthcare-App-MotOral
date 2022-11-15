@@ -206,3 +206,67 @@ class IconOutlinedRoundButtonReg extends StatelessWidget {
     // );
   }
 }
+
+class SettingProfileEditButton extends StatelessWidget {
+  const SettingProfileEditButton({
+    Key? key,
+    required this.icon,
+    required this.title,
+    required this.titlestyle,
+    required this.borderColor,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final Icon icon;
+  final String title;
+  final TextStyle titlestyle;
+  final Color borderColor;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: borderColor,
+            width: 1,
+          ),
+          color: borderColor,
+          borderRadius: const AppRadiusData.regular().asBorderRadius().allRound,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            icon,
+            // const HorizontalGap(num: 12),
+            Text(
+              title,
+              style: titlestyle,
+            ),
+          ],
+        ),
+      ),
+    );
+
+    // ElevatedButton(
+    //   style: ElevatedButton.styleFrom(
+    //       minimumSize: const Size(5, 5),
+    //       textStyle: AppTypographyData.primaryWhite().quicksandBody,
+    //       primary: AppColorsData.regular().primaryOrange,
+    //       padding: EdgeInsets.symmetric(
+    //         vertical: AppSpacingData.regular().x0_5,
+    //         horizontal: AppSpacingData.regular().x2,
+    //       ),
+    //       elevation: 0,
+    //       shape: RoundedRectangleBorder(
+    //         borderRadius: AppRadiusData.regular().asBorderRadius().allRound,
+    //       )),
+    //   onPressed: onPressed,
+    //   child: Text(title),
+    // );
+  }
+}
