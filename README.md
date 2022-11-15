@@ -8,7 +8,7 @@ There are two main folders:
 
 To transition efficiently from visual prototypes in Figma to Flutter widgets, `/custom_ui`, which is a custom design system library, is created to provide an API for theming data such as colours, typography, radius, backgrounds, page transitions effects e.t.c.
 
-As for custom icons used in this app, they are imported into `/beta_version/assets`.
+As for custom icons used in this app, they are imported into `/beta_version/assets/icons`.
 
 # flutter
 
