@@ -137,6 +137,10 @@ class AppView extends StatelessWidget {
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
+<<<<<<< Updated upstream
+=======
+<<<<<<< pages_ui
+>>>>>>> Stashed changes
       name: 'security',
       path: '/security',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
@@ -198,7 +202,11 @@ class AppView extends StatelessWidget {
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: const DeleteAccountPage(),
+<<<<<<< Updated upstream
           time: AppDurationsData.regular().quick),
+=======
+      ),
+>>>>>>> Stashed changes
     ),
     GoRoute(
       name: 'bookmarked',
