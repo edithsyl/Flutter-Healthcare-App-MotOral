@@ -43,6 +43,39 @@ Open command palette in VScode, type emulator and click view Android Emulator. Y
 
 Right now you can either use your real google account, or use email: abcde@gmail.com and password: abcde12345 to login.
 
+# Completed
+## Authentication
+<img width="139" alt="image" src="https://user-images.githubusercontent.com/69338737/202074214-e1f66d40-54a2-44cd-b44b-72a8a6375db9.png">
+<img width="139" alt="image" src="https://user-images.githubusercontent.com/69338737/202074220-32e55e1f-cf23-4da6-a120-05c381218ab9.png">
+<img width="140" alt="image" src="https://user-images.githubusercontent.com/69338737/202074227-d5e51dc7-e826-475d-8dcc-3ba8dcdb1107.png">
+
+## Home
+<img width="109" alt="image" src="https://user-images.githubusercontent.com/69338737/202074258-153e2ff5-2c3f-481d-935f-6a762bd59479.png">
+This is the application’s home page, which contains notifications and prompts users to do 3 different exercises every day(currently can't change what's the exercises shown on this page).
+
+## Exercise
+<img width="120" alt="image" src="https://user-images.githubusercontent.com/69338737/202074298-ea18acb9-8c00-4c86-98ca-1d0dbd4af585.png">
+<img width="120" alt="image" src="https://user-images.githubusercontent.com/69338737/202074310-bb6326a8-4d2e-42cc-9828-ef39dbe9cdb1.png">
+Exercises are categorized according to their target areas. When users click one of the exercise cards, they can watch that exercise’s demonstration video and text instructions.
+
+## Profile
+<img width="107" alt="image" src="https://user-images.githubusercontent.com/69338737/202074547-22467b88-2e47-42d1-9db2-4dccb63b7c83.png">
+User information can be found on the profile page, where users can also navigate to the setting page or case history page.
+
+## Setting
+
+## Case History
+<img width="107" alt="image" src="https://user-images.githubusercontent.com/69338737/202074729-09b4e0de-cca1-4920-99f0-947bb67e21ac.png">
+Users can document their health status for future reviews.(Incomplete)
+
+## Pages that're not important right now :/
+### News
+<img width="120" alt="image" src="https://user-images.githubusercontent.com/69338737/202074943-9d385966-73d6-4490-9cde-52450791c1ca.png">
+<img width="120" alt="image" src="https://user-images.githubusercontent.com/69338737/202074947-7c67e63a-290e-4a78-9275-f4abbad12944.png">
+
+### People
+<img width="109" alt="image" src="https://user-images.githubusercontent.com/69338737/202074926-0b12417b-9aa1-4421-b677-17267cfd6ca6.png">
+
 # Todo 
 ## Pages
 
