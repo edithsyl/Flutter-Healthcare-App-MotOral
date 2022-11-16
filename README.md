@@ -2,6 +2,11 @@
 
 This repository is for MotOral, a student team that aims to create a mobile app that encourages elderly at risk of swallowing disorders to exercise regularly, and provide a platform for users and speech therapists to exchange information conveniently.
 
+## User Case Diagram
+<img width="468" alt="image" src="https://user-images.githubusercontent.com/69338737/202073643-8cf21389-6095-40ee-af21-ea597111da87.png">
+The pink square covers the most important features that we hope to achieve first
+
+# Folders
 There are two main folders:
 
 `/beta_version` is the flutter project folder for the app.
