@@ -1,11 +1,11 @@
 # beta_version
 
-A new Flutter project.
-
-## Getting Started
+## Files
 
 `/assets` folder stores the icons, images and videos used in this app
-!!! since I can't upload video to GitHub, please add a random video to `/assets/videos` folder and name it as test_exercise.mp4
+
+!!!Important!!!: 
+since I can't upload video to GitHub, please add a random video to `/assets/videos` folder and name it as test_exercise.mp4
 
 `/lib/data` folder
 `/lib/screen` folder is where all frontend codes are stored
