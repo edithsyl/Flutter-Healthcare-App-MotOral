@@ -23,7 +23,7 @@ class LoginForm extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             getSnackBarText('state.status.isSubmissionSuccess'),
           );
-          context.goNamed('front');
+          //context.goNamed('front');
         }
         if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

@@ -29,6 +29,11 @@ environment:
 
 dependencies:
   bloc: ^8.0.3
+  camera:
+    git:
+      url: https://github.com/flutter/plugins
+      path: packages/camera/camera
+      ref: 9e46048ad2e1f085c1e8f6c77391fa52025e681f
   cloud_firestore: ^3.1.18
   cupertino_icons: ^1.0.2
   custom_ui:
@@ -42,9 +47,13 @@ dependencies:
   flutter_signin_button: ^2.0.0
   fluttertoast: ^8.0.9
   formz: ^0.4.1
+  gallery_saver: ^2.3.2
   go_router: ^4.1.0
   google_sign_in: ^5.3.3
+  intl_phone_number_input: ^0.7.1
   lint: ^1.8.2
+  open_file_plus: ^3.3.0
+  path_provider: ^2.0.11
   simple_animations: ^4.1.0
   toggle_switch: ^2.0.1
   video_player: ^2.4.5

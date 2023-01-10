@@ -19,7 +19,7 @@ class SignupForm extends StatelessWidget {
             ..showSnackBar(
               getSnackBarText('state.status.isSubmissionSuccess'),
             );
-          context.go('front');
+          //context.go('front');
         } else if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()

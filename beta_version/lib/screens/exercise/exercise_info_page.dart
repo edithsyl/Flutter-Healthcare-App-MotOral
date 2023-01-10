@@ -1,4 +1,5 @@
 import 'package:beta_version/assets/custom_icons.dart';
+import 'package:beta_version/data/exercise_protocal_data.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
 import 'package:beta_version/widgets/exercise_widgets/exercise_instruction_row.dart';
@@ -110,17 +111,24 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                         physics: const BouncingScrollPhysics(
                             parent: NeverScrollableScrollPhysics()),
                         scrollDirection: Axis.vertical,
-                        itemCount: 5,
+                        itemCount: ExerciseProtocal.getlength(),
                         itemBuilder: (context, index) {
                           return ExerciseInstructionRow(
                             image:
                                 const AssetImage('assets/images/thinking.png'),
                             index: index + 1,
-                            title: "Move Mouth",
-                            description: "Open your mouth into 'O' shape",
+                            title: ExerciseProtocal.id(index + 1).name,
+                            description:
+                                ExerciseProtocal.id(index + 1).description,
                           );
                         },
                       ),
+                      LongAppSolidButton(
+                        title: 'start',
+                        onPressed: () {
+                          context.goNamed('camera');
+                        },
+                      )
                     ],
                   ),
                 ),

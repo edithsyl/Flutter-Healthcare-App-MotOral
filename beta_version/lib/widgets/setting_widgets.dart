@@ -40,3 +40,42 @@ class SettingRepeatRow extends StatelessWidget {
     );
   }
 }
+
+//TODO
+class EditProfileRepeatRow extends StatelessWidget {
+  final String name;
+  final String destination;
+
+  const EditProfileRepeatRow({
+    Key? key,
+    required this.name,
+    required this.destination,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            name,
+            style:
+                AppTypographyData.orangeShadesAlmostBlack().sourceSansProBody,
+          ),
+          IconButton(
+            icon: const Icon(
+              CustomIcons.arrowRight,
+            ),
+            color: AppColorsData.regular().orangeShadesAlmostBlack,
+            onPressed: () => context.goNamed(destination),
+          )
+        ],
+      ),
+      onTap: () {
+        context.goNamed(destination);
+      },
+    );
+  }
+}

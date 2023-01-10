@@ -100,9 +100,7 @@ class _SettingPageState extends State<SettingPage> {
                           titlestyle: AppTypographyData.primaryWhite()
                               .quicksandBodySmall,
                           borderColor: AppColorsData.regular().primaryOrange,
-                          onPressed: () {
-                            context.goNamed('editprofile');
-                          },
+                          onPressed: () => context.goNamed('eprofile'),
                         ),
                       ),
                     ],
@@ -120,14 +118,17 @@ class _SettingPageState extends State<SettingPage> {
                     'We use notifications to inform you of exercises reminders and updates',
                     style: AppTypographyData.greyShades_2().sourceSansProBody,
                   ),
+                  const VerticalGap(num: 24),
                   Divider(
                     color: AppColorsData.regular().primaryUnavaliableGrey,
                     thickness: .5,
                   ),
+                  const VerticalGap(num: 24),
                   Text(
                     'More',
                     style: AppTypographyData.greyShades_2().sourceSansProBody,
                   ),
+                  const VerticalGap(num: 8),
                   SettingRepeatRow(name: 'About us', destination: 'aboutus'),
                   SettingRepeatRow(
                       name: 'Contact us', destination: 'contactus'),

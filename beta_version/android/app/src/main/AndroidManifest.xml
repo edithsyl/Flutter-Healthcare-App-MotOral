@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.beta_version">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!--  for accessing local photo album -->
    <application
         android:label="beta_version"
         android:name="${applicationName}"
