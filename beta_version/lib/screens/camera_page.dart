@@ -181,6 +181,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
     //  https://medium.com/lightsnap/making-a-full-screen-camera-application-in-flutter-65db7f5d717b
     final size = MediaQuery.of(context).size;
+    // final deviceRatio = size.width / ((size.height - 80) * 0.8);
     final deviceRatio = size.width / size.height;
     final xScale = _controller!.value.aspectRatio / deviceRatio;
     final yScale = 1.0; // Modify the yScale if you are in Landscape
@@ -250,9 +251,6 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   }
 
   FirebaseStorage storage = FirebaseStorage.instance;
-
-  // File? _video;
-  // final ImagePicker _picker = ImagePicker();
 
   Future uploadFile(XFile? _video) async {
     if (_video == null) return;
