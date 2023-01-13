@@ -39,6 +39,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 
+// Import the firebase_app_check plugin
+import 'package:firebase_app_check/firebase_app_check.dart';
+
 import 'models/news_model.dart';
 import 'screens/exercise/category_tab_list.dart';
 import 'screens/notification_page.dart';
@@ -48,6 +51,15 @@ Future<void> main() async {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();
+      await FirebaseAppCheck.instance.activate(
+        webRecaptchaSiteKey: 'recaptcha-v3-site-key',
+        // Default provider for Android is the Play Integrity provider. You can use the "AndroidProvider" enum to choose
+        // your preferred provider. Choose from:
+        // 1. debug provider
+        // 2. safety net provider
+        // 3. play integrity provider
+        // androidProvider: AndroidProvider.debug,
+      );
       final authRepository = AuthRepository();
       await authRepository.user.first;
       runApp(App(

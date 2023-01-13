@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,13 @@ import 'package:video_player/video_player.dart';
 
 import 'package:custom_ui/custom_ui.dart';
 import '../widgets/top_app_bar.dart';
+
+// for file upload
+import 'package:firebase_storage/firebase_storage.dart';
+
+// image picker for testing
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as p;
 
 class CameraPage extends StatefulWidget {
   @override
@@ -284,13 +292,65 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
     await vController.play();
   }
 
-  void onVideoRecordButtonPressed() {
-    startVideoRecording().then((_) {
-      _isRecording = true;
-      if (mounted) {
-        setState(() {});
+  Future<void> onVideoRecordButtonPressed() async {
+    print('start video recording');
+
+    // upload a image (from gallery/ camera) to firebase storage
+    FirebaseStorage storage = FirebaseStorage.instance;
+
+    File? _photo;
+    final ImagePicker _picker = ImagePicker();
+
+    Future uploadFile() async {
+      if (_photo == null) return;
+      final fileName = p.basename(_photo!.path);
+      final destination = 'public/$fileName';
+
+      try {
+        final ref = FirebaseStorage.instance.ref(destination).child('file/');
+        await ref.putFile(_photo!);
+      } catch (e) {
+        print('error occured');
       }
-    });
+    }
+
+    Future imgFromGallery() async {
+      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+      setState(() {
+        if (pickedFile != null) {
+          // print(pickedFile.path);
+          _photo = File(pickedFile.path);
+          uploadFile();
+        } else {
+          print('No image selected.');
+        }
+      });
+    }
+
+    Future imgFromCamera() async {
+      final pickedFile = await _picker.pickImage(source: ImageSource.camera);
+
+      setState(() {
+        if (pickedFile != null) {
+          // print(pickedFile.path);
+          // /data/user/0/com.example.beta_version/cache/852a433a-6a88-485a-ad89-616a116c45c65844002718957328625.jpg
+          _photo = File(pickedFile.path);
+          uploadFile();
+        } else {
+          print('No image selected.');
+        }
+      });
+    }
+
+    imgFromCamera();
+
+    // startVideoRecording().then((_) {
+    //   _isRecording = true;
+    //   if (mounted) {
+    //     setState(() {});
+    //   }
+    // });
   }
 
   Future<void> startVideoRecording() async {
