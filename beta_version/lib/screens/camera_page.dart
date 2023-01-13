@@ -249,6 +249,24 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
     }
   }
 
+  FirebaseStorage storage = FirebaseStorage.instance;
+
+  // File? _video;
+  // final ImagePicker _picker = ImagePicker();
+
+  Future uploadFile(XFile? _video) async {
+    if (_video == null) return;
+    final fileName = p.basename(_video!.path);
+    final destination = 'public/$fileName';
+
+    try {
+      final ref = FirebaseStorage.instance.ref(destination).child('file/');
+      await ref.putFile(File(_video!.path));
+    } catch (e) {
+      print('error occured');
+    }
+  }
+
   void onStopButtonPressed() {
     stopVideoRecording().then((XFile? file) {
       if (mounted) {
@@ -257,6 +275,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
       if (file != null) {
         showInSnackBar('Video recorded to ${file.path}');
         videoFile = file;
+        uploadFile(videoFile);
         _startVideoPlayer();
       }
     });
@@ -295,62 +314,12 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   Future<void> onVideoRecordButtonPressed() async {
     print('start video recording');
 
-    // upload a image (from gallery/ camera) to firebase storage
-    FirebaseStorage storage = FirebaseStorage.instance;
-
-    File? _photo;
-    final ImagePicker _picker = ImagePicker();
-
-    Future uploadFile() async {
-      if (_photo == null) return;
-      final fileName = p.basename(_photo!.path);
-      final destination = 'public/$fileName';
-
-      try {
-        final ref = FirebaseStorage.instance.ref(destination).child('file/');
-        await ref.putFile(_photo!);
-      } catch (e) {
-        print('error occured');
+    startVideoRecording().then((_) {
+      _isRecording = true;
+      if (mounted) {
+        setState(() {});
       }
-    }
-
-    Future imgFromGallery() async {
-      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-
-      setState(() {
-        if (pickedFile != null) {
-          // print(pickedFile.path);
-          _photo = File(pickedFile.path);
-          uploadFile();
-        } else {
-          print('No image selected.');
-        }
-      });
-    }
-
-    Future imgFromCamera() async {
-      final pickedFile = await _picker.pickImage(source: ImageSource.camera);
-
-      setState(() {
-        if (pickedFile != null) {
-          // print(pickedFile.path);
-          // /data/user/0/com.example.beta_version/cache/852a433a-6a88-485a-ad89-616a116c45c65844002718957328625.jpg
-          _photo = File(pickedFile.path);
-          uploadFile();
-        } else {
-          print('No image selected.');
-        }
-      });
-    }
-
-    imgFromCamera();
-
-    // startVideoRecording().then((_) {
-    //   _isRecording = true;
-    //   if (mounted) {
-    //     setState(() {});
-    //   }
-    // });
+    });
   }
 
   Future<void> startVideoRecording() async {
