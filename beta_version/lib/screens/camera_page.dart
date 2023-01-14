@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:video_player/video_player.dart';
 
 import 'package:custom_ui/custom_ui.dart';
+import '../assets/custom_icons.dart';
 import '../widgets/top_app_bar.dart';
 
 // for file upload
@@ -181,10 +182,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
     //  https://medium.com/lightsnap/making-a-full-screen-camera-application-in-flutter-65db7f5d717b
     final size = MediaQuery.of(context).size;
-    // final deviceRatio = size.width / ((size.height - 80) * 0.8);
     final deviceRatio = size.width / size.height;
-    final xScale = _controller!.value.aspectRatio / deviceRatio;
-    final yScale = 1.0; // Modify the yScale if you are in Landscape
 
     return AspectRatio(
       // Solicitar la relación alto/ancho al controlador
@@ -192,11 +190,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
       aspectRatio: deviceRatio, // _controller!.value.aspectRatio,
       // Mostrar el contenido del controlador mediante el Widget CameraPreview
       // Display controller content with the Camera widget
-      child: Transform(
-        alignment: Alignment.center,
-        transform: Matrix4.diagonal3Values(xScale, yScale, 1),
-        child: CameraPreview(_controller!),
-      ),
+      child: CameraPreview(_controller!),
     );
   }
 
@@ -254,12 +248,12 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
   Future uploadFile(XFile? _video) async {
     if (_video == null) return;
-    final fileName = p.basename(_video!.path);
+    final fileName = p.basename(_video.path);
     final destination = 'public/$fileName';
 
     try {
       final ref = FirebaseStorage.instance.ref(destination).child('file/');
-      await ref.putFile(File(_video!.path));
+      await ref.putFile(File(_video.path));
     } catch (e) {
       print('error occured');
     }
@@ -274,7 +268,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
         showInSnackBar('Video recorded to ${file.path}');
         videoFile = file;
         uploadFile(videoFile);
-        _startVideoPlayer();
+        //_startVideoPlayer();
       }
     });
   }
@@ -402,41 +396,64 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.fromLTRB(24, 30, 24, 0),
-          decoration: BoxDecoration(
-            color: AppColorsData.regular().primaryOrange,
-          ),
-          child: AppBarContent(
-            title: 'Camera',
-            leftOnPressed: () {
-              context.goNamed('home');
-            },
-          ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColorsData.regular().primaryTrueBlack,
+        body: Column(
+          children: [
+            AspectRatio(
+              aspectRatio: 1 / _controller!.value.aspectRatio,
+              child: Stack(
+                children: [
+                  _buildCamera(),
+                  PreferredSize(
+                    preferredSize: const Size.fromHeight(80),
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.fromLTRB(24, 30, 24, 24),
+                      decoration: BoxDecoration(
+                        color: AppColorsData.regular()
+                            .greyShades_6
+                            .withOpacity(0.75),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              context.goNamed('home');
+                            },
+                            icon: const Icon(CustomIcons.back),
+                            color: AppColorsData.regular().primaryWhite,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    width: MediaQuery.of(context).size.width,
+                    child: PreferredSize(
+                      preferredSize: const Size.fromHeight(80),
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.fromLTRB(24, 30, 24, 24),
+                        color: AppColorsData.regular()
+                            .greyShades_6
+                            .withOpacity(0.75),
+                        child: Center(
+                          child: _buildControls(),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
-      body: Column(children: <Widget>[
-        Expanded(
-          flex: 8,
-          child: Container(
-            child: Center(
-              child: _buildCamera(),
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 2,
-          child: Container(
-            child: Center(
-              child: _buildControls(),
-            ),
-          ),
-        ),
-      ]),
     );
   }
 }
