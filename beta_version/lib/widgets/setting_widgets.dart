@@ -41,7 +41,6 @@ class SettingRepeatRow extends StatelessWidget {
   }
 }
 
-//TODO
 class EditProfileRepeatRow extends StatelessWidget {
   final String name;
   final String destination;
@@ -55,22 +54,25 @@ class EditProfileRepeatRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+            name,
+            style: AppTypographyData.greyShades_2().sourceSansProBodySmall,
+          ),
+          const VerticalGap(num: 8),
           Text(
             name,
             style:
                 AppTypographyData.orangeShadesAlmostBlack().sourceSansProBody,
           ),
-          IconButton(
-            icon: const Icon(
-              CustomIcons.arrowRight,
-            ),
-            color: AppColorsData.regular().orangeShadesAlmostBlack,
-            onPressed: () => context.goNamed(destination),
-          )
+          // const VerticalGap(num: 4),
+          Divider(
+            color: AppColorsData.regular().primaryUnavaliableGrey,
+            thickness: .5,
+          ),
         ],
       ),
       onTap: () {

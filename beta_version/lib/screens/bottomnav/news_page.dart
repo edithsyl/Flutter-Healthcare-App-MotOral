@@ -106,7 +106,7 @@ class NewsPage extends StatelessWidget {
                   children: <Widget>[
                     ConstrainedBox(
                       constraints: BoxConstraints.loose(
-                        const Size(432.0, 800.0),
+                        MediaQuery.of(context).size,
                       ),
                       child: WillPopScope(
                         child: NewsApp(
