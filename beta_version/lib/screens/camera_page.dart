@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,13 @@ import 'package:video_player/video_player.dart';
 
 import 'package:custom_ui/custom_ui.dart';
 import '../widgets/top_app_bar.dart';
+
+// for file upload
+import 'package:firebase_storage/firebase_storage.dart';
+
+// image picker for testing
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as p;
 
 class CameraPage extends StatefulWidget {
   @override
@@ -173,6 +181,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
     //  https://medium.com/lightsnap/making-a-full-screen-camera-application-in-flutter-65db7f5d717b
     final size = MediaQuery.of(context).size;
+    // final deviceRatio = size.width / ((size.height - 80) * 0.8);
     final deviceRatio = size.width / size.height;
     final xScale = _controller!.value.aspectRatio / deviceRatio;
     final yScale = 1.0; // Modify the yScale if you are in Landscape
@@ -241,6 +250,21 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
     }
   }
 
+  FirebaseStorage storage = FirebaseStorage.instance;
+
+  Future uploadFile(XFile? _video) async {
+    if (_video == null) return;
+    final fileName = p.basename(_video!.path);
+    final destination = 'public/$fileName';
+
+    try {
+      final ref = FirebaseStorage.instance.ref(destination).child('file/');
+      await ref.putFile(File(_video!.path));
+    } catch (e) {
+      print('error occured');
+    }
+  }
+
   void onStopButtonPressed() {
     stopVideoRecording().then((XFile? file) {
       if (mounted) {
@@ -249,6 +273,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
       if (file != null) {
         showInSnackBar('Video recorded to ${file.path}');
         videoFile = file;
+        uploadFile(videoFile);
         _startVideoPlayer();
       }
     });
@@ -284,7 +309,9 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
     await vController.play();
   }
 
-  void onVideoRecordButtonPressed() {
+  Future<void> onVideoRecordButtonPressed() async {
+    print('start video recording');
+
     startVideoRecording().then((_) {
       _isRecording = true;
       if (mounted) {
