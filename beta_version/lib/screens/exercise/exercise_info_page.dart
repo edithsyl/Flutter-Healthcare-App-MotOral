@@ -2,6 +2,7 @@ import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/data/exercise_protocal_data.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
+import 'package:beta_version/widgets/alert_dialogue.dart';
 import 'package:beta_version/widgets/exercise_widgets/exercise_instruction_row.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:beta_version/widgets/videoplayer/asset_player_widget.dart';
@@ -48,7 +49,9 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            AssetPlayerWidget(),
+            const AssetPlayerWidget(
+              video_path: 'assets/videos/test_exercise.mp4',
+            ),
             const VerticalGap(num: 24),
             Expanded(
               child: SingleChildScrollView(
@@ -129,9 +132,15 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                         children: [
                           LongAppOutlineButton(
                             title: 'view last recording',
-                            onPressed: () {
-                              context.goNamed('last_recording');
-                            },
+                            onPressed: () => showVideoDialog(
+                              // context.goNamed('last_recording');
+                              context,
+                              'Last Recording',
+                              'assets/videos/test_exercise.mp4', // TODO: change to last recording
+                              MediaQuery.of(context).size.width * 0.8,
+                              'Close',
+                              () => Navigator.of(context).pop(),
+                            ),
                           ),
                           const VerticalGap(num: 16),
                           LongAppSolidButton(

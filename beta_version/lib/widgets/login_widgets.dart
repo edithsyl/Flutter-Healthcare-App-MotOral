@@ -8,8 +8,6 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
 
-// FIXME: still couldn't log in
-
 /// [LoginForm] renders the form in response to the [LoginState]
 /// It invokes methods on the [LoginCubit] in response to user interactions
 class LoginForm extends StatelessWidget {

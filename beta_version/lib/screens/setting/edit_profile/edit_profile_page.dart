@@ -58,41 +58,25 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     radius: MediaQuery.of(context).size.width * 0.2,
                   ),
                   const VerticalGap(num: 24),
-                  LimitedBox(
-                    maxWidth: 50,
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      child: SettingProfileEditButton(
-                        icon: Icon(
-                          CustomIcons.edit,
-                          color: AppColorsData.regular().primaryWhite,
-                          size: 16,
-                        ),
-                        title: 'Change Profile Photo',
-                        titlestyle:
-                            AppTypographyData.primaryWhite().quicksandBodySmall,
-                        borderColor: AppColorsData.regular().primaryOrange,
-                        onPressed: () {
-                          // choose from gallery or take picture now
-                        },
-                      ),
-                    ),
-                  ),
+                  const ChangeProfilePicButton(),
                   const VerticalGap(num: 40),
-                  EditProfileRepeatRow(
-                      name: 'Username', destination: 'security'),
+                  const EditProfileRepeatRow(
+                      name: 'Username', destination: 'edit_username'),
                   const VerticalGap(num: 16),
-                  EditProfileRepeatRow(name: 'Name', destination: 'language'),
+                  const EditProfileRepeatRow(
+                      name: 'Name', destination: 'edit_name'),
                   const VerticalGap(num: 16),
-                  EditProfileRepeatRow(name: 'Email', destination: 'fontsize'),
+                  const EditProfileRepeatRow(
+                      name: 'Email', destination: 'edit_email'),
                   const VerticalGap(num: 16),
-                  EditProfileRepeatRow(name: 'Phone', destination: 'editphone'),
+                  const EditProfileRepeatRow(
+                      name: 'Phone', destination: 'edit_phone'),
                   const VerticalGap(num: 16),
-                  EditProfileRepeatRow(
-                      name: 'Date of Birth', destination: 'contactus'),
+                  const EditProfileRepeatRow(
+                      name: 'Date of Birth', destination: 'edit_dob'),
                   const VerticalGap(num: 16),
-                  EditProfileRepeatRow(
-                      name: 'Bio', destination: 'privatepolicy'),
+                  const EditProfileRepeatRow(
+                      name: 'Bio', destination: 'edit_bio'),
                 ],
               ),
             ),

@@ -16,8 +16,8 @@ import 'package:beta_version/screens/bookmark_page.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/camera_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
-import 'package:beta_version/screens/setting/Edit%20profile/edit_profile_page.dart';
-import 'package:beta_version/screens/setting/Edit%20profile/phoneno_page.dart';
+import 'package:beta_version/screens/last_recording.dart';
+import 'package:beta_version/screens/setting/edit_profile/edit_profile_export.dart';
 import 'package:beta_version/screens/setting/setting_pages.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
@@ -151,6 +151,7 @@ class AppView extends StatelessWidget {
           child: const NotificationPage(),
           time: AppDurationsData.regular().quick),
     ),
+    /////////////////// edit profile in setting ///////////////////
     GoRoute(
       name: 'eprofile',
       path: '/editProfile',
@@ -161,13 +162,56 @@ class AppView extends StatelessWidget {
     ),
 
     GoRoute(
-      name: 'editphone',
+      name: 'edit_phone',
       path: '/editPhone',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
           child: const PhoneNoPage(),
           time: AppDurationsData.regular().quick),
     ),
+    GoRoute(
+      name: 'edit_username',
+      path: '/editUsername',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const UsernamePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'edit_name',
+      path: '/editName',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const NamePage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'edit_email',
+      path: '/editEmail',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const EmailPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'edit_dob',
+      path: '/editDOB',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const DOBPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'edit_bio',
+      path: '/editBio',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const BioPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+
+    /////////////////////////////////////////////////////////
+    /////////////////// setting page ///////////////////
     GoRoute(
       name: 'security',
       path: '/security',
@@ -232,6 +276,8 @@ class AppView extends StatelessWidget {
           child: const DeleteAccountPage(),
           time: AppDurationsData.regular().quick),
     ),
+    /////////////////////////////////////////////////////////
+    /////////////////// home page ///////////////////
     GoRoute(
       name: 'bookmarked',
       path: '/bookmarked',
@@ -374,7 +420,15 @@ class AppView extends StatelessWidget {
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
-      name: 'therapistProfile',
+      name: 'last_recording',
+      path: '/lastRecording',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: LastRecordingPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+    GoRoute(
+      name: 'therapist_profile',
       path: '/therapistProfile',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
@@ -382,7 +436,7 @@ class AppView extends StatelessWidget {
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
-      name: 'otherUserProfile',
+      name: 'other_user_profile',
       path: '/otherUserProfile',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
@@ -390,7 +444,7 @@ class AppView extends StatelessWidget {
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
-      name: 'accSetup',
+      name: 'acc_setup',
       path: '/accSetup',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,

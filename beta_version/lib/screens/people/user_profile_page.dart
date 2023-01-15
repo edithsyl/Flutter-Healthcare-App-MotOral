@@ -1,5 +1,3 @@
-//MYTODO
-
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/widgets/profile_toggle_button.dart';
 import 'package:custom_ui/custom_ui.dart';
