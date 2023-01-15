@@ -123,14 +123,14 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                           );
                         },
                       ),
-                      Row(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           LongAppOutlineButton(
                             title: 'view last recording',
                             onPressed: () {
-                              // context.goNamed('last_recording');
+                              context.goNamed('last_recording');
                             },
                           ),
                           const HorizontalGap(num: 16),

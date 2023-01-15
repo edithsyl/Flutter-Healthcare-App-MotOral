@@ -249,10 +249,12 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   Future uploadFile(XFile? _video) async {
     if (_video == null) return;
     final fileName = p.basename(_video.path);
-    final destination = 'public/$fileName';
+    final exerciseName = 'ex1';
+    final userID = 'userid';
+    final destination = 'public/$userID/$exerciseName';
 
     try {
-      final ref = FirebaseStorage.instance.ref(destination).child('file/');
+      final ref = FirebaseStorage.instance.ref(destination);
       await ref.putFile(File(_video.path));
     } catch (e) {
       print('error occured');
@@ -268,6 +270,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
         showInSnackBar('Video recorded to ${file.path}');
         videoFile = file;
         uploadFile(videoFile);
+        // TODO redirect to exercise info page
         //_startVideoPlayer();
       }
     });
