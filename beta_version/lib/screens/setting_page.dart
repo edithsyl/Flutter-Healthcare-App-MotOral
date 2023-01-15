@@ -55,6 +55,8 @@ class _SettingPageState extends State<SettingPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -87,20 +89,22 @@ class _SettingPageState extends State<SettingPage> {
                           ),
                         ],
                       ),
-                      const HorizontalGap(num: 16),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        child: SettingProfileEditButton(
-                          icon: Icon(
-                            CustomIcons.edit,
-                            color: AppColorsData.regular().primaryWhite,
-                            size: 16,
+                      LimitedBox(
+                        maxWidth: 150,
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.35,
+                          child: SettingProfileEditButton(
+                            icon: Icon(
+                              CustomIcons.edit,
+                              color: AppColorsData.regular().primaryWhite,
+                              size: 16,
+                            ),
+                            title: 'Edit Profile',
+                            titlestyle: AppTypographyData.primaryWhite()
+                                .quicksandBodySmall,
+                            borderColor: AppColorsData.regular().primaryOrange,
+                            onPressed: () => context.goNamed('eprofile'),
                           ),
-                          title: 'Edit Profile',
-                          titlestyle: AppTypographyData.primaryWhite()
-                              .quicksandBodySmall,
-                          borderColor: AppColorsData.regular().primaryOrange,
-                          onPressed: () => context.goNamed('eprofile'),
                         ),
                       ),
                     ],
@@ -163,7 +167,12 @@ class _SettingPageState extends State<SettingPage> {
                     },
                   ),
                   const VerticalGap(num: 25),
-                  LogoutButton(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      LogoutButton(),
+                    ],
+                  ),
                   const VerticalGap(num: 25),
                 ],
               ),

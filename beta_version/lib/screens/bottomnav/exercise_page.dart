@@ -97,7 +97,7 @@ class ExercisePage extends StatelessWidget {
                     const VerticalGap(num: 16),
                     ConstrainedBox(
                       constraints: BoxConstraints.loose(
-                        const Size(432.0, 800.0),
+                        MediaQuery.of(context).size, //Size(432.0, 800.0),
                       ),
                       child: WillPopScope(
                         child: ExerciseApp(

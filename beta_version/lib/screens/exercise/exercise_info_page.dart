@@ -44,17 +44,17 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              AssetPlayerWidget(),
-              const VerticalGap(num: 24),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 16.0, horizontal: 40.0),
-                child: Expanded(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            AssetPlayerWidget(),
+            const VerticalGap(num: 24),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 40.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -123,18 +123,31 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                           );
                         },
                       ),
-                      LongAppSolidButton(
-                        title: 'start',
-                        onPressed: () {
-                          context.goNamed('camera');
-                        },
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          LongAppOutlineButton(
+                            title: 'view last recording',
+                            onPressed: () {
+                              // context.goNamed('last_recording');
+                            },
+                          ),
+                          const HorizontalGap(num: 16),
+                          LongAppSolidButton(
+                            title: 'start',
+                            onPressed: () {
+                              context.goNamed('camera');
+                            },
+                          ),
+                        ],
                       )
                     ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 }
