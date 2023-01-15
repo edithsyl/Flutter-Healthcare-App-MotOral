@@ -37,7 +37,6 @@ dependencies:
   cloud_firestore: ^3.1.18
   cupertino_icons: ^1.0.2
   custom_ui:
-    path: /Users/user/Downloads/Flutter_MotOral/custom_ui
     path: /Users/syleung/projects/flutter workspace/official/custom_ui #/Users/user/Downloads/Flutter_MotOral/custom_ui
   equatable: ^2.0.3
   firebase_app_check: ^0.0.9+1

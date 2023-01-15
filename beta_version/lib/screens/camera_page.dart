@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:go_router/go_router.dart';
 import 'package:open_file_plus/open_file_plus.dart';
@@ -206,23 +207,31 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
         // Ícono para cambiar la cámara
         IconButton(
           icon: Icon(_getCameraIcon(_cameras[_cameraIndex].lensDirection)),
+          color: AppColorsData.regular().primaryWhite,
           onPressed: _onSwitchCamera,
         ),
         // Ícono para iniciar la grabación
         IconButton(
-          icon: Icon(Icons.radio_button_checked),
+          iconSize: 72,
+          icon: _isRecording
+              ? const Icon(Icons.radio_button_checked)
+              : const Icon(Icons.radio_button_off),
+          color: _isRecording
+              ? AppColorsData.regular().primaryOrange
+              : AppColorsData.regular().primaryWhite,
           onPressed: _isRecording ? null : onVideoRecordButtonPressed,
         ),
         // Ícono para tener la grabación
         IconButton(
-          icon: Icon(Icons.stop),
+          icon: const Icon(Icons.stop),
+          color: AppColorsData.regular().primaryWhite,
           onPressed: _isRecording ? onStopButtonPressed : null,
         ),
         // Ícono para reproducir el video grabado
-        IconButton(
-          icon: Icon(Icons.play_arrow),
-          onPressed: _isRecording ? null : _onPlay,
-        ),
+        // IconButton(
+        //   icon: Icon(Icons.play_arrow),
+        //   onPressed: _isRecording ? null : _onPlay,
+        // ),
       ],
     );
   }
@@ -277,6 +286,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
         videoFile = file;
         uploadFile(videoFile);
         // TODO redirect to exercise info page
+        context.goNamed('recording_result');
         //_startVideoPlayer();
       }
     });
