@@ -16,6 +16,9 @@ import '../widgets/top_app_bar.dart';
 // for file upload
 import 'package:firebase_storage/firebase_storage.dart';
 
+// for getting user id
+import 'package:firebase_auth/firebase_auth.dart';
+
 // image picker for testing
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as p;
@@ -250,7 +253,10 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
     if (_video == null) return;
     final fileName = p.basename(_video.path);
     final exerciseName = 'ex1';
-    final userID = 'userid';
+
+    var currentUser = FirebaseAuth.instance.currentUser;
+    var userID = currentUser?.uid;
+    userID ??= 'userid';
     final destination = 'public/$userID/$exerciseName';
 
     try {
@@ -308,6 +314,10 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
   Future<void> onVideoRecordButtonPressed() async {
     print('start video recording');
+
+    var currentUser = FirebaseAuth.instance.currentUser;
+    var uid = currentUser?.uid;
+    print('The user id is: $uid');
 
     startVideoRecording().then((_) {
       _isRecording = true;

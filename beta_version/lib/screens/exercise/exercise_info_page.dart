@@ -133,7 +133,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                               context.goNamed('last_recording');
                             },
                           ),
-                          const HorizontalGap(num: 16),
+                          const VerticalGap(num: 16),
                           LongAppSolidButton(
                             title: 'start',
                             onPressed: () {
