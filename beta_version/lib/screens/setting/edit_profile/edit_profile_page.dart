@@ -61,22 +61,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const ChangeProfilePicButton(),
                   const VerticalGap(num: 40),
                   const EditProfileRepeatRow(
-                      name: 'Username', destination: 'editUsername'),
+                      name: 'Username', destination: 'edit_username'),
                   const VerticalGap(num: 16),
                   const EditProfileRepeatRow(
-                      name: 'Name', destination: 'editName'),
+                      name: 'Name', destination: 'edit_name'),
                   const VerticalGap(num: 16),
                   const EditProfileRepeatRow(
-                      name: 'Email', destination: 'editEmail'),
+                      name: 'Email', destination: 'edit_email'),
                   const VerticalGap(num: 16),
                   const EditProfileRepeatRow(
-                      name: 'Phone', destination: 'editPhone'),
+                      name: 'Phone', destination: 'edit_phone'),
                   const VerticalGap(num: 16),
                   const EditProfileRepeatRow(
-                      name: 'Date of Birth', destination: 'editDOB'),
+                      name: 'Date of Birth', destination: 'edit_dob'),
                   const VerticalGap(num: 16),
                   const EditProfileRepeatRow(
-                      name: 'Bio', destination: 'editBio'),
+                      name: 'Bio', destination: 'edit_bio'),
                 ],
               ),
             ),
