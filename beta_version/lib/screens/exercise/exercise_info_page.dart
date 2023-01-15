@@ -126,7 +126,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                           );
                         },
                       ),
-                      Row(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -142,7 +142,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                               () => Navigator.of(context).pop(),
                             ),
                           ),
-                          const HorizontalGap(num: 16),
+                          const VerticalGap(num: 16),
                           LongAppSolidButton(
                             title: 'start',
                             onPressed: () {
