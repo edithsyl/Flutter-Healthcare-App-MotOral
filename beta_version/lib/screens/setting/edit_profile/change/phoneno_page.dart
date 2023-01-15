@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-// TODO: recreate setting page
+// TODO
 
 class PhoneNoPage extends StatefulWidget {
   const PhoneNoPage({Key? key}) : super(key: key);
@@ -24,7 +24,6 @@ class _PhoneNoPageState extends State<PhoneNoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO:  test app bar here
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: Container(

@@ -81,3 +81,30 @@ class EditProfileRepeatRow extends StatelessWidget {
     );
   }
 }
+
+class ChangeProfilePicButton extends StatelessWidget {
+  const ChangeProfilePicButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LimitedBox(
+      maxWidth: 50,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.5,
+        child: SettingProfileEditButton(
+          icon: Icon(
+            CustomIcons.edit,
+            color: AppColorsData.regular().primaryWhite,
+            size: 16,
+          ),
+          title: 'Change Profile Photo',
+          titlestyle: AppTypographyData.primaryWhite().quicksandBodySmall,
+          borderColor: AppColorsData.regular().primaryOrange,
+          onPressed: () {
+            // choose from gallery or take picture now
+          },
+        ),
+      ),
+    );
+  }
+}

@@ -69,7 +69,8 @@ class ExercisePage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.fromLTRB(24, 56, 24, 24),
               child: AppBarContentExercise(
-                xpNum: 0, //FIXME
+                xpNum:
+                    0, //FIXME: firebase should keep count, retrieve the correct number from cloud
                 streakNum: 0,
               ),
             ),

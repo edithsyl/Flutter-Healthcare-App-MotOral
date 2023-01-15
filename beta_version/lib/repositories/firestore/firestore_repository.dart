@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 /// https://www.youtube.com/watch?v=81XYs6lliB4&t=88s
 
 class FirestoreApi {
-  //final log = getLogger('FirestoreApi');
+  // final log = getLogger('FirestoreApi');
 
   final CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('user');

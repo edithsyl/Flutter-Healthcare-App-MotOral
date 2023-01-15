@@ -45,7 +45,6 @@ class WelcomePage extends StatelessWidget {
                 style: AppTypographyData.greyShades_5().sourceSansProBodyBold),
             const VerticalGap(num: 500),
             LongAppOutlineButton(
-                //FIXME: text is in white
                 title: 'LOG IN',
                 onPressed: () {
                   context.goNamed('login');

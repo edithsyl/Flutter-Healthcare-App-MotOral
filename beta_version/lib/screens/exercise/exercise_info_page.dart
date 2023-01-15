@@ -48,7 +48,9 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            AssetPlayerWidget(),
+            const AssetPlayerWidget(
+              video_path: 'assets/videos/test_exercise.mp4',
+            ),
             const VerticalGap(num: 24),
             Expanded(
               child: SingleChildScrollView(

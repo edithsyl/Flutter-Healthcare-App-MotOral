@@ -1,5 +1,3 @@
-//MYTODO
-
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/widgets/people/therpist_info_box.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
