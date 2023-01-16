@@ -260,9 +260,8 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
   Future uploadFile(XFile? _video) async {
     if (_video == null) return;
-    final fileName = p.basename(_video.path);
+    // final fileName = p.basename(_video.path);
     final exerciseName = 'ex1';
-
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
     userID ??= 'userid';
@@ -323,12 +322,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   }
 
   Future<void> onVideoRecordButtonPressed() async {
-    print('start video recording');
-
-    var currentUser = FirebaseAuth.instance.currentUser;
-    var uid = currentUser?.uid;
-    print('The user id is: $uid');
-
+    // print('start video recording');
     startVideoRecording().then((_) {
       _isRecording = true;
       if (mounted) {

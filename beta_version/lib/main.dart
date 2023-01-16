@@ -332,6 +332,7 @@ class AppView extends StatelessWidget {
             final ExerciseCategory category =
                 ExerciseCategories.category(state.params['cid']!);
             final Exercise exercise = category.exercise(state.params['eid']!);
+            // String filePath = '';
             return FadePage(
               key: state.pageKey,
               child: ThisExerciseScreen(
