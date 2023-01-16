@@ -78,6 +78,7 @@ flutter:
   assets:
     - assets/images/motoral.png
     - assets/images/girl_background.png
+    - assets/images/girl_background_tablet.png
     #MYTODO: import correct_background.png and incorrect_background.png, then run flutter pub get
     - assets/images/thinking.png
     - assets/images/badges/badge1.png
