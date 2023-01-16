@@ -1,7 +1,11 @@
 import 'package:beta_version/widgets/alert_dialogue.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path_provider/path_provider.dart';
 
 /// make [login] & [signup] button using long button from [custom_ui] package
 /// use context.go() from gorouter to navigate to login screen and registration screen
@@ -13,6 +17,40 @@ class RecordingResultPage extends StatefulWidget {
 }
 
 class _RecordingResultPageState extends State<RecordingResultPage> {
+  late String url;
+  @override
+  void initState() {
+    // Fluttertoast.showToast(msg: 'last recording path: $destination');
+    super.initState();
+  }
+
+  void getVideoUrl() async {
+    String exerciseName = 'ex1';
+    var currentUser = FirebaseAuth.instance.currentUser;
+    var userID = currentUser?.uid;
+    userID ??= 'userid';
+    final destination = 'public/$userID/$exerciseName';
+
+    final storageRef = FirebaseStorage.instance.ref();
+    String videoUrl;
+
+    try {
+      videoUrl = await storageRef.child(destination).getDownloadURL();
+    } catch (e) {
+      videoUrl = '';
+      print('error occured');
+    }
+    // Fluttertoast.showToast(msg: videoUrl);
+
+    // final appDocDir = await getApplicationDocumentsDirectory();
+    // final filePath = "${appDocDir.absolute}/$exerciseName";
+    // final file = File(filePath);
+    // var isThere = await file.exists();
+    // print(isThere ? 'exists' : 'non-existent');
+
+    url = videoUrl;
+  }
+
   @override
   Widget build(BuildContext context) {
     // this is an example, plz change it
@@ -49,17 +87,19 @@ class _RecordingResultPageState extends State<RecordingResultPage> {
                 ),
                 const VerticalGap(num: 500),
                 LongAppOutlineButton(
-                  title: 'VIEW RECORDING',
-                  onPressed: () => showVideoDialog(
-                    // context.goNamed('last_recording');
-                    context,
-                    'Last Recording',
-                    'assets/videos/test_exercise.mp4', // TODO: change to last recording
-                    MediaQuery.of(context).size.width * 0.8,
-                    'Close',
-                    () => Navigator.of(context).pop(),
-                  ),
-                ),
+                    title: 'VIEW RECORDING',
+                    onPressed: () => {
+                          getVideoUrl(),
+                          showNetworkVideoDialog(
+                            // context.goNamed('last_recording');
+                            context,
+                            'Last Recording',
+                            url, // TODO: change to last recording
+                            MediaQuery.of(context).size.width * 0.8,
+                            'Close',
+                            () => Navigator.of(context).pop(),
+                          ),
+                        }),
                 const VerticalGap(num: 16),
                 LongAppOutlineButton(
                     title: 'TRY AGAIN',

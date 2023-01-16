@@ -28,14 +28,6 @@ class _NetworkPlayerWidget2State extends State<NetworkPlayerWidget2> {
       ..addListener(() => setState(() {}))
       ..setLooping(true)
       ..initialize().then((_) => controller.play()); // added !
-
-    print(' ');
-    print(' ');
-    print(' ');
-    print(widget.video_path);
-    print(' ');
-    print(' ');
-    print(' ');
   }
 
   @override
