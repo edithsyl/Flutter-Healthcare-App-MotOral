@@ -30,9 +30,12 @@ class ThisExerciseScreen extends StatefulWidget {
 
   /// The person to be displayed.
   final Exercise exercise;
+
+  // final String url;
 }
 
 class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
+  late String url;
   @override
   void initState() {
     // Fluttertoast.showToast(msg: 'last recording path: $destination');
@@ -40,7 +43,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
     super.initState();
   }
 
-  Future<String> getVideoUrl() async {
+  void getVideoUrl() async {
     String exerciseName = 'ex1';
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
@@ -64,7 +67,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
     // var isThere = await file.exists();
     // print(isThere ? 'exists' : 'non-existent');
 
-    return videoUrl;
+    url = videoUrl;
   }
 
   @override
@@ -173,12 +176,12 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                         children: [
                           LongAppOutlineButton(
                             title: 'view last recording',
-                            onPressed: () => showVideoDialog(
+                            onPressed: () => showNetworkVideoDialog(
                               // context.goNamed('last_recording');
                               context,
                               'Last Recording',
-                              // '$url',
-                              'assets/videos/test_exercise.mp4', // TODO: change to last recording
+                              url,
+                              // 'assets/videos/test_exercise.mp4', // TODO: change to last recording
                               MediaQuery.of(context).size.width * 0.8,
                               'Close',
                               () => Navigator.of(context).pop(),
