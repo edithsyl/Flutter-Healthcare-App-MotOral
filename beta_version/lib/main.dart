@@ -17,6 +17,7 @@ import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/camera_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
 import 'package:beta_version/screens/last_recording.dart';
+import 'package:beta_version/screens/recording_result_page.dart';
 import 'package:beta_version/screens/setting/edit_profile/edit_profile_export.dart';
 import 'package:beta_version/screens/setting/setting_pages.dart';
 import 'package:beta_version/screens/casehistory/case_history_page.dart';
@@ -331,6 +332,7 @@ class AppView extends StatelessWidget {
             final ExerciseCategory category =
                 ExerciseCategories.category(state.params['cid']!);
             final Exercise exercise = category.exercise(state.params['eid']!);
+            // String filePath = '';
             return FadePage(
               key: state.pageKey,
               child: ThisExerciseScreen(
@@ -427,6 +429,15 @@ class AppView extends StatelessWidget {
           child: LastRecordingPage(),
           time: AppDurationsData.regular().quick),
     ),
+    GoRoute(
+      name: 'recording_result',
+      path: '/recordingResult',
+      pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
+          key: state.pageKey,
+          child: const RecordingResultPage(),
+          time: AppDurationsData.regular().quick),
+    ),
+
     GoRoute(
       name: 'therapist_profile',
       path: '/therapistProfile',

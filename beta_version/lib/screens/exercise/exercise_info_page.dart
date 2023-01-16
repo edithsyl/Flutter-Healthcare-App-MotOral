@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:beta_version/assets/custom_icons.dart';
 import 'package:beta_version/data/exercise_protocal_data.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
@@ -8,7 +11,11 @@ import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:beta_version/widgets/videoplayer/asset_player_widget.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path_provider/path_provider.dart';
 
 class ThisExerciseScreen extends StatefulWidget {
   const ThisExerciseScreen(
@@ -23,9 +30,46 @@ class ThisExerciseScreen extends StatefulWidget {
 
   /// The person to be displayed.
   final Exercise exercise;
+
+  // final String url;
 }
 
 class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
+  late String url;
+  @override
+  void initState() {
+    // Fluttertoast.showToast(msg: 'last recording path: $destination');
+    getVideoUrl();
+    super.initState();
+  }
+
+  void getVideoUrl() async {
+    String exerciseName = 'ex1';
+    var currentUser = FirebaseAuth.instance.currentUser;
+    var userID = currentUser?.uid;
+    userID ??= 'userid';
+    final destination = 'public/$userID/$exerciseName';
+
+    final storageRef = FirebaseStorage.instance.ref();
+    String videoUrl;
+
+    try {
+      videoUrl = await storageRef.child(destination).getDownloadURL();
+    } catch (e) {
+      videoUrl = '';
+      print('error occured');
+    }
+    // Fluttertoast.showToast(msg: videoUrl);
+
+    // final appDocDir = await getApplicationDocumentsDirectory();
+    // final filePath = "${appDocDir.absolute}/$exerciseName";
+    // final file = File(filePath);
+    // var isThere = await file.exists();
+    // print(isThere ? 'exists' : 'non-existent');
+
+    url = videoUrl;
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: PreferredSize(
@@ -132,11 +176,12 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                         children: [
                           LongAppOutlineButton(
                             title: 'view last recording',
-                            onPressed: () => showVideoDialog(
+                            onPressed: () => showNetworkVideoDialog(
                               // context.goNamed('last_recording');
                               context,
                               'Last Recording',
-                              'assets/videos/test_exercise.mp4', // TODO: change to last recording
+                              url,
+                              // 'assets/videos/test_exercise.mp4', // TODO: change to last recording
                               MediaQuery.of(context).size.width * 0.8,
                               'Close',
                               () => Navigator.of(context).pop(),
