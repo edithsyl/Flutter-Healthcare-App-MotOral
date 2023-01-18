@@ -416,60 +416,63 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColorsData.regular().primaryTrueBlack,
-        body: Column(
-          children: [
-            AspectRatio(
-              aspectRatio: 1 / _controller!.value.aspectRatio,
-              child: Stack(
+        body: _controller == null || !_controller!.value.isInitialized
+            ? const Center(child: CircularProgressIndicator())
+            : Column(
                 children: [
-                  _buildCamera(),
-                  PreferredSize(
-                    preferredSize: const Size.fromHeight(80),
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.fromLTRB(24, 30, 24, 24),
-                      decoration: BoxDecoration(
-                        color: AppColorsData.regular()
-                            .greyShades_6
-                            .withOpacity(0.75),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              context.goNamed('home');
-                            },
-                            icon: const Icon(CustomIcons.back),
-                            color: AppColorsData.regular().primaryWhite,
+                  AspectRatio(
+                    aspectRatio: 1 / _controller!.value.aspectRatio,
+                    child: Stack(
+                      children: [
+                        _buildCamera(),
+                        PreferredSize(
+                          preferredSize: const Size.fromHeight(80),
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.fromLTRB(24, 30, 24, 24),
+                            decoration: BoxDecoration(
+                              color: AppColorsData.regular()
+                                  .greyShades_6
+                                  .withOpacity(0.75),
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    context.goNamed('home');
+                                  },
+                                  icon: const Icon(CustomIcons.back),
+                                  color: AppColorsData.regular().primaryWhite,
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    width: MediaQuery.of(context).size.width,
-                    child: PreferredSize(
-                      preferredSize: const Size.fromHeight(80),
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.fromLTRB(24, 30, 24, 24),
-                        color: AppColorsData.regular()
-                            .greyShades_6
-                            .withOpacity(0.75),
-                        child: Center(
-                          child: _buildControls(),
                         ),
-                      ),
+                        Positioned(
+                          bottom: 0,
+                          width: MediaQuery.of(context).size.width,
+                          child: PreferredSize(
+                            preferredSize: const Size.fromHeight(80),
+                            child: Container(
+                              width: double.infinity,
+                              padding:
+                                  const EdgeInsets.fromLTRB(24, 30, 24, 24),
+                              color: AppColorsData.regular()
+                                  .greyShades_6
+                                  .withOpacity(0.75),
+                              child: Center(
+                                child: _buildControls(),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }

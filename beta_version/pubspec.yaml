@@ -89,6 +89,12 @@ flutter:
     - assets/images/badges/badge6.png
     - assets/images/badges/badge7.png
     - assets/videos/test_exercise.mp4
+    - assets/videos/test_exercise_breakdown/1_tongue.mp4
+    - assets/videos/test_exercise_breakdown/2_lip_protuding.mp4
+    - assets/videos/test_exercise_breakdown/3_smile.mp4
+    - assets/videos/test_exercise_breakdown/4_tongue_tip_to_nose.mp4
+    - assets/videos/test_exercise_breakdown/5_mouth_opening.mp4
+    - assets/videos/test_exercise_breakdown/6_tongue_and_cheek.mp4
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
