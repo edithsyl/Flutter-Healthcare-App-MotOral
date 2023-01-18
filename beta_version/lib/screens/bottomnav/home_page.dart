@@ -131,33 +131,33 @@ Widget YourDailyPractice(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CompletedDailyPractice(
-                  exercise: ExerciseCategories.category('c1').exercise('e2'),
+                  exercise: ExerciseCategories.category('c3').exercise('en1'),
                   ontap: () => showCustomDialog(
                     context,
                     'Go to this exericse?',
                     'cancel',
                     'Confirm',
                     () => Navigator.of(context).pop(),
-                    () => context.go('/category/c1/exerciseinfo/e2'),
+                    () => context.go('/category/c1/exerciseinfo/en1'),
                   ),
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
                 ThisDailyPractice(
-                  exercise: ExerciseCategories.category('c1').exercise('e1'),
+                  exercise: ExerciseCategories.category('c1').exercise('en2'),
                   ontap: () {
-                    context.go('/category/c1/exerciseinfo/e1'); //FIXME
+                    context.go('/category/c1/exerciseinfo/en2'); //FIXME
                   },
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
                 TodoDailyPractice(
-                  exercise: ExerciseCategories.category('c1').exercise('e2'),
+                  exercise: ExerciseCategories.category('c2').exercise('en3'),
                   ontap: () => showCustomDialog(
                     context,
                     'Go to this exericse?',
                     'cancel',
                     'Confirm',
                     () => Navigator.of(context).pop(),
-                    () => context.go('/category/c1/exerciseinfo/e2'),
+                    () => context.go('/category/c2/exerciseinfo/en3'),
                   ),
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),

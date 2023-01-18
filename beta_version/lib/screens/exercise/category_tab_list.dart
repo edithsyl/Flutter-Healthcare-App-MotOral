@@ -9,11 +9,11 @@ import 'package:go_router/go_router.dart';
 class CategoryTabsScreen extends StatefulWidget {
   /// Creates a [CategoryTabsScreen].
   CategoryTabsScreen({
-    required ExerciseCategory selectedCategory,
+    required ExerciseCategory2 selectedCategory,
     required this.parentContext,
     Key? key,
   })  : index = ExerciseCategories.data
-            .indexWhere((ExerciseCategory f) => f.id == selectedCategory.id),
+            .indexWhere((ExerciseCategory2 f) => f.id == selectedCategory.id),
         super(key: key) {
     assert(index != -1);
   }
@@ -34,7 +34,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
   void initState() {
     super.initState();
     _controller = TabController(
-      length: 4, //t_Categories.data.length,
+      length: 5, //t_Categories.data.length,
       vsync: this,
       initialIndex: widget.index,
     );
@@ -78,7 +78,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
                 unselectedLabelStyle:
                     AppTypographyData.greyShades_5().quicksandBodySmall,
                 tabs: <Tab>[
-                  for (final ExerciseCategory c in ExerciseCategories.data)
+                  for (final ExerciseCategory2 c in ExerciseCategories.data)
                     Tab(text: c.name)
                 ],
                 onTap: (int index) => _tap(context, index),
@@ -91,7 +91,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
                 child: TabBarView(
                   controller: _controller,
                   children: <Widget>[
-                    for (final ExerciseCategory c in ExerciseCategories.data)
+                    for (final ExerciseCategory2 c in ExerciseCategories.data)
                       CategoryView(
                         category: c,
                         parentContext: widget.parentContext,
@@ -118,7 +118,7 @@ class CategoryView extends StatefulWidget {
   }) : super(key: key);
 
   /// The category to display.
-  final ExerciseCategory category;
+  final ExerciseCategory2 category;
   final BuildContext parentContext;
 
   @override
@@ -152,9 +152,9 @@ class _CategoryViewState extends State<CategoryView>
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 16.0),
-          child: ExerciseCard(
+          child: ExerciseCard2(
             exercise: widget.category.exercises[index],
-            color: AppColorsData.regular().paletteColorsList[index],
+            color: AppColorsData.regular().paletteColorsList[index % 4],
             ontap: () => widget.parentContext.go(
                 '/category/${widget.category.id}/exerciseinfo/${widget.category.exercises[index].id}'),
           ),

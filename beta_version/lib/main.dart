@@ -8,6 +8,7 @@ import 'package:beta_version/logic/cubits/signup/signup_cubit.dart';
 import 'package:beta_version/models/case_history_model.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
+import 'package:beta_version/models/exercise_model_new.dart';
 import 'package:beta_version/models/news_category_model.dart';
 import 'package:beta_version/screens/auth/login_screen.dart';
 import 'package:beta_version/screens/auth/registration_screen.dart';
@@ -16,6 +17,7 @@ import 'package:beta_version/screens/bookmark_page.dart';
 import 'package:beta_version/screens/bottomnav/t_front_page.dart';
 import 'package:beta_version/screens/camera_page.dart';
 import 'package:beta_version/screens/casehistory/case_history_item_page.dart';
+import 'package:beta_version/screens/exercise/exercise_info_page_short.dart';
 import 'package:beta_version/screens/last_recording.dart';
 import 'package:beta_version/screens/recording_result_page.dart';
 import 'package:beta_version/screens/setting/edit_profile/edit_profile_export.dart';
@@ -329,13 +331,14 @@ class AppView extends StatelessWidget {
         GoRoute(
           path: 'exerciseinfo/:eid',
           pageBuilder: (BuildContext context, GoRouterState state) {
-            final ExerciseCategory category =
+            final ExerciseCategory2 category =
                 ExerciseCategories.category(state.params['cid']!);
-            final Exercise exercise = category.exercise(state.params['eid']!);
+            final Exercise_new exercise =
+                category.exercise(state.params['eid']!);
             // String filePath = '';
             return FadePage(
               key: state.pageKey,
-              child: ThisExerciseScreen(
+              child: ThisShortExerciseScreen(
                 category: category,
                 exercise: exercise,
               ),
@@ -344,6 +347,20 @@ class AppView extends StatelessWidget {
           },
         ),
       ],
+    ),
+    GoRoute(
+      name: 'allexercise',
+      path: '/allexercise',
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return FadePage(
+          key: state.pageKey,
+          child: ThisExerciseScreen(
+            category: ExerciseCategoryTempAll.category('a1'),
+            exercise: ExerciseCategoryTempAll.category('a1').exercises[0],
+          ),
+          time: AppDurationsData.regular().quick,
+        );
+      },
     ),
 
     /// for showing news info page

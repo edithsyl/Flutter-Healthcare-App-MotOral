@@ -1,9 +1,12 @@
 import 'package:beta_version/data/exercise_categories_data.dart';
 import 'package:beta_version/models/exercise_category_model.dart';
 import 'package:beta_version/models/exercise_model.dart';
+import 'package:beta_version/models/exercise_model_new.dart';
 import 'package:beta_version/screens/exercise/category_tab_list.dart';
 import 'package:beta_version/screens/exercise/exercise_info_page.dart';
 import 'package:beta_version/screens/exercise/exercise_app.dart';
+import 'package:beta_version/screens/exercise/exercise_info_page_short.dart';
+import 'package:beta_version/widgets/exercise_widgets/exercise_card.dart';
 
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
@@ -31,12 +34,13 @@ class ExercisePage extends StatelessWidget {
           GoRoute(
             path: 'exerciseinfo/:eid',
             pageBuilder: (BuildContext context, GoRouterState state) {
-              final ExerciseCategory category =
+              final ExerciseCategory2 category =
                   ExerciseCategories.category(state.params['cid']!);
-              final Exercise exercise = category.exercise(state.params['eid']!);
+              final Exercise_new exercise =
+                  category.exercise(state.params['eid']!);
               return FadePage(
                 key: state.pageKey,
-                child: ThisExerciseScreen(
+                child: ThisShortExerciseScreen(
                   category: category,
                   exercise: exercise,
                 ),
@@ -91,6 +95,13 @@ class ExercisePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    ExerciseCard(
+                      exercise:
+                          ExerciseCategoryTempAll.category('a1').exercise('b1'),
+                      color: AppColorsData.regular().paletteColorsList[1],
+                      ontap: () => context.goNamed('allexercise'),
+                    ),
+                    const VerticalGap(num: 40),
                     Text(
                       'Start here',
                       style: AppTypographyData.greyShades_6().quicksandBody,
@@ -98,7 +109,10 @@ class ExercisePage extends StatelessWidget {
                     const VerticalGap(num: 16),
                     ConstrainedBox(
                       constraints: BoxConstraints.loose(
-                        MediaQuery.of(context).size, //Size(432.0, 800.0),
+                        Size(
+                            MediaQuery.of(context).size.height * 0.9,
+                            MediaQuery.of(context).size.height *
+                                0.7), //Size(432.0, 800.0),
                       ),
                       child: WillPopScope(
                         child: ExerciseApp(

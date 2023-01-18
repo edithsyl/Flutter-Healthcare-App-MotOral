@@ -22,9 +22,9 @@ class NewsCategories {
         News(
           id: 'n2',
           date: '22 August, 2022',
-          title:
-              'Want to learn more about swallowing disorders?\n[Extracted from ASHA webpage https://www.asha.org/public/speech/swallowing/swallowing-disorders-in-adults/]',
-          author: 'Natalie C',
+          title: 'Want to learn more about swallowing disorders?',
+          author:
+              'MotOral Team\n[Extracted from ASHA webpage https://www.asha.org/public/speech/swallowing/swallowing-disorders-in-adults/]',
           category: 'Learning',
           content:
               'About Swallowing Disorders\nThink about how you eat. First you have to get the food or drink to your mouth. You may use a fork, spoon, straw, or your hands. Next, you have to open your mouth and put the food in. You close your lips to keep the food in your mouth. Then, you chew the food or move the liquid to get ready to swallow. We all have problems swallowing sometimes. We may have trouble chewing a tough piece of meat. We may gag on food or have to swallow hard to get it down. And we have all had a drink “go down the wrong way,” making us cough and choke. A person with a swallowing disorder will have trouble like this a lot of the time. A swallowing disorder is also called dysphagia (dis-FAY-juh).\nSwallowing happens in three stages, or phases. You can have a problem in one or more of these phases.They include:\n* Oral phase (mouth) – sucking, chewing, and moving food or liquid into the throat.\n* Pharyngeal phase (throat) – starting the swallow and squeezing food down the throat. You need to close off your airway to keep food or liquid out. Food going into the airway can cause coughing and choking.\n* Esophageal phase – opening and closing the esophagus (the tube that goes from the back of your throat to your stomach). The esophagus squeezes food down to the stomach. Food can get stuck in the esophagus. You may also throw up a lot if there is a problem with your esophagus or if you have acid reflux (commonly known as indigestion or heartburn).',

@@ -22,7 +22,7 @@ class ExerciseProtocal {
     ),
     ExerciseInstruction(
       id: 3,
-      name: '張嘴',
+      name: '微笑',
       description: '保持微笑的，嘴型如同唸E(依)字一樣，數五秒',
       image: 'assets/images/test_exercise_thumbnail/3_smile.png',
       vid: 'assets/videos/test_exercise_breakdown/3_smile.mp4',

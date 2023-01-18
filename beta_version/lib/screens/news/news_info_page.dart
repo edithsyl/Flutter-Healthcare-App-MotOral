@@ -68,7 +68,7 @@ class _ThisExerciseScreenState extends State<ThisNewsScreen> {
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             widget.news.title,

@@ -261,7 +261,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   Future uploadFile(XFile? _video) async {
     if (_video == null) return;
     // final fileName = p.basename(_video.path);
-    final exerciseName = 'ex1';
+    final exerciseName = 'ex2';
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
     userID ??= 'userid';

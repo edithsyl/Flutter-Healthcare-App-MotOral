@@ -1,4 +1,5 @@
 import 'package:beta_version/models/exercise_model.dart';
+import 'package:beta_version/models/exercise_model_new.dart';
 import 'package:custom_ui/custom_ui.dart';
 
 class TodoDailyPractice extends StatelessWidget {
@@ -9,7 +10,7 @@ class TodoDailyPractice extends StatelessWidget {
     required this.width,
   }) : super(key: key);
 
-  final Exercise exercise;
+  final Exercise_new exercise;
   final VoidCallback ontap;
   final double width;
 
@@ -97,7 +98,7 @@ class ThisDailyPractice extends StatelessWidget {
     required this.width,
   }) : super(key: key);
 
-  final Exercise exercise;
+  final Exercise_new exercise;
   final VoidCallback ontap;
   final double width;
 
@@ -179,7 +180,7 @@ class CompletedDailyPractice extends StatelessWidget {
     required this.width,
   }) : super(key: key);
 
-  final Exercise exercise;
+  final Exercise_new exercise;
   final VoidCallback ontap;
   final double width;
 
