@@ -11,7 +11,7 @@ class ExerciseCategories {
       exercises: <Exercise>[
         Exercise(
           id: 'e1',
-          name: 'Pitch Glide',
+          name: 'First Exercise Protocol', //'Pitch Glide',
           category: 'Cheek',
           description: 'strengthen the muscles of the cheek',
           image: 'assets/images/thinking.png',

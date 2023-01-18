@@ -86,20 +86,20 @@ class _RecordingResultPageState extends State<RecordingResultPage> {
                       AppTypographyData.primaryOrange().sourceSansProBodyBold,
                 ),
                 const VerticalGap(num: 500),
-                LongAppOutlineButton(
-                    title: 'VIEW RECORDING',
-                    onPressed: () => {
-                          getVideoUrl(),
-                          showNetworkVideoDialog(
-                            // context.goNamed('last_recording');
-                            context,
-                            'Last Recording',
-                            url, // TODO: change to last recording
-                            MediaQuery.of(context).size.width * 0.8,
-                            'Close',
-                            () => Navigator.of(context).pop(),
-                          ),
-                        }),
+                // LongAppOutlineButton(
+                //     title: 'VIEW RECORDING',
+                //     onPressed: () => {
+                //           getVideoUrl(),
+                //           showNetworkVideoDialog(
+                //             // context.goNamed('last_recording');
+                //             context,
+                //             'Last Recording',
+                //             url, // TODO: change to last recording
+                //             MediaQuery.of(context).size.width * 0.8,
+                //             'Close',
+                //             () => Navigator.of(context).pop(),
+                //           ),
+                //         }),
                 const VerticalGap(num: 16),
                 LongAppOutlineButton(
                     title: 'TRY AGAIN',
