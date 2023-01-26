@@ -25,6 +25,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as p;
 
 class CameraPage extends StatefulWidget {
+  final String exName;
+
+  CameraPage({Key? key, required this.exName}) : super(key: key);
+
   @override
   _CameraPageState createState() => _CameraPageState();
 }
@@ -261,7 +265,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   Future uploadFile(XFile? _video) async {
     if (_video == null) return;
     // final fileName = p.basename(_video.path);
-    final exerciseName = 'ex2';
+    final exerciseName = widget.exName ?? 'untitled';
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
     userID ??= 'userid';

@@ -432,18 +432,18 @@ class AppView extends StatelessWidget {
     ),
     GoRoute(
       name: 'camera',
-      path: '/camera',
+      path: '/camera/:name',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
-          child: CameraPage(),
+          child: CameraPage(exName: state.params['name']!),
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
       name: 'last_recording',
-      path: '/lastRecording',
+      path: '/lastRecording/:name',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
-          child: LastRecordingPage(),
+          child: LastRecordingPage(), //FIXME
           time: AppDurationsData.regular().quick),
     ),
     GoRoute(
@@ -451,7 +451,7 @@ class AppView extends StatelessWidget {
       path: '/recordingResult',
       pageBuilder: (BuildContext context, GoRouterState state) => FadePage(
           key: state.pageKey,
-          child: const RecordingResultPage(),
+          child: RecordingResultPage(exName: state.params['name']!),
           time: AppDurationsData.regular().quick),
     ),
 

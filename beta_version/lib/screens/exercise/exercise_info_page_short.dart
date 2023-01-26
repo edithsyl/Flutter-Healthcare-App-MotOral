@@ -45,7 +45,8 @@ class _ThisShortExerciseScreenState extends State<ThisShortExerciseScreen> {
   }
 
   void getVideoUrl() async {
-    String exerciseName = 'ex1';
+    String exerciseName = widget.exercise.name;
+    //'ex1';
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
     userID ??= 'userid';
@@ -170,7 +171,7 @@ class _ThisShortExerciseScreenState extends State<ThisShortExerciseScreen> {
                           LongAppSolidButton(
                             title: 'start',
                             onPressed: () {
-                              context.goNamed('camera');
+                              context.go('/camera/${widget.exercise.name}');
                             },
                           ),
                         ],

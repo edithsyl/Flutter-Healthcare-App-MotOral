@@ -193,7 +193,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                           LongAppSolidButton(
                             title: 'start',
                             onPressed: () {
-                              context.goNamed('camera');
+                              context.go('/camera/${widget.exercise.name}');
                             },
                           ),
                         ],
