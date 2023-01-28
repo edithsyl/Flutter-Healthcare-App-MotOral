@@ -75,9 +75,10 @@ class _CaseHistoryPageState extends State<CaseHistoryPage> {
             ),
           ),
           PositionedDirectional(
-            top: 600, //((MediaQuery.of(context).size.height / 5) * 4),
+            bottom: 0, //((MediaQuery.of(context).size.height / 5) * 4),
             //height: 400,
             child: Container(
+              width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -88,11 +89,13 @@ class _CaseHistoryPageState extends State<CaseHistoryPage> {
                   ],
                 ),
               ),
-              child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-                  child:
-                      LongAppOutlineButton(title: 'Report', onPressed: () {})),
+              child: Center(
+                child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 40),
+                    child: LongAppOutlineButton(
+                        title: 'Report', onPressed: () {})),
+              ),
             ),
           ),
         ],

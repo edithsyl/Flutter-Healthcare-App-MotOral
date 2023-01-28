@@ -8,10 +8,13 @@ import 'package:beta_version/widgets/daily_practice_widgets/daily_practice_lines
 
 import 'package:beta_version/widgets/home_announcements/do_case_history_card.dart';
 import 'package:beta_version/widgets/snack_bars.dart';
+import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:custom_ui/custom_ui.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../widgets/daily_practice_widgets/daily_practice_track.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,32 +28,23 @@ class HomePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 56, 24, 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Welcome, $userName',
-                    style: AppTypographyData.primaryWhite().quicksandTitle2,
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      CustomIcons.inbox_1,
-                    ),
-                    color: AppColorsData.regular().primaryWhite,
-                    onPressed: () => context.goNamed('notification'),
-                  )
-                ],
-              ),
-            ),
+                padding: const EdgeInsets.fromLTRB(24, 56, 24, 32),
+                child: AppBarContentHome(
+                  name: 'Joe',
+                )
+
+                // Text(
+                //   'Welcome, $userName',
+                //   style: AppTypographyData.primaryWhite().quicksandTitle2,
+                // ),
+                ),
             // const VerticalGap(num: 25),
             Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height,
+              //height: MediaQuery.of(context).size.height - 90,
               padding: const EdgeInsets.fromLTRB(32, 40, 32, 32),
               decoration: BoxDecoration(
                 color: AppColorsData.regular().primaryWhite,
@@ -63,7 +57,7 @@ class HomePage extends StatelessWidget {
                   DoCaseHistory(
                     ontap: () {},
                   ),
-                  const VerticalGap(num: 24),
+                  const VerticalGap(num: 48),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,10 +65,22 @@ class HomePage extends StatelessWidget {
                       Icon(CustomIcons.streakfire,
                           color: AppColorsData.regular().primaryOrange),
                       const HorizontalGap(num: 48),
-                      Text(
-                        'Your Daily Practice',
-                        style:
-                            AppTypographyData.primaryOrange().quicksandTitle2,
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Your Daily Practice',
+                            style: AppTypographyData.primaryOrange()
+                                .quicksandTitle2,
+                          ),
+                          const VerticalGap(num: 16),
+                          Text(
+                            'Here are the 3 doses of exercises we recommend for you today!',
+                            style: AppTypographyData.primaryUnavaliableGrey()
+                                .sourceSansProBody,
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -107,22 +113,7 @@ Widget YourDailyPractice(BuildContext context) {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            const InvisibleLine(),
-            const CompletedDot(),
-            const GreyLine(),
-            ////
-            const GreyLine(),
-            const ThisDot(),
-            const OrangeLine(),
-            ////
-            const OrangeLine(),
-            const TodoDot(),
-            const OrangeLine(),
-          ],
-        ),
+        DailyPractice2ndEx(),
         const HorizontalGap(num: 16.0),
         Flexible(
           child: Container(
@@ -131,33 +122,33 @@ Widget YourDailyPractice(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CompletedDailyPractice(
-                  exercise: ExerciseCategories.category('c3').exercise('en1'),
+                  exercise: ExerciseCategories.category('c3').exercise('en2'),
                   ontap: () => showCustomDialog(
                     context,
                     'Go to this exericse?',
                     'cancel',
                     'Confirm',
                     () => Navigator.of(context).pop(),
-                    () => context.go('/category/c1/exerciseinfo/en1'),
+                    () => context.go('/category/c3/exerciseinfo/en2'),
                   ),
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
                 ThisDailyPractice(
-                  exercise: ExerciseCategories.category('c1').exercise('en2'),
+                  exercise: ExerciseCategories.category('c1').exercise('en0'),
                   ontap: () {
-                    context.go('/category/c1/exerciseinfo/en2'); //FIXME
+                    context.go('/category/c1/exerciseinfo/en0');
                   },
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),
                 TodoDailyPractice(
-                  exercise: ExerciseCategories.category('c2').exercise('en3'),
+                  exercise: ExerciseCategories.category('c2').exercise('en1'),
                   ontap: () => showCustomDialog(
                     context,
                     'Go to this exericse?',
                     'cancel',
                     'Confirm',
                     () => Navigator.of(context).pop(),
-                    () => context.go('/category/c2/exerciseinfo/en3'),
+                    () => context.go('/category/c2/exerciseinfo/en1'),
                   ),
                   width: MediaQuery.of(context).size.width * 0.8,
                 ),

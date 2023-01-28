@@ -89,42 +89,40 @@ class ExercisePage extends StatelessWidget {
                     .asBorderRadius()
                     .verticalRegular,
               ),
-              child: SingleChildScrollView(
-                physics: const NeverScrollableScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ExerciseCard(
-                      exercise:
-                          ExerciseCategoryTempAll.category('a1').exercise('b1'),
-                      color: AppColorsData.regular().paletteColorsList[1],
-                      ontap: () => context.goNamed('allexercise'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ExerciseCard(
+                    exercise:
+                        ExerciseCategoryTempAll.category('a1').exercise('b1'),
+                    color: AppColorsData.regular().paletteColorsList[1],
+                    ontap: () => context.goNamed('allexercise'),
+                  ),
+                  const VerticalGap(num: 56),
+                  Text(
+                    'Exercise Catalogue',
+                    style: AppTypographyData.greyShades_6().quicksandTitle2,
+                  ),
+                  const VerticalGap(num: 16),
+                  ConstrainedBox(
+                    constraints: BoxConstraints.loose(
+                      Size(
+                          MediaQuery.of(context).size.height * 0.9,
+                          MediaQuery.of(context)
+                              .size
+                              .height), //Size(432.0, 800.0),
                     ),
-                    const VerticalGap(num: 40),
-                    Text(
-                      'Start here',
-                      style: AppTypographyData.greyShades_6().quicksandBody,
-                    ),
-                    const VerticalGap(num: 16),
-                    ConstrainedBox(
-                      constraints: BoxConstraints.loose(
-                        Size(
-                            MediaQuery.of(context).size.height * 0.9,
-                            MediaQuery.of(context).size.height *
-                                0.7), //Size(432.0, 800.0),
+                    child: WillPopScope(
+                      child: ExerciseApp(
+                        parentContext: context,
                       ),
-                      child: WillPopScope(
-                        child: ExerciseApp(
-                          parentContext: context,
-                        ),
-                        onWillPop: () async {
-                          return false;
-                        },
-                      ),
+                      onWillPop: () async {
+                        return false;
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

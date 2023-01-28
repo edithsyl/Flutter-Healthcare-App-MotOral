@@ -56,7 +56,14 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: AppColorsData.regular().primaryWhite,
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              'Find the right exercise to practice now',
+              style: AppTypographyData.greyShades_4().sourceSansProBody,
+            ),
+            const VerticalGap(num: 20),
             SizedBox(
               width: double.maxFinite,
               height: 40,
@@ -76,7 +83,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
                 labelStyle: AppTypographyData.primaryWhite().quicksandBodySmall,
                 unselectedLabelColor: AppColorsData.regular().greyShades_6,
                 unselectedLabelStyle:
-                    AppTypographyData.greyShades_5().quicksandBodySmall,
+                    AppTypographyData.greyShades_4().quicksandBodySmall,
                 tabs: <Tab>[
                   for (final ExerciseCategory2 c in ExerciseCategories.data)
                     Tab(text: c.name)
@@ -87,7 +94,7 @@ class _CategoryTabsScreenState extends State<CategoryTabsScreen>
             Flexible(
               child: SizedBox(
                 width: double.maxFinite,
-                height: 700,
+                //height: 2000,
                 child: TabBarView(
                   controller: _controller,
                   children: <Widget>[
@@ -154,7 +161,8 @@ class _CategoryViewState extends State<CategoryView>
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 16.0),
           child: ExerciseCard2(
             exercise: widget.category.exercises[index],
-            color: AppColorsData.regular().paletteColorsList[index % 4],
+            color: AppColorsData.regular().paletteColorsList[
+                widget.category.exercises[index].category.index],
             ontap: () => widget.parentContext.go(
                 '/category/${widget.category.id}/exerciseinfo/${widget.category.exercises[index].id}'),
           ),

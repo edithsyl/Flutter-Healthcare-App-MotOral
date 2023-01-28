@@ -1,6 +1,9 @@
 import 'package:beta_version/models/exercise_model.dart';
 import 'package:beta_version/models/exercise_model_new.dart';
 import 'package:custom_ui/custom_ui.dart';
+import 'package:flutter/material.dart';
+
+import '../../assets/custom_icons.dart';
 
 class ExerciseCard extends StatelessWidget {
   const ExerciseCard({
@@ -22,7 +25,7 @@ class ExerciseCard extends StatelessWidget {
         onTap: ontap,
         child: Container(
           width: double.infinity,
-          height: 120,
+          height: MediaQuery.of(context).size.height * 0.24,
           decoration: BoxDecoration(
             color: color, // AppColorsData.regular().orangeTints_4,
             image: DecorationImage(
@@ -48,17 +51,17 @@ class ExerciseCard extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(exercise.name, // "Cheek Strentheing",
-                    style:
-                        AppTypographyData.primaryWhite().sourceSansProBodyBold),
+                    style: AppTypographyData.primaryWhite().quicksandTitle2),
+                const VerticalGap(num: 16),
                 Row(
                   children: <Widget>[
                     Text(exercise.duration, // "4",
                         style: AppTypographyData.greyShades_6()
                             .sourceSansProBodySmall),
-                    Text(" mins * ",
+                    Text(" mins  •  ",
                         style: AppTypographyData.greyShades_6()
                             .sourceSansProBodySmall),
                     Text(exercise.category, // "Cheek",
@@ -66,6 +69,7 @@ class ExerciseCard extends StatelessWidget {
                             .sourceSansProBodySmall),
                   ],
                 ),
+                const VerticalGap(num: 8),
                 Text(
                     exercise
                         .description, // "strengthe the muscles of the cheek",
@@ -100,21 +104,27 @@ class ExerciseCard2 extends StatelessWidget {
         onTap: ontap,
         child: Container(
           width: double.infinity,
-          height: 120,
+          height: MediaQuery.of(context).size.height * 0.1,
           decoration: BoxDecoration(
-            color: color, // AppColorsData.regular().orangeTints_4,
+            color: AppColorsData.regular().primaryWhite,
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [AppColorsData.regular().primaryWhite, color]),
+            border: Border.all(
+              color: color,
+              width: 2,
+            ),
+            borderRadius:
+                const AppRadiusData.regular().asBorderRadius().allRegular,
             image: DecorationImage(
-              image: AssetImage(exercise.image), // 'assets/images/thinking.png'
+              image: AssetImage(exercise.image),
               colorFilter: ColorFilter.mode(
-                color, // AppColorsData.regular().orangeTints_4,
-                BlendMode.hardLight,
-              ),
+                  Colors.white.withOpacity(0.25), BlendMode.dstATop),
               fit: BoxFit.fitHeight,
               alignment: Alignment.bottomRight,
               repeat: ImageRepeat.noRepeat,
             ),
-            borderRadius:
-                const AppRadiusData.regular().asBorderRadius().allRegular,
           ),
           alignment: Alignment.centerLeft,
           padding:
@@ -124,31 +134,38 @@ class ExerciseCard2 extends StatelessWidget {
               vertical: 24.0,
               horizontal: 16.0,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text(exercise.name, // "Cheek Strentheing",
-                    style:
-                        AppTypographyData.primaryWhite().sourceSansProBodyBold),
-                Row(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text(exercise.duration, // "4",
+                    Text(exercise.name, // "Cheek Strentheing",
                         style: AppTypographyData.greyShades_6()
-                            .sourceSansProBodySmall),
-                    Text(" mins * ",
-                        style: AppTypographyData.greyShades_6()
-                            .sourceSansProBodySmall),
-                    Text(exercise.category, // "Cheek",
-                        style: AppTypographyData.greyShades_6()
-                            .sourceSansProBodySmall),
+                            .sourceSansProBodyBold),
+                    Row(
+                      children: <Widget>[
+                        Text(exercise.duration, // "4",
+                            style: AppTypographyData.greyShades_6()
+                                .sourceSansProBodySmall),
+                        Text(" mins  •  ",
+                            style: AppTypographyData.greyShades_6()
+                                .sourceSansProBodySmall),
+                        Text(exercise.category.name, // "Cheek",
+                            style: AppTypographyData.greyShades_6()
+                                .sourceSansProBodySmall),
+                      ],
+                    ),
                   ],
                 ),
-                Text(
-                    exercise
-                        .description, // "strengthe the muscles of the cheek",
-                    style: AppTypographyData.greyShades_6()
-                        .sourceSansProBodySmall),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(CustomIcons.arrowRight),
+                  iconSize: 40,
+                  color: AppColorsData.regular().primaryWhite,
+                ),
               ],
             ),
           ),

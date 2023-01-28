@@ -97,7 +97,7 @@ class _BottomNavScreenState extends State<BottomNavScreen>
                 onTap: (int currentIndex) => _tap(context, currentIndex),
                 currentIndex: widget.index,
                 selectedItemColor: AppColorsData.regular().primaryHighlightRed,
-                unselectedItemColor: AppColorsData.regular().greyTints_3,
+                unselectedItemColor: AppColorsData.regular().greyShades_2,
                 selectedLabelStyle:
                     AppTypographyData.greyShades_3().sourceSansProBody1,
                 unselectedLabelStyle:

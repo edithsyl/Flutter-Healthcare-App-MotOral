@@ -1,29 +1,15 @@
 import 'package:beta_version/models/exercise_instruction_model.dart';
 import 'package:beta_version/models/exercise_model_new.dart';
 
+import '../models/exercise_categories_enum.dart';
+
 final List<Exercise_new> Exercises = <Exercise_new>[
   Exercise_new(
-    id: 'en1',
-    name: 'Smile',
-    category: 'Lip',
-    description: '保持微笑的，嘴型如同唸E(依)字一樣，數五秒。',
-    image: 'assets/images/thinking.png',
-    duration: '4',
-    isDailyExercise: true,
-    exerciseInstruction: ExerciseInstruction(
-      id: 3,
-      name: '微笑',
-      description: '保持微笑的，嘴型如同唸E(依)字一樣，數五秒。',
-      image: 'assets/images/test_exercise_thumbnail/3_smile.png',
-      vid: 'assets/videos/test_exercise_breakdown/3_smile.mp4',
-    ),
-  ),
-  Exercise_new(
-    id: 'en2',
+    id: 'en0',
     name: 'Cheek Strengthening',
-    category: 'Cheek',
+    category: ExerciseCategories.cheek,
     description: '用舌頭頂著左面頰，數五秒，再把舌頭頂著右面頰。',
-    image: 'assets/images/thinking.png',
+    image: 'assets/images/test_exercise_thumbnail/6_tongue_and_cheek.png',
     duration: '1',
     isDailyExercise: true,
     exerciseInstruction: ExerciseInstruction(
@@ -35,11 +21,11 @@ final List<Exercise_new> Exercises = <Exercise_new>[
     ),
   ),
   Exercise_new(
-    id: 'en3',
+    id: 'en1',
     name: 'Jaw Range of Movement',
-    category: 'Jaw',
+    category: ExerciseCategories.jaw,
     description: '下巴盡量往下，動作像大叫「呀」一樣，數五秒。',
-    image: 'assets/images/thinking.png',
+    image: 'assets/images/test_exercise_thumbnail/5_mouth_opening.png',
     duration: '1',
     isDailyExercise: false,
     exerciseInstruction: ExerciseInstruction(
@@ -51,11 +37,27 @@ final List<Exercise_new> Exercises = <Exercise_new>[
     ),
   ),
   Exercise_new(
-    id: 'en4',
+    id: 'en2',
+    name: 'Smile',
+    category: ExerciseCategories.lip,
+    description: '保持微笑的，嘴型如同唸E(依)字一樣，數五秒。',
+    image: 'assets/images/test_exercise_thumbnail/3_smile.png',
+    duration: '4',
+    isDailyExercise: true,
+    exerciseInstruction: ExerciseInstruction(
+      id: 3,
+      name: '微笑',
+      description: '保持微笑的，嘴型如同唸E(依)字一樣，數五秒。',
+      image: 'assets/images/test_exercise_thumbnail/3_smile.png',
+      vid: 'assets/videos/test_exercise_breakdown/3_smile.mp4',
+    ),
+  ),
+  Exercise_new(
+    id: 'en3',
     name: 'Lips Rounding',
-    category: 'Lip',
+    category: ExerciseCategories.lip,
     description: '數5秒。',
-    image: 'assets/images/thinking.png',
+    image: 'assets/images/test_exercise_thumbnail/2_lip_protuding.png',
     duration: '1',
     isDailyExercise: false,
     exerciseInstruction: ExerciseInstruction(
@@ -67,11 +69,11 @@ final List<Exercise_new> Exercises = <Exercise_new>[
     ),
   ),
   Exercise_new(
-    id: 'en5',
+    id: 'en4',
     name: 'Tongue Elevation',
-    category: 'Tongue',
+    category: ExerciseCategories.tongue,
     description: '想像把舌頭伸至碰到鼻尖，數五秒。',
-    image: 'assets/images/thinking.png',
+    image: 'assets/images/test_exercise_thumbnail/4_tongue_tip_to_nose.png',
     duration: '1',
     isDailyExercise: false,
     exerciseInstruction: ExerciseInstruction(
@@ -83,11 +85,11 @@ final List<Exercise_new> Exercises = <Exercise_new>[
     ),
   ),
   Exercise_new(
-    id: 'en6',
+    id: 'en5',
     name: 'Tongue Lateral Movement',
-    category: 'Tongue',
+    category: ExerciseCategories.tongue,
     description: 'strengthen your tongue muscles',
-    image: 'assets/images/thinking.png',
+    image: 'assets/images/test_exercise_thumbnail/1_tongue.png',
     duration: '1',
     isDailyExercise: false,
     exerciseInstruction: ExerciseInstruction(
