@@ -10,7 +10,8 @@ import 'package:path_provider/path_provider.dart';
 /// make [login] & [signup] button using long button from [custom_ui] package
 /// use context.go() from gorouter to navigate to login screen and registration screen
 class RecordingResultPage extends StatefulWidget {
-  const RecordingResultPage({Key? key}) : super(key: key);
+  final String exName;
+  const RecordingResultPage({Key? key, required this.exName}) : super(key: key);
 
   @override
   State<RecordingResultPage> createState() => _RecordingResultPageState();
@@ -25,7 +26,7 @@ class _RecordingResultPageState extends State<RecordingResultPage> {
   }
 
   void getVideoUrl() async {
-    String exerciseName = 'ex1';
+    String exerciseName = widget.exName ?? 'untitled';
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
     userID ??= 'userid';
@@ -86,20 +87,20 @@ class _RecordingResultPageState extends State<RecordingResultPage> {
                       AppTypographyData.primaryOrange().sourceSansProBodyBold,
                 ),
                 const VerticalGap(num: 500),
-                LongAppOutlineButton(
-                    title: 'VIEW RECORDING',
-                    onPressed: () => {
-                          getVideoUrl(),
-                          showNetworkVideoDialog(
-                            // context.goNamed('last_recording');
-                            context,
-                            'Last Recording',
-                            url, // TODO: change to last recording
-                            MediaQuery.of(context).size.width * 0.8,
-                            'Close',
-                            () => Navigator.of(context).pop(),
-                          ),
-                        }),
+                // LongAppOutlineButton(
+                //     title: 'VIEW RECORDING',
+                //     onPressed: () => {
+                //           getVideoUrl(),
+                //           showNetworkVideoDialog(
+                //             // context.goNamed('last_recording');
+                //             context,
+                //             'Last Recording',
+                //             url, // TODO: change to last recording
+                //             MediaQuery.of(context).size.width * 0.8,
+                //             'Close',
+                //             () => Navigator.of(context).pop(),
+                //           ),
+                //         }),
                 const VerticalGap(num: 16),
                 LongAppOutlineButton(
                     title: 'TRY AGAIN',

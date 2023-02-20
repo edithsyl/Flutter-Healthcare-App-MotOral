@@ -1,13 +1,18 @@
 import 'package:custom_ui/custom_ui.dart';
 
 class TodoDot extends StatelessWidget {
-  const TodoDot({Key? key}) : super(key: key);
+  const TodoDot({
+    Key? key,
+    required this.number,
+  }) : super(key: key);
+
+  final int number;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 14,
-      height: 14,
+      width: 28,
+      height: 28,
       decoration: BoxDecoration(
         color: AppColorsData.regular().primaryWhite,
         border: Border.all(
@@ -16,18 +21,29 @@ class TodoDot extends StatelessWidget {
         ),
         shape: BoxShape.circle,
       ),
+      child: Center(
+        child: Text(
+          '$number',
+          style: AppTypographyData.primaryOrange().sourceSansProBodySmall,
+        ),
+      ),
     );
   }
 }
 
 class ThisDot extends StatelessWidget {
-  const ThisDot({Key? key}) : super(key: key);
+  const ThisDot({
+    Key? key,
+    required this.number,
+  }) : super(key: key);
+
+  final int number;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 16,
-      height: 16,
+      width: 32,
+      height: 32,
       decoration: BoxDecoration(
         color: AppColorsData.regular().primaryOrange,
         border: Border.all(
@@ -36,25 +52,41 @@ class ThisDot extends StatelessWidget {
         ),
         shape: BoxShape.circle,
       ),
+      child: Center(
+        child: Text(
+          '$number',
+          style: AppTypographyData.primaryWhite().sourceSansProBodySmall,
+        ),
+      ),
     );
   }
 }
 
 class CompletedDot extends StatelessWidget {
-  const CompletedDot({Key? key}) : super(key: key);
+  const CompletedDot({
+    Key? key,
+    required this.number,
+  }) : super(key: key);
 
+  final int number;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 12,
-      height: 12,
+      width: 28,
+      height: 28,
       decoration: BoxDecoration(
         color: AppColorsData.regular().primaryWhite,
         border: Border.all(
-          color: AppColorsData.regular().greyTints_3,
+          color: AppColorsData.regular().greyTints_2,
           width: 2,
         ),
         shape: BoxShape.circle,
+      ),
+      child: Center(
+        child: Text(
+          '$number',
+          style: AppTypographyData.greyShades_2().sourceSansProBodySmall,
+        ),
       ),
     );
   }
