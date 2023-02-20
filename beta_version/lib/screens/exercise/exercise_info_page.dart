@@ -18,8 +18,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ThisExerciseScreen extends StatefulWidget {
-  const ThisExerciseScreen(
-      {required this.category, required this.exercise, Key? key})
+  ThisExerciseScreen({required this.category, required this.exercise, Key? key})
       : super(key: key);
 
   @override
@@ -36,9 +35,11 @@ class ThisExerciseScreen extends StatefulWidget {
 
 class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
   late String url;
+  late bool lastRecordingExist;
   @override
   void initState() {
     // Fluttertoast.showToast(msg: 'last recording path: $destination');
+    lastRecordingExist = false;
     getVideoUrl();
     super.initState();
   }
@@ -55,6 +56,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
 
     try {
       videoUrl = await storageRef.child(destination).getDownloadURL();
+      lastRecordingExist = true;
     } catch (e) {
       videoUrl = '';
       print('error occured');
@@ -161,8 +163,9 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                         itemCount: ExerciseProtocal.getlength(),
                         itemBuilder: (context, index) {
                           return ExerciseInstructionRow(
-                            image:
-                                const AssetImage('assets/images/thinking.png'),
+                            image: AssetImage(
+                                ExerciseProtocal.id(index + 1).image),
+                            video: ExerciseProtocal.id(index + 1).vid,
                             index: index + 1,
                             title: ExerciseProtocal.id(index + 1).name,
                             description:
@@ -170,7 +173,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                           );
                         },
                       ),
-                      Column(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -181,17 +184,16 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                               context,
                               'Last Recording',
                               url,
-                              // 'assets/videos/test_exercise.mp4', // TODO: change to last recording
                               MediaQuery.of(context).size.width * 0.8,
                               'Close',
                               () => Navigator.of(context).pop(),
                             ),
                           ),
-                          const VerticalGap(num: 16),
+                          const HorizontalGap(num: 16),
                           LongAppSolidButton(
                             title: 'start',
                             onPressed: () {
-                              context.goNamed('camera');
+                              context.go('/camera/${widget.exercise.name}');
                             },
                           ),
                         ],
@@ -203,5 +205,15 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
             ),
           ],
         ),
+      );
+
+  showVideo() => showNetworkVideoDialog(
+        // context.goNamed('last_recording');
+        context,
+        'Last Recording',
+        url,
+        MediaQuery.of(context).size.width * 0.8,
+        'Close',
+        () => Navigator.of(context).pop(),
       );
 }

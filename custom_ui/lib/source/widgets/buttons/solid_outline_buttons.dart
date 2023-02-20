@@ -73,7 +73,7 @@ class AppOutlineButton extends StatelessWidget {
   final TextStyle tStyle;
   final BorderRadius rad;
   final Size size;
-  final VoidCallback onPressed;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -107,14 +107,14 @@ class LongAppOutlineButton extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final VoidCallback onPressed;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return AppOutlineButton(
       title: title,
       tStyle: AppTypographyData.primaryOrange().quicksandBody,
-      rad: AppRadiusData.regular().asBorderRadius().allRegular,
+      rad: const AppRadiusData.regular().asBorderRadius().allRegular,
       size: longButtonSize,
       onPressed: onPressed,
     );

@@ -57,14 +57,19 @@ class NewsCard extends StatelessWidget {
                         style: AppTypographyData.primaryWhite()
                             .quicksandBodySmall),
                     const VerticalGap(num: 8),
-                    Text(news.title, // "Cheek Strentheing",
-                        style:
-                            AppTypographyData.primaryWhite().quicksandTitle2),
+                    Text(
+                      news.title, // "Cheek Strentheing",
+                      style: AppTypographyData.primaryWhite().quicksandTitle2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ],
                 ),
-                Text('by ${news.author}', // "4",
-                    style: AppTypographyData.primaryWhite()
-                        .sourceSansProBodySmall),
+                Text(
+                  'by ${news.author}', // "4",
+                  style:
+                      AppTypographyData.primaryWhite().sourceSansProBodySmall,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ],
             ),
           ),

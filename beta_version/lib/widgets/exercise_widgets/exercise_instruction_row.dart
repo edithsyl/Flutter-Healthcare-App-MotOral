@@ -1,15 +1,18 @@
+import 'package:beta_version/widgets/alert_dialogue.dart';
 import 'package:custom_ui/custom_ui.dart';
 
 class ExerciseInstructionRow extends StatelessWidget {
   const ExerciseInstructionRow({
     Key? key,
     required this.image,
+    required this.video,
     required this.index,
     required this.title,
     required this.description,
   }) : super(key: key);
 
   final ImageProvider<Object> image;
+  final String video;
   final int index;
   final String title;
   final String description;
@@ -20,11 +23,28 @@ class ExerciseInstructionRow extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 24.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image(
-            width: 88,
-            image: image,
+          GestureDetector(
+            onTap: () => {
+              showVideoDialog(
+                // context.goNamed('last_recording');
+                context,
+                title,
+                video,
+                MediaQuery.of(context).size.width * 0.8,
+                'Close',
+                () => Navigator.of(context).pop(),
+              ),
+            },
+            child: ClipRRect(
+              borderRadius:
+                  const AppRadiusData.regular().asBorderRadius().allSmall,
+              child: Image(
+                width: MediaQuery.of(context).size.width * 0.25,
+                image: image,
+              ),
+            ),
           ),
           const HorizontalGap(num: 24),
           Expanded(

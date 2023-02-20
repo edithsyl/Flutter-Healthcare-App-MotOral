@@ -215,3 +215,29 @@ class AppBarContentExercise extends StatelessWidget {
     );
   }
 }
+
+class AppBarContentHome extends StatelessWidget {
+  const AppBarContentHome({
+    Key? key,
+    required this.name,
+  }) : super(key: key);
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        MyTooltip(
+          message: 'exercise to earn more experience(xp)',
+          child: Text(
+            'Welcome, $name',
+            style: AppTypographyData.primaryWhite().quicksandTitle2,
+          ),
+        ),
+      ],
+    );
+  }
+}

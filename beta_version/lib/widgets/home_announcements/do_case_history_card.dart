@@ -19,7 +19,7 @@ class DoCaseHistory extends StatelessWidget {
         onTap: ontap,
         child: Container(
           width: double.infinity,
-          height: 136,
+          height: MediaQuery.of(context).size.height * 0.12,
           decoration: BoxDecoration(
             color: AppColorsData.regular().primaryWhite,
             border: Border.all(
