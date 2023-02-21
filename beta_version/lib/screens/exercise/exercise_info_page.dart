@@ -45,10 +45,10 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
   }
 
   void getVideoUrl() async {
-    String exerciseName = 'ex1';
+    String exerciseName = widget.exercise.name;
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
-    userID ??= 'userid';
+    // userID ??= 'userid';
     final destination = 'public/$userID/$exerciseName';
 
     final storageRef = FirebaseStorage.instance.ref();
@@ -56,6 +56,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
 
     try {
       videoUrl = await storageRef.child(destination).getDownloadURL();
+      // print(videoUrl)
       lastRecordingExist = true;
     } catch (e) {
       videoUrl = '';

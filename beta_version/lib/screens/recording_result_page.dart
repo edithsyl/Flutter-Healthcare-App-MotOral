@@ -29,7 +29,7 @@ class _RecordingResultPageState extends State<RecordingResultPage> {
     String exerciseName = widget.exName ?? 'untitled';
     var currentUser = FirebaseAuth.instance.currentUser;
     var userID = currentUser?.uid;
-    userID ??= 'userid';
+    // userID ??= 'userid';
     final destination = 'public/$userID/$exerciseName';
 
     final storageRef = FirebaseStorage.instance.ref();
