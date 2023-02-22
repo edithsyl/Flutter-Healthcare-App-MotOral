@@ -7,6 +7,7 @@ import 'package:beta_version/models/exercise_model_new.dart';
 import 'package:beta_version/widgets/alert_dialogue.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:beta_version/widgets/videoplayer/asset_player_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -36,12 +37,37 @@ class ThisShortExerciseScreen extends StatefulWidget {
 class _ThisShortExerciseScreenState extends State<ThisShortExerciseScreen> {
   late String url;
   late bool lastRecordingExist;
+  late int count = 0;
   @override
   void initState() {
     // Fluttertoast.showToast(msg: 'last recording path: $destination');
     lastRecordingExist = false;
     getVideoUrl();
+    getCount();
     super.initState();
+  }
+
+  void getCount() async {
+    String exerciseName = widget.exercise.name;
+    var currentUser = FirebaseAuth.instance.currentUser;
+    var userID = currentUser?.uid;
+    var exName = exerciseName.split(' ')[0];
+    //  TODO: change to real exercise id
+    var eid = 0;
+
+    var db = FirebaseFirestore.instance;
+    final docRef = db.collection("users").doc(userID);
+
+    await docRef.get().then(
+      (DocumentSnapshot doc) {
+        final data = doc.data() as Map<String, dynamic>;
+        setState(() {
+          count = data['Count'][exName][eid];
+        });
+        // count = data['Count'][exName][eid];
+      },
+      onError: (e) => print("Error getting document: $e"),
+    );
   }
 
   void getVideoUrl() async {
@@ -131,7 +157,7 @@ class _ThisShortExerciseScreenState extends State<ThisShortExerciseScreen> {
                               ),
                               const HorizontalGap(num: 2),
                               Text(
-                                '0',
+                                '$count',
                                 style: AppTypographyData.primaryOrange()
                                     .quicksandTitle2,
                               ),

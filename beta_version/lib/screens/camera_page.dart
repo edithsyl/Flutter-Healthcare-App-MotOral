@@ -278,17 +278,28 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
       var db = FirebaseFirestore.instance;
       final docRef = db.collection("users").doc(userID);
 
-      // await FirebaseFirestore.instance.disableNetwork();
-      // await FirebaseFirestore.instance.enableNetwork();
       var exp = 0;
       var count = 0;
-      var exName = '${exerciseName.split(' ')[0]}Count';
+      var exName = exerciseName.split(' ')[0];
+      var db_count = new Map();
+      //  TODO: change to real exercise id
+      var eid = 0;
 
       await docRef.get().then(
         (DocumentSnapshot doc) {
           final data = doc.data() as Map<String, dynamic>;
-          exp = data['exp'] + 10;
-          count = data[exName] + 1;
+
+          db_count = data['Count'];
+
+          if (exName == 'All') {
+            exp = data['exp'] + 80;
+            count = data['Count'][exName] + 1;
+            db_count[exName] = count;
+          } else {
+            exp = data['exp'] + 10;
+            count = data['Count'][exName][eid] + 1;
+            db_count[exName][eid] = count;
+          }
 
           print(data);
         },
@@ -299,12 +310,13 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
       print('Experience: $exp ; Exercise Count: $count');
       print(' ');
 
-      var updates = {'exp': exp, exName: count};
+      var updates = {'exp': exp, 'Count': db_count};
+
       docRef.update(updates).then(
           (value) => print("DocumentSnapshot successfully updated!"),
           onError: (e) => print("Error updating document $e"));
     } catch (e) {
-      print('cannot update exercise count');
+      print('cannot update exercise count: $e');
     }
 
     // upload the video to firebase storage

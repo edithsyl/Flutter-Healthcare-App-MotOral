@@ -9,6 +9,7 @@ import 'package:beta_version/widgets/alert_dialogue.dart';
 import 'package:beta_version/widgets/exercise_widgets/exercise_instruction_row.dart';
 import 'package:beta_version/widgets/top_app_bar.dart';
 import 'package:beta_version/widgets/videoplayer/asset_player_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:custom_ui/custom_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -36,12 +37,43 @@ class ThisExerciseScreen extends StatefulWidget {
 class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
   late String url;
   late bool lastRecordingExist;
+  late int count = 0;
   @override
   void initState() {
     // Fluttertoast.showToast(msg: 'last recording path: $destination');
     lastRecordingExist = false;
     getVideoUrl();
+    // count = getCount();
+    getCount();
     super.initState();
+  }
+
+  void getCount() async {
+    String exerciseName = widget.exercise.name;
+    var currentUser = FirebaseAuth.instance.currentUser;
+    var userID = currentUser?.uid;
+    var exName = exerciseName.split(' ')[0];
+
+    // var currentCount = 0;
+
+    var db = FirebaseFirestore.instance;
+    final docRef = db.collection("users").doc(userID);
+
+    await docRef.get().then(
+      (DocumentSnapshot doc) {
+        final data = doc.data() as Map<String, dynamic>;
+        setState(() {
+          count = data['Count'][exName];
+        });
+        // currentCount = data['Count'][exName];
+        // count = data['Count'][exName];
+      },
+      onError: (e) => print("Error getting document: $e"),
+    );
+    // setState(() {
+    //   count = currentCount;
+    // });
+    // return currentCount;
   }
 
   void getVideoUrl() async {
@@ -131,7 +163,7 @@ class _ThisExerciseScreenState extends State<ThisExerciseScreen> {
                               ),
                               const HorizontalGap(num: 2),
                               Text(
-                                '0',
+                                '$count',
                                 style: AppTypographyData.primaryOrange()
                                     .quicksandTitle2,
                               ),
