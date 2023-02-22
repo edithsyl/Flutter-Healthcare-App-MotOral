@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gallery_saver/gallery_saver.dart';
@@ -271,7 +272,44 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
     userID ??= 'userid';
     final destination = 'public/$userID/$exerciseName';
 
+    // update the user exercise info to firebase database
     try {
+      // read from db
+      var db = FirebaseFirestore.instance;
+      final docRef = db.collection("users").doc(userID);
+
+      // await FirebaseFirestore.instance.disableNetwork();
+      // await FirebaseFirestore.instance.enableNetwork();
+      var exp = 0;
+      var count = 0;
+      var exName = '${exerciseName.split(' ')[0]}Count';
+
+      await docRef.get().then(
+        (DocumentSnapshot doc) {
+          final data = doc.data() as Map<String, dynamic>;
+          exp = data['exp'] + 10;
+          count = data[exName] + 1;
+
+          print(data);
+        },
+        onError: (e) => print("Error getting document: $e"),
+      );
+
+      print(' ');
+      print('Experience: $exp ; Exercise Count: $count');
+      print(' ');
+
+      var updates = {'exp': exp, exName: count};
+      docRef.update(updates).then(
+          (value) => print("DocumentSnapshot successfully updated!"),
+          onError: (e) => print("Error updating document $e"));
+    } catch (e) {
+      print('cannot update exercise count');
+    }
+
+    // upload the video to firebase storage
+    try {
+      print('uploading video');
       final ref = FirebaseStorage.instance.ref(destination);
       await ref.putFile(File(_video.path));
     } catch (e) {
@@ -289,7 +327,7 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
         videoFile = file;
         uploadFile(videoFile);
         // TODO redirect to exercise info page
-        context.goNamed('recording_result');
+        // context.goNamed('recording_result');
         //_startVideoPlayer();
       }
     });
