@@ -1,10 +1,43 @@
-# A little intro
+# MotOral: Flutter App Prototype
 
 This repository is for MotOral, a student team that aims to create a mobile app that encourages elderly at risk of swallowing disorders to exercise regularly, and provide a platform for users and speech therapists to exchange information conveniently.
+
+## Objectives
+1: Create a pleasant and intuitive user interface for users to navigate the app and complete their tasks with ease
+Since our target users are elderly, a clean, easy-to-understand interface is crucial as they are generally non-tech savvy.
+
+2: Engage users to learn more about their conditions and build up a habit of doing speech-therapy exercises regularly
+As a lot of exercises used in speech therapy are not of high difficulty and that patients can practice by themselves, we hope this application could encourage users to do so by providing demonstration videos and instructions for them to follow at home.
+
+ 3: Create a community and an information exchange platform between therapists and patients
+This app aims to assist them in understanding their conditions by providing light readings on speech disorders and therapy. Also, it helps collect information on patients’ health status and recovery progress, enabling therapists and caregivers to deliver timely treatment and care with a reduced workload.
 
 ## User Case Diagram
 <img width="468" alt="image" src="https://user-images.githubusercontent.com/69338737/202073643-8cf21389-6095-40ee-af21-ea597111da87.png">
 The pink square covers the most important features that we hope to achieve first
+
+## UI Design
+### Feature 1: Exercise
+
+https://github.com/edithsyl/Flutter_MotOral/assets/69338737/b886fab6-4d74-4f3c-8ad3-f11c5bd291b5
+
+
+### Feature 2: Speech Thearpist Consultation Booking
+
+https://github.com/edithsyl/Flutter_MotOral/assets/69338737/77a844ae-0a18-4ade-822c-65411ae822cd
+
+
+
+### Feature 3: News Feed
+
+https://github.com/edithsyl/Flutter_MotOral/assets/69338737/332f41b1-52f0-47a3-8617-ba4e1856dc91
+
+
+## Flutter Demo
+
+https://github.com/edithsyl/Flutter_MotOral/assets/69338737/33b4c017-c064-4ca5-86c1-94dfb9b3a279
+
+
 
 # Folders
 There are two main folders:
@@ -75,28 +108,5 @@ Users can document their health status for future reviews.(Incomplete)
 
 ### People
 <img width="109" alt="image" src="https://user-images.githubusercontent.com/69338737/202074926-0b12417b-9aa1-4421-b677-17267cfd6ca6.png">
-
-# Todo 
-## Pages
-
-### 1
-<img width="131" alt="image" src="https://user-images.githubusercontent.com/69338737/202073115-47dd6822-8a32-41d9-84db-ad313c7f8c13.png">
-For users to enter personal information when signing up for the first time.
-
-### 2
-<img width="135" alt="image" src="https://user-images.githubusercontent.com/69338737/202073196-12b52d00-5aa4-417e-b2fe-10dcabab25a1.png">
-Top row Edit profile is missing
-
-### 3
-<img width="134" alt="image" src="https://user-images.githubusercontent.com/69338737/202073262-f03d20eb-5799-4457-b500-68b97c101a8e.png">
-This page shows personal information & avatar stored in Firebase(if any). And user can alter their info by clicking the row they want to change.
-
-### 4
-<img width="195" alt="image" src="https://user-images.githubusercontent.com/69338737/202073343-6d861cbb-d5d8-43d7-9823-5924a4c379f5.png">
-Users can input new info here and update data stored in Firebase
-
-### 5
-<img width="133" alt="image" src="https://user-images.githubusercontent.com/69338737/202073398-470b9c9a-d76d-4b42-86a8-b6e4d653f5f7.png">
-Users have to answer this case history questionnaire once they open an account.
 
 
